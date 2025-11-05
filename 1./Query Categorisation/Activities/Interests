@@ -1,0 +1,37 @@
+[
+  {
+    "Activity": "Atlas-Interactive (VR) City replica",
+    "Main Sphere": "Creative & Immersive Exploration",
+    "Sub-Category": "Digital World-Building"
+  },
+  {
+    "Activity": "Music",
+    "Main Sphere": "Creative & Immersive Exploration",
+    "Sub-Category": "Artistic Expression"
+  },
+  {
+    "Activity": "De Frisdrank Fabriek (System administrator/Data Analyst)",
+    "Main Sphere": "Professional Development",
+    "Sub-Category": "Core Employment & Analysis"
+  },
+  {
+    "Activity": "Building Workflows in n8n to help with actions and documentation regarding all projects",
+    "Main Sphere": "Professional Development",
+    "Sub-Category": "Productivity Optimization"
+  },
+  {
+    "Activity": "Video Games",
+    "Main Sphere": "Leisure & Entertainment",
+    "Sub-Category": "Interactive Play"
+  },
+  {
+    "Activity": "Crypto trading",
+    "Main Sphere": "Financial & Strategic Pursuits",
+    "Sub-Category": "Investment & Risk Management"
+  },
+  {
+    "Activity": "Sports",
+    "Main Sphere": "Health & Physical Vitality",
+    "Sub-Category": "Active Recreation"
+  }
+]
