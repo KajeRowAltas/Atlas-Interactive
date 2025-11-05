@@ -1,0 +1,1129 @@
+[
+  {
+    "Emotion": "Joy",
+    "Main Category": "Positive / Approach Emotions",
+    "Sub-Category": "Joy & Happiness",
+    "Valence": "Positive",
+    "Description": "Feeling of great pleasure and happiness."
+  },
+  {
+    "Emotion": "Acceptance",
+    "Main Category": "Positive / Approach Emotions",
+    "Sub-Category": "Joy & Happiness",
+    "Valence": "Positive",
+    "Description": "The act of assenting to an idea or situation."
+  },
+  {
+    "Emotion": "Accomplishment",
+    "Main Category": "Positive / Approach Emotions",
+    "Sub-Category": "Joy & Happiness",
+    "Valence": "Positive",
+    "Description": "Something that has been achieved successfully."
+  },
+  {
+    "Emotion": "Amazement",
+    "Main Category": "Positive / Approach Emotions",
+    "Sub-Category": "Joy & Happiness",
+    "Valence": "Positive",
+    "Description": "Great surprise or wonder."
+  },
+  {
+    "Emotion": "Amusement",
+    "Main Category": "Positive / Approach Emotions",
+    "Sub-Category": "Joy & Happiness",
+    "Valence": "Positive",
+    "Description": "The state or experience of finding something funny."
+  },
+  {
+    "Emotion": "Awe",
+    "Main Category": "Positive / Approach Emotions",
+    "Sub-Category": "Joy & Happiness",
+    "Valence": "Positive",
+    "Description": "A feeling of reverential respect mixed with fear or wonder."
+  },
+  {
+    "Emotion": "Bliss",
+    "Main Category": "Positive / Approach Emotions",
+    "Sub-Category": "Joy & Happiness",
+    "Valence": "Positive",
+    "Description": "Perfect happiness; great joy."
+  },
+  {
+    "Emotion": "Calmness",
+    "Main Category": "Positive / Approach Emotions",
+    "Sub-Category": "Joy & Happiness",
+    "Valence": "Positive",
+    "Description": "The state of being free from agitation or strong emotion."
+  },
+  {
+    "Emotion": "Cheerfulness",
+    "Main Category": "Positive / Approach Emotions",
+    "Sub-Category": "Joy & Happiness",
+    "Valence": "Positive",
+    "Description": "A feeling of great pleasure and happiness."
+  },
+  {
+    "Emotion": "Comfort",
+    "Main Category": "Positive / Approach Emotions",
+    "Sub-Category": "Joy & Happiness",
+    "Valence": "Positive",
+    "Description": "A state of physical ease and freedom from pain or constraint."
+  },
+  {
+    "Emotion": "Contentment",
+    "Main Category": "Positive / Approach Emotions",
+    "Sub-Category": "Joy & Happiness",
+    "Valence": "Positive",
+    "Description": "A state of happiness and satisfaction."
+  },
+  {
+    "Emotion": "Delight",
+    "Main Category": "Positive / Approach Emotions",
+    "Sub-Category": "Joy & Happiness",
+    "Valence": "Positive",
+    "Description": "Great pleasure."
+  },
+  {
+    "Emotion": "Ecstasy",
+    "Main Category": "Positive / Approach Emotions",
+    "Sub-Category": "Joy & Happiness",
+    "Valence": "Positive",
+    "Description": "An overwhelming feeling of great happiness or joyful excitement."
+  },
+  {
+    "Emotion": "Enthusiasm",
+    "Main Category": "Positive / Approach Emotions",
+    "Sub-Category": "Joy & Happiness",
+    "Valence": "Positive",
+    "Description": "Intense and eager enjoyment, interest, or approval."
+  },
+  {
+    "Emotion": "Euphoria",
+    "Main Category": "Positive / Approach Emotions",
+    "Sub-Category": "Joy & Happiness",
+    "Valence": "Positive",
+    "Description": "A feeling or state of intense excitement and happiness."
+  },
+  {
+    "Emotion": "Excitement",
+    "Main Category": "Positive / Approach Emotions",
+    "Sub-Category": "Joy & Happiness",
+    "Valence": "Positive",
+    "Description": "A feeling of great enthusiasm and eagerness."
+  },
+  {
+    "Emotion": "Fleeting Joy",
+    "Main Category": "Positive / Approach Emotions",
+    "Sub-Category": "Joy & Happiness",
+    "Valence": "Positive",
+    "Description": "Brief and transient happiness."
+  },
+  {
+    "Emotion": "Happiness",
+    "Main Category": "Positive / Approach Emotions",
+    "Sub-Category": "Joy & Happiness",
+    "Valence": "Positive",
+    "Description": "The state of being happy."
+  },
+  {
+    "Emotion": "Jubilation",
+    "Main Category": "Positive / Approach Emotions",
+    "Sub-Category": "Joy & Happiness",
+    "Valence": "Positive",
+    "Description": "A feeling of great happiness and triumph."
+  },
+  {
+    "Emotion": "Peace",
+    "Main Category": "Positive / Approach Emotions",
+    "Sub-Category": "Joy & Happiness",
+    "Valence": "Positive",
+    "Description": "Freedom from disturbance; tranquility."
+  },
+  {
+    "Emotion": "Playfulness",
+    "Main Category": "Positive / Approach Emotions",
+    "Sub-Category": "Joy & Happiness",
+    "Valence": "Positive",
+    "Description": "The quality of being lighthearted or full of fun."
+  },
+  {
+    "Emotion": "Pleasure",
+    "Main Category": "Positive / Approach Emotions",
+    "Sub-Category": "Joy & Happiness",
+    "Valence": "Positive",
+    "Description": "A feeling of happy satisfaction and enjoyment."
+  },
+  {
+    "Emotion": "Rapture",
+    "Main Category": "Positive / Approach Emotions",
+    "Sub-Category": "Joy & Happiness",
+    "Valence": "Positive",
+    "Description": "A feeling of intense pleasure or joy."
+  },
+  {
+    "Emotion": "Relief",
+    "Main Category": "Positive / Approach Emotions",
+    "Sub-Category": "Joy & Happiness",
+    "Valence": "Positive",
+    "Description": "A feeling of reassurance and relaxation following release from anxiety or distress."
+  },
+  {
+    "Emotion": "Satisfaction",
+    "Main Category": "Positive / Approach Emotions",
+    "Sub-Category": "Joy & Happiness",
+    "Valence": "Positive",
+    "Description": "Fulfillment of one's wishes, expectations, or needs, or the pleasure derived from this."
+  },
+  {
+    "Emotion": "Serenity",
+    "Main Category": "Positive / Approach Emotions",
+    "Sub-Category": "Joy & Happiness",
+    "Valence": "Positive",
+    "Description": "The state of being calm, peaceful, and untroubled."
+  },
+  {
+    "Emotion": "Tranquility",
+    "Main Category": "Positive / Approach Emotions",
+    "Sub-Category": "Joy & Happiness",
+    "Valence": "Positive",
+    "Description": "The quality or state of being tranquil; calm."
+  },
+  {
+    "Emotion": "Zest",
+    "Main Category": "Positive / Approach Emotions",
+    "Sub-Category": "Joy & Happiness",
+    "Valence": "Positive",
+    "Description": "Great enthusiasm and energy."
+  },
+  {
+    "Emotion": "Adoration",
+    "Main Category": "Positive / Approach Emotions",
+    "Sub-Category": "Love & Connection",
+    "Valence": "Positive",
+    "Description": "Deep love and respect."
+  },
+  {
+    "Emotion": "Affection",
+    "Main Category": "Positive / Approach Emotions",
+    "Sub-Category": "Love & Connection",
+    "Valence": "Positive",
+    "Description": "A gentle feeling of fondness or liking."
+  },
+  {
+    "Emotion": "Belonging",
+    "Main Category": "Positive / Approach Emotions",
+    "Sub-Category": "Love & Connection",
+    "Valence": "Positive",
+    "Description": "An affinity for a place or situation."
+  },
+  {
+    "Emotion": "Benevolence",
+    "Main Category": "Positive / Approach Emotions",
+    "Sub-Category": "Love & Connection",
+    "Valence": "Positive",
+    "Description": "The quality of being well meaning; kindness."
+  },
+  {
+    "Emotion": "Compassion",
+    "Main Category": "Positive / Approach Emotions",
+    "Sub-Category": "Love & Connection",
+    "Valence": "Positive",
+    "Description": "Sympathetic pity and concern for the sufferings or misfortunes of others."
+  },
+  {
+    "Emotion": "Devotion",
+    "Main Category": "Positive / Approach Emotions",
+    "Sub-Category": "Love & Connection",
+    "Valence": "Positive",
+    "Description": "Profound dedication."
+  },
+  {
+    "Emotion": "Empathy",
+    "Main Category": "Positive / Approach Emotions",
+    "Sub-Category": "Love & Connection",
+    "Valence": "Positive",
+    "Description": "The ability to understand and share the feelings of another."
+  },
+  {
+    "Emotion": "Friendliness",
+    "Main Category": "Positive / Approach Emotions",
+    "Sub-Category": "Love & Connection",
+    "Valence": "Positive",
+    "Description": "The quality of being friendly."
+  },
+  {
+    "Emotion": "Gratitude",
+    "Main Category": "Positive / Approach Emotions",
+    "Sub-Category": "Love & Connection",
+    "Valence": "Positive",
+    "Description": "The quality of being thankful; readiness to show appreciation for and to return kindness."
+  },
+  {
+    "Emotion": "Kindness",
+    "Main Category": "Positive / Approach Emotions",
+    "Sub-Category": "Love & Connection",
+    "Valence": "Positive",
+    "Description": "The quality of being friendly, generous, and considerate."
+  },
+  {
+    "Emotion": "Love",
+    "Main Category": "Positive / Approach Emotions",
+    "Sub-Category": "Love & Connection",
+    "Valence": "Positive",
+    "Description": "An intense feeling of deep affection."
+  },
+  {
+    "Emotion": "Tenderness",
+    "Main Category": "Positive / Approach Emotions",
+    "Sub-Category": "Love & Connection",
+    "Valence": "Positive",
+    "Description": "Gentleness and kindness."
+  },
+  {
+    "Emotion": "Warmth",
+    "Main Category": "Positive / Approach Emotions",
+    "Sub-Category": "Love & Connection",
+    "Valence": "Positive",
+    "Description": "The quality, state, or sensation of being warm."
+  },
+  {
+    "Emotion": "Bravery",
+    "Main Category": "Positive / Approach Emotions",
+    "Sub-Category": "Strength & Agency",
+    "Valence": "Positive",
+    "Description": "Courageous behavior or character."
+  },
+  {
+    "Emotion": "Concentration",
+    "Main Category": "Positive / Approach Emotions",
+    "Sub-Category": "Strength & Agency",
+    "Valence": "Positive",
+    "Description": "The action or power of focusing one's attention or mental effort."
+  },
+  {
+    "Emotion": "Confidence",
+    "Main Category": "Positive / Approach Emotions",
+    "Sub-Category": "Strength & Agency",
+    "Valence": "Positive",
+    "Description": "The state of feeling certain about the truth of something."
+  },
+  {
+    "Emotion": "Courage",
+    "Main Category": "Positive / Approach Emotions",
+    "Sub-Category": "Strength & Agency",
+    "Valence": "Positive",
+    "Description": "The ability to do something that frightens one."
+  },
+  {
+    "Emotion": "Determination",
+    "Main Category": "Positive / Approach Emotions",
+    "Sub-Category": "Strength & Agency",
+    "Valence": "Positive",
+    "Description": "Firmness of purpose."
+  },
+  {
+    "Emotion": "Dominance",
+    "Main Category": "Positive / Approach Emotions",
+    "Sub-Category": "Strength & Agency",
+    "Valence": "Positive",
+    "Description": "Power and influence over others."
+  },
+  {
+    "Emotion": "Inspiration",
+    "Main Category": "Positive / Approach Emotions",
+    "Sub-Category": "Strength & Agency",
+    "Valence": "Positive",
+    "Description": "The process of being mentally stimulated to do or feel something."
+  },
+  {
+    "Emotion": "Motivation",
+    "Main Category": "Positive / Approach Emotions",
+    "Sub-Category": "Strength & Agency",
+    "Valence": "Positive",
+    "Description": "The reason or reasons one has for acting or behaving in a particular way."
+  },
+  {
+    "Emotion": "Optimism",
+    "Main Category": "Positive / Approach Emotions",
+    "Sub-Category": "Strength & Agency",
+    "Valence": "Positive",
+    "Description": "Hopefulness and confidence about the future or the success of something."
+  },
+  {
+    "Emotion": "Pride",
+    "Main Category": "Positive / Approach Emotions",
+    "Sub-Category": "Strength & Agency",
+    "Valence": "Positive",
+    "Description": "A feeling of deep pleasure or satisfaction derived from one's own achievements."
+  },
+  {
+    "Emotion": "Resolution",
+    "Main Category": "Positive / Approach Emotions",
+    "Sub-Category": "Strength & Agency",
+    "Valence": "Positive",
+    "Description": "A firm decision to do or not to do something."
+  },
+  {
+    "Emotion": "Triumph",
+    "Main Category": "Positive / Approach Emotions",
+    "Sub-Category": "Strength & Agency",
+    "Valence": "Positive",
+    "Description": "A great victory or achievement."
+  },
+  {
+    "Emotion": "Vigor",
+    "Main Category": "Positive / Approach Emotions",
+    "Sub-Category": "Strength & Agency",
+    "Valence": "Positive",
+    "Description": "Physical strength and good health."
+  },
+  {
+    "Emotion": "Vindication",
+    "Main Category": "Positive / Approach Emotions",
+    "Sub-Category": "Strength & Agency",
+    "Valence": "Positive",
+    "Description": "The action of clearing someone of blame or suspicion."
+  },
+  {
+    "Emotion": "Zeal",
+    "Main Category": "Positive / Approach Emotions",
+    "Sub-Category": "Strength & Agency",
+    "Valence": "Positive",
+    "Description": "Great energy or enthusiasm in pursuit of a cause or objective."
+  },
+  {
+    "Emotion": "Anticipation",
+    "Main Category": "Positive / Approach Emotions",
+    "Sub-Category": "Curiosity & Interest",
+    "Valence": "Positive",
+    "Description": "The action of anticipating something; expectation."
+  },
+  {
+    "Emotion": "Curiosity",
+    "Main Category": "Positive / Approach Emotions",
+    "Sub-Category": "Curiosity & Interest",
+    "Valence": "Positive",
+    "Description": "A strong desire to know or learn something."
+  },
+  {
+    "Emotion": "Fascination",
+    "Main Category": "Positive / Approach Emotions",
+    "Sub-Category": "Curiosity & Interest",
+    "Valence": "Positive",
+    "Description": "The quality of being intensely interesting."
+  },
+  {
+    "Emotion": "Interest",
+    "Main Category": "Positive / Approach Emotions",
+    "Sub-Category": "Curiosity & Interest",
+    "Valence": "Positive",
+    "Description": "The state of wanting to know or learn about something or someone."
+  },
+  {
+    "Emotion": "Wonder",
+    "Main Category": "Positive / Approach Emotions",
+    "Sub-Category": "Curiosity & Interest",
+    "Valence": "Positive",
+    "Description": "A feeling of surprise mingled with admiration, caused by something beautiful."
+  },
+  {
+    "Emotion": "Ikigai",
+    "Main Category": "Positive / Approach Emotions",
+    "Sub-Category": "Special Positive States",
+    "Valence": "Positive",
+    "Description": "A reason for being, encompassing joy, a sense of purpose, and meaning."
+  },
+  {
+    "Emotion": "Naches",
+    "Main Category": "Positive / Approach Emotions",
+    "Sub-Category": "Special Positive States",
+    "Valence": "Positive",
+    "Description": "Pride derived from the achievements of one's children or protégés."
+  },
+  {
+    "Emotion": "Pronia",
+    "Main Category": "Positive / Approach Emotions",
+    "Sub-Category": "Special Positive States",
+    "Valence": "Positive",
+    "Description": "The belief that the universe is benevolent and working for your good."
+  },
+  {
+    "Emotion": "Alarm",
+    "Main Category": "Negative / Avoidance Emotions",
+    "Sub-Category": "Fear & Anxiety",
+    "Valence": "Negative",
+    "Description": "An urgent signal of danger."
+  },
+  {
+    "Emotion": "Alertness",
+    "Main Category": "Negative / Avoidance Emotions",
+    "Sub-Category": "Fear & Anxiety",
+    "Valence": "Negative",
+    "Description": "The state of being vigilant."
+  },
+  {
+    "Emotion": "Anxiety",
+    "Main Category": "Negative / Avoidance Emotions",
+    "Sub-Category": "Fear & Anxiety",
+    "Valence": "Negative",
+    "Description": "A feeling of worry, nervousness, or unease."
+  },
+  {
+    "Emotion": "Cautiousness",
+    "Main Category": "Negative / Avoidance Emotions",
+    "Sub-Category": "Fear & Anxiety",
+    "Valence": "Negative",
+    "Description": "The quality of being careful to avoid potential problems or dangers."
+  },
+  {
+    "Emotion": "Discomfort",
+    "Main Category": "Negative / Avoidance Emotions",
+    "Sub-Category": "Fear & Anxiety",
+    "Valence": "Negative",
+    "Description": "Slight pain."
+  },
+  {
+    "Emotion": "Doubt",
+    "Main Category": "Negative / Avoidance Emotions",
+    "Sub-Category": "Fear & Anxiety",
+    "Valence": "Negative",
+    "Description": "A feeling of uncertainty or lack of conviction."
+  },
+  {
+    "Emotion": "Dread",
+    "Main Category": "Negative / Avoidance Emotions",
+    "Sub-Category": "Fear & Anxiety",
+    "Valence": "Negative",
+    "Description": "Anticipated fear."
+  },
+  {
+    "Emotion": "Fear",
+    "Main Category": "Negative / Avoidance Emotions",
+    "Sub-Category": "Fear & Anxiety",
+    "Valence": "Negative",
+    "Description": "An unpleasant emotion caused by the belief that someone or something is dangerous."
+  },
+  {
+    "Emotion": "Horror",
+    "Main Category": "Negative / Avoidance Emotions",
+    "Sub-Category": "Fear & Anxiety",
+    "Valence": "Negative",
+    "Description": "An intense feeling of fear, shock, or disgust."
+  },
+  {
+    "Emotion": "Nervousness",
+    "Main Category": "Negative / Avoidance Emotions",
+    "Sub-Category": "Fear & Anxiety",
+    "Valence": "Negative",
+    "Description": "The state of being easily agitated or alarmed."
+  },
+  {
+    "Emotion": "Panic",
+    "Main Category": "Negative / Avoidance Emotions",
+    "Sub-Category": "Fear & Anxiety",
+    "Valence": "Negative",
+    "Description": "Sudden uncontrollable fear or anxiety."
+  },
+  {
+    "Emotion": "Paranoia",
+    "Main Category": "Negative / Avoidance Emotions",
+    "Sub-Category": "Fear & Anxiety",
+    "Valence": "Negative",
+    "Description": "A mental condition characterized by delusions of persecution."
+  },
+  {
+    "Emotion": "Tension",
+    "Main Category": "Negative / Avoidance Emotions",
+    "Sub-Category": "Fear & Anxiety",
+    "Valence": "Negative",
+    "Description": "Mental or emotional strain."
+  },
+  {
+    "Emotion": "Terror",
+    "Main Category": "Negative / Avoidance Emotions",
+    "Sub-Category": "Fear & Anxiety",
+    "Valence": "Negative",
+    "Description": "Extreme fear."
+  },
+  {
+    "Emotion": "Trepidation",
+    "Main Category": "Negative / Avoidance Emotions",
+    "Sub-Category": "Fear & Anxiety",
+    "Valence": "Negative",
+    "Description": "A feeling of fear or agitation about something that may happen."
+  },
+  {
+    "Emotion": "Uncertainty",
+    "Main Category": "Negative / Avoidance Emotions",
+    "Sub-Category": "Fear & Anxiety",
+    "Valence": "Negative",
+    "Description": "The state of being uncertain."
+  },
+  {
+    "Emotion": "Alienation",
+    "Main Category": "Negative / Avoidance Emotions",
+    "Sub-Category": "Sadness & Loss",
+    "Valence": "Negative",
+    "Description": "The state or experience of being isolated."
+  },
+  {
+    "Emotion": "Depression",
+    "Main Category": "Negative / Avoidance Emotions",
+    "Sub-Category": "Sadness & Loss",
+    "Valence": "Negative",
+    "Description": "Feelings of severe despondency and dejection."
+  },
+  {
+    "Emotion": "Despair",
+    "Main Category": "Negative / Avoidance Emotions",
+    "Sub-Category": "Sadness & Loss",
+    "Valence": "Negative",
+    "Description": "The complete loss or absence of hope."
+  },
+  {
+    "Emotion": "Discouragement",
+    "Main Category": "Negative / Avoidance Emotions",
+    "Sub-Category": "Sadness & Loss",
+    "Valence": "Negative",
+    "Description": "Loss of confidence or enthusiasm."
+  },
+  {
+    "Emotion": "Disillusionment",
+    "Main Category": "Negative / Avoidance Emotions",
+    "Sub-Category": "Sadness & Loss",
+    "Valence": "Negative",
+    "Description": "A feeling of disappointment resulting from the discovery that something is not as good as one believed it to be."
+  },
+  {
+    "Emotion": "Grief",
+    "Main Category": "Negative / Avoidance Emotions",
+    "Sub-Category": "Sadness & Loss",
+    "Valence": "Negative",
+    "Description": "Intense sorrow, especially caused by someone's death."
+  },
+  {
+    "Emotion": "Hopelessness",
+    "Main Category": "Negative / Avoidance Emotions",
+    "Sub-Category": "Sadness & Loss",
+    "Valence": "Negative",
+    "Description": "A feeling of despair."
+  },
+  {
+    "Emotion": "Hurt",
+    "Main Category": "Negative / Avoidance Emotions",
+    "Sub-Category": "Sadness & Loss",
+    "Valence": "Negative",
+    "Description": "Emotional pain or suffering."
+  },
+  {
+    "Emotion": "Isolation",
+    "Main Category": "Negative / Avoidance Emotions",
+    "Sub-Category": "Sadness & Loss",
+    "Valence": "Negative",
+    "Description": "The process or fact of isolating or being isolated."
+  },
+  {
+    "Emotion": "Loneliness",
+    "Main Category": "Negative / Avoidance Emotions",
+    "Sub-Category": "Sadness & Loss",
+    "Valence": "Negative",
+    "Description": "Sadness because one has no friends or company."
+  },
+  {
+    "Emotion": "Longing",
+    "Main Category": "Negative / Avoidance Emotions",
+    "Sub-Category": "Sadness & Loss",
+    "Valence": "Negative",
+    "Description": "A yearning desire."
+  },
+  {
+    "Emotion": "Melancholy",
+    "Main Category": "Negative / Avoidance Emotions",
+    "Sub-Category": "Sadness & Loss",
+    "Valence": "Negative",
+    "Description": "A feeling of pensive sadness, typically with no obvious cause."
+  },
+  {
+    "Emotion": "Misery",
+    "Main Category": "Negative / Avoidance Emotions",
+    "Sub-Category": "Sadness & Loss",
+    "Valence": "Negative",
+    "Description": "A state or feeling of great distress or discomfort."
+  },
+  {
+    "Emotion": "Nostalgia",
+    "Main Category": "Negative / Avoidance Emotions",
+    "Sub-Category": "Sadness & Loss",
+    "Valence": "Negative",
+    "Description": "A sentimental longing or wistful affection for the past."
+  },
+  {
+    "Emotion": "Sadness",
+    "Main Category": "Negative / Avoidance Emotions",
+    "Sub-Category": "Sadness & Loss",
+    "Valence": "Negative",
+    "Description": "The feeling of being sad."
+  },
+  {
+    "Emotion": "Saudade",
+    "Main Category": "Negative / Avoidance Emotions",
+    "Sub-Category": "Sadness & Loss",
+    "Valence": "Negative",
+    "Description": "A deep emotional state of melancholic longing for a person or thing that is absent."
+  },
+  {
+    "Emotion": "Sorrow",
+    "Main Category": "Negative / Avoidance Emotions",
+    "Sub-Category": "Sadness & Loss",
+    "Valence": "Negative",
+    "Description": "A feeling of deep distress caused by loss, disappointment, or other misfortune."
+  },
+  {
+    "Emotion": "Suffering",
+    "Main Category": "Negative / Avoidance Emotions",
+    "Sub-Category": "Sadness & Loss",
+    "Valence": "Negative",
+    "Description": "The state of undergoing pain, hardship, or distress."
+  },
+  {
+    "Emotion": "Yearning",
+    "Main Category": "Negative / Avoidance Emotions",
+    "Sub-Category": "Sadness & Loss",
+    "Valence": "Negative",
+    "Description": "A feeling of intense longing for something."
+  },
+  {
+    "Emotion": "Anger",
+    "Main Category": "Negative / Avoidance Emotions",
+    "Sub-Category": "Anger & Hostility",
+    "Valence": "Negative",
+    "Description": "A strong feeling of annoyance, displeasure, or hostility."
+  },
+  {
+    "Emotion": "Annoyance",
+    "Main Category": "Negative / Avoidance Emotions",
+    "Sub-Category": "Anger & Hostility",
+    "Valence": "Negative",
+    "Description": "The feeling of being annoyed."
+  },
+  {
+    "Emotion": "Bitterness",
+    "Main Category": "Negative / Avoidance Emotions",
+    "Sub-Category": "Anger & Hostility",
+    "Valence": "Negative",
+    "Description": "Anger and disappointment at being treated unfairly."
+  },
+  {
+    "Emotion": "Contempt",
+    "Main Category": "Negative / Avoidance Emotions",
+    "Sub-Category": "Anger & Hostility",
+    "Valence": "Negative",
+    "Description": "The feeling that a person or a thing is beneath consideration."
+  },
+  {
+    "Emotion": "Cruelty",
+    "Main Category": "Negative / Avoidance Emotions",
+    "Sub-Category": "Anger & Hostility",
+    "Valence": "Negative",
+    "Description": "Callous indifference to or pleasure in causing pain and suffering."
+  },
+  {
+    "Emotion": "Disapproval",
+    "Main Category": "Negative / Avoidance Emotions",
+    "Sub-Category": "Anger & Hostility",
+    "Valence": "Negative",
+    "Description": "Strong condemnation of something."
+  },
+  {
+    "Emotion": "Disgust",
+    "Main Category": "Negative / Avoidance Emotions",
+    "Sub-Category": "Anger & Hostility",
+    "Valence": "Negative",
+    "Description": "A feeling of revulsion or strong disapproval aroused by something unpleasant or offensive."
+  },
+  {
+    "Emotion": "Frustration",
+    "Main Category": "Negative / Avoidance Emotions",
+    "Sub-Category": "Anger & Hostility",
+    "Valence": "Negative",
+    "Description": "The feeling of being upset or annoyed."
+  },
+  {
+    "Emotion": "Hate",
+    "Main Category": "Negative / Avoidance Emotions",
+    "Sub-Category": "Anger & Hostility",
+    "Valence": "Negative",
+    "Description": "Intense dislike or extreme aversion."
+  },
+  {
+    "Emotion": "Hostility",
+    "Main Category": "Negative / Avoidance Emotions",
+    "Sub-Category": "Anger & Hostility",
+    "Valence": "Negative",
+    "Description": "Hostile behavior; unfriendliness or opposition."
+  },
+  {
+    "Emotion": "Irritation",
+    "Main Category": "Negative / Avoidance Emotions",
+    "Sub-Category": "Anger & Hostility",
+    "Valence": "Negative",
+    "Description": "The state of feeling annoyed, impatient, or angry."
+  },
+  {
+    "Emotion": "Outrage",
+    "Main Category": "Negative / Avoidance Emotions",
+    "Sub-Category": "Anger & Hostility",
+    "Valence": "Negative",
+    "Description": "An extremely strong reaction of anger, shock, or indignation."
+  },
+  {
+    "Emotion": "Rage",
+    "Main Category": "Negative / Avoidance Emotions",
+    "Sub-Category": "Anger & Hostility",
+    "Valence": "Negative",
+    "Description": "Intense unmanageable anger."
+  },
+  {
+    "Emotion": "Resentment",
+    "Main Category": "Negative / Avoidance Emotions",
+    "Sub-Category": "Anger & Hostility",
+    "Valence": "Negative",
+    "Description": "Bitter indignation at having been treated unfairly."
+  },
+  {
+    "Emotion": "Wrath",
+    "Main Category": "Negative / Avoidance Emotions",
+    "Sub-Category": "Anger & Hostility",
+    "Valence": "Negative",
+    "Description": "Extreme anger."
+  },
+  {
+    "Emotion": "Ambivalence",
+    "Main Category": "Ambivalent / Mixed Emotions",
+    "Sub-Category": "Mixed Emotions",
+    "Valence": "Mixed",
+    "Description": "The state of having mixed feelings or contradictory ideas about something or someone."
+  },
+  {
+    "Emotion": "Awkwardness",
+    "Main Category": "Ambivalent / Mixed Emotions",
+    "Sub-Category": "Mixed Emotions",
+    "Valence": "Mixed",
+    "Description": "The state or quality of being clumsy or uncomfortable."
+  },
+  {
+    "Emotion": "Confusion",
+    "Main Category": "Ambivalent / Mixed Emotions",
+    "Sub-Category": "Mixed Emotions",
+    "Valence": "Mixed",
+    "Description": "Lack of understanding; uncertainty."
+  },
+  {
+    "Emotion": "Dismay",
+    "Main Category": "Ambivalent / Mixed Emotions",
+    "Sub-Category": "Mixed Emotions",
+    "Valence": "Mixed",
+    "Description": "Concern and distress caused by something unexpected."
+  },
+  {
+    "Emotion": "Distress",
+    "Main Category": "Ambivalent / Mixed Emotions",
+    "Sub-Category": "Mixed Emotions",
+    "Valence": "Mixed",
+    "Description": "Extreme anxiety, sorrow, or pain."
+  },
+  {
+    "Emotion": "Restlessness",
+    "Main Category": "Ambivalent / Mixed Emotions",
+    "Sub-Category": "Mixed Emotions",
+    "Valence": "Mixed",
+    "Description": "Inability to rest or relax as a result of anxiety or boredom."
+  },
+  {
+    "Emotion": "Surprise",
+    "Main Category": "Ambivalent / Mixed Emotions",
+    "Sub-Category": "Mixed Emotions",
+    "Valence": "Mixed",
+    "Description": "An unexpected or astonishing event, fact, or thing."
+  },
+  {
+    "Emotion": "Torn",
+    "Main Category": "Ambivalent / Mixed Emotions",
+    "Sub-Category": "Mixed Emotions",
+    "Valence": "Mixed",
+    "Description": "Unable to decide between two courses of action or loyalties."
+  },
+  {
+    "Emotion": "Dishonor",
+    "Main Category": "Social & Moral Emotions",
+    "Sub-Category": "Shame & Guilt",
+    "Valence": "Negative",
+    "Description": "A state of shame or disgrace."
+  },
+  {
+    "Emotion": "Guilt",
+    "Main Category": "Social & Moral Emotions",
+    "Sub-Category": "Shame & Guilt",
+    "Valence": "Negative",
+    "Description": "The fact of having committed a specified or implied offense or crime."
+  },
+  {
+    "Emotion": "Humiliation",
+    "Main Category": "Social & Moral Emotions",
+    "Sub-Category": "Shame & Guilt",
+    "Valence": "Negative",
+    "Description": "The action of humiliating someone or the state of being humiliated."
+  },
+  {
+    "Emotion": "Inferiority",
+    "Main Category": "Social & Moral Emotions",
+    "Sub-Category": "Shame & Guilt",
+    "Valence": "Negative",
+    "Description": "The condition of being lower in status or quality than another or others."
+  },
+  {
+    "Emotion": "Modesty",
+    "Main Category": "Social & Moral Emotions",
+    "Sub-Category": "Shame & Guilt",
+    "Valence": "Neutral",
+    "Description": "The quality or state of being unassuming or moderate in the estimation of one's abilities."
+  },
+  {
+    "Emotion": "Mortification",
+    "Main Category": "Social & Moral Emotions",
+    "Sub-Category": "Shame & Guilt",
+    "Valence": "Negative",
+    "Description": "Great embarrassment and shame."
+  },
+  {
+    "Emotion": "Regret",
+    "Main Category": "Social & Moral Emotions",
+    "Sub-Category": "Shame & Guilt",
+    "Valence": "Negative",
+    "Description": "A feeling of sadness, repentance, or disappointment over something that has happened."
+  },
+  {
+    "Emotion": "Remorse",
+    "Main Category": "Social & Moral Emotions",
+    "Sub-Category": "Shame & Guilt",
+    "Valence": "Negative",
+    "Description": "Deep regret or guilt for a wrong committed."
+  },
+  {
+    "Emotion": "Shame",
+    "Main Category": "Social & Moral Emotions",
+    "Sub-Category": "Shame & Guilt",
+    "Valence": "Negative",
+    "Description": "A painful feeling of humiliation or distress."
+  },
+  {
+    "Emotion": "Worthlessness",
+    "Main Category": "Social & Moral Emotions",
+    "Sub-Category": "Shame & Guilt",
+    "Valence": "Negative",
+    "Description": "Lack of value or usefulness."
+  },
+  {
+    "Emotion": "Betrayal",
+    "Main Category": "Social & Moral Emotions",
+    "Sub-Category": "Empathy & Judgment",
+    "Valence": "Negative",
+    "Description": "The act of betraying someone or something."
+  },
+  {
+    "Emotion": "Disappointment",
+    "Main Category": "Social & Moral Emotions",
+    "Sub-Category": "Empathy & Judgment",
+    "Valence": "Negative",
+    "Description": "Sadness or displeasure caused by the non-fulfillment of one's hopes or expectations."
+  },
+  {
+    "Emotion": "Distrust",
+    "Main Category": "Social & Moral Emotions",
+    "Sub-Category": "Empathy & Judgment",
+    "Valence": "Negative",
+    "Description": "The feeling that someone or something cannot be relied upon."
+  },
+  {
+    "Emotion": "Envy",
+    "Main Category": "Social & Moral Emotions",
+    "Sub-Category": "Empathy & Judgment",
+    "Valence": "Negative",
+    "Description": "A feeling of discontented or resentful longing aroused by someone else's possessions, qualities, or luck."
+  },
+  {
+    "Emotion": "Jealousy",
+    "Main Category": "Social & Moral Emotions",
+    "Sub-Category": "Empathy & Judgment",
+    "Valence": "Negative",
+    "Description": "A feeling of resentful longing aroused by someone else's possessions, qualities, or luck."
+  },
+  {
+    "Emotion": "Pity",
+    "Main Category": "Social & Moral Emotions",
+    "Sub-Category": "Empathy & Judgment",
+    "Valence": "Negative",
+    "Description": "The feeling of sorrow and compassion caused by the suffering and misfortunes of others."
+  },
+  {
+    "Emotion": "Rejection",
+    "Main Category": "Social & Moral Emotions",
+    "Sub-Category": "Empathy & Judgment",
+    "Valence": "Negative",
+    "Description": "The act of rejecting."
+  },
+  {
+    "Emotion": "Schadenfreude",
+    "Main Category": "Social & Moral Emotions",
+    "Sub-Category": "Empathy & Judgment",
+    "Valence": "Negative",
+    "Description": "Pleasure derived from another person's misfortune."
+  },
+  {
+    "Emotion": "Sympathy",
+    "Main Category": "Social & Moral Emotions",
+    "Sub-Category": "Empathy & Judgment",
+    "Valence": "Negative",
+    "Description": "Feelings of pity and sorrow for someone else's misfortune."
+  },
+  {
+    "Emotion": "Forgiveness",
+    "Main Category": "Social & Moral Emotions",
+    "Sub-Category": "Forgiveness & Mercy",
+    "Valence": "Positive",
+    "Description": "The action or process of forgiving or being forgiven."
+  },
+  {
+    "Emotion": "Mercy",
+    "Main Category": "Social & Moral Emotions",
+    "Sub-Category": "Forgiveness & Mercy",
+    "Valence": "Positive",
+    "Description": "Compassion or forgiveness shown toward someone whom it is within one's power to punish or harm."
+  },
+  {
+    "Emotion": "Reassurance",
+    "Main Category": "Social & Moral Emotions",
+    "Sub-Category": "Forgiveness & Mercy",
+    "Valence": "Positive",
+    "Description": "The action of giving fresh confidence or courage to someone."
+  },
+  {
+    "Emotion": "Sincerity",
+    "Main Category": "Social & Moral Emotions",
+    "Sub-Category": "Forgiveness & Mercy",
+    "Valence": "Positive",
+    "Description": "The quality of being honest and genuine."
+  },
+  {
+    "Emotion": "Surrender",
+    "Main Category": "Social & Moral Emotions",
+    "Sub-Category": "Forgiveness & Mercy",
+    "Valence": "Mixed",
+    "Description": "To give up completely."
+  },
+  {
+    "Emotion": "Trust",
+    "Main Category": "Social & Moral Emotions",
+    "Sub-Category": "Forgiveness & Mercy",
+    "Valence": "Positive",
+    "Description": "Firm belief in the reliability, truth, ability, or strength of someone or something."
+  },
+  {
+    "Emotion": "Desire",
+    "Main Category": "Desire & Arousal States",
+    "Sub-Category": "Desire & Arousal",
+    "Valence": "Mixed",
+    "Description": "A strong feeling of wanting to have something or wishing for something to happen."
+  },
+  {
+    "Emotion": "Lust",
+    "Main Category": "Desire & Arousal States",
+    "Sub-Category": "Desire & Arousal",
+    "Valence": "Mixed",
+    "Description": "Very strong sexual desire."
+  },
+  {
+    "Emotion": "Limerence",
+    "Main Category": "Desire & Arousal States",
+    "Sub-Category": "Desire & Arousal",
+    "Valence": "Mixed",
+    "Description": "The state of being infatuated with another person."
+  },
+  {
+    "Emotion": "Obsession",
+    "Main Category": "Desire & Arousal States",
+    "Sub-Category": "Desire & Arousal",
+    "Valence": "Mixed",
+    "Description": "An idea or thought that continually preoccupies or intrudes on a person's mind."
+  },
+  {
+    "Emotion": "Passion",
+    "Main Category": "Desire & Arousal States",
+    "Sub-Category": "Desire & Arousal",
+    "Valence": "Mixed",
+    "Description": "Strong and barely controllable emotion."
+  },
+  {
+    "Emotion": "Thrill",
+    "Main Category": "Desire & Arousal States",
+    "Sub-Category": "Desire & Arousal",
+    "Valence": "Positive",
+    "Description": "A sudden feeling of excitement and pleasure."
+  },
+  {
+    "Emotion": "Apathy",
+    "Main Category": "Neutral / Low-Arousal States",
+    "Sub-Category": "Neutral / Low-Arousal",
+    "Valence": "Neutral",
+    "Description": "Lack of interest, enthusiasm, or concern."
+  },
+  {
+    "Emotion": "Boredom",
+    "Main Category": "Neutral / Low-Arousal States",
+    "Sub-Category": "Neutral / Low-Arousal",
+    "Valence": "Neutral",
+    "Description": "The state of feeling weary and impatient because one is unoccupied."
+  },
+  {
+    "Emotion": "Fatigue",
+    "Main Category": "Neutral / Low-Arousal States",
+    "Sub-Category": "Neutral / Low-Arousal",
+    "Valence": "Neutral",
+    "Description": "Extreme tiredness, typically resulting from mental or physical exertion or illness."
+  },
+  {
+    "Emotion": "Indifference",
+    "Main Category": "Neutral / Low-Arousal States",
+    "Sub-Category": "Neutral / Low-Arousal",
+    "Valence": "Neutral",
+    "Description": "Lack of interest, concern, or sympathy."
+  },
+  {
+    "Emotion": "Numbness",
+    "Main Category": "Neutral / Low-Arousal States",
+    "Sub-Category": "Neutral / Low-Arousal",
+    "Valence": "Neutral",
+    "Description": "The lack of emotion or feeling."
+  },
+  {
+    "Emotion": "Resignation",
+    "Main Category": "Neutral / Low-Arousal States",
+    "Sub-Category": "Neutral / Low-Arousal",
+    "Valence": "Neutral",
+    "Description": "The acceptance of something undesirable but inevitable."
+  },
+  {
+    "Emotion": "Soberness",
+    "Main Category": "Neutral / Low-Arousal States",
+    "Sub-Category": "Neutral / Low-Arousal",
+    "Valence": "Neutral",
+    "Description": "The quality of being serious and solemn."
+  },
+  {
+    "Emotion": "Solace",
+    "Main Category": "Neutral / Low-Arousal States",
+    "Sub-Category": "Neutral / Low-Arousal",
+    "Valence": "Positive",
+    "Description": "Comfort or consolation in a time of distress or sadness."
+  }
+]
