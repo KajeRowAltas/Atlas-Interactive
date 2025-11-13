@@ -17,34 +17,21 @@
 <body>
   <div class="layout">
     <aside id="sidebar" class="sidebar" data-include="components/sidebar.html"></aside>
-    <main class="page-shell">
-      <header class="page-header">
-        <div class="header-inner">
-          <div class="header-visual" aria-hidden="true">
-            <div class="sun"></div>
-            <div class="hills"></div>
-          </div>
-          <div class="header-content">
-            <span class="header-eyebrow">Studio Controls</span>
-            <h1>Settings</h1>
-            <p class="header-subtitle">Fine tune surreal operations and keep Atlas tuned to your cadence.</p>
-            <div class="header-status">
-              <span class="status-pill">Active</span>
-              <span>Preferences sync across every panel.</span>
-            </div>
-          </div>
-          <div class="header-avatar">
-            <img src="assets/Atlas_Logo.png" alt="Atlas emblem" />
-          </div>
+    <main>
+      <header id="header" class="header">
+        <h2>Settings</h2>
+        <div class="status">
+          <span class="badge">Studio Mode</span>
+          <span>Fine tune surreal operations</span>
         </div>
       </header>
-      <section class="page-body settings-grid">
+      <section class="dashboard-grid">
         <article class="card">
           <h3>Palette Warmth Ratio</h3>
           <p>Control the warm-to-cool balance for the entire interface.</p>
           <label>
-            60/40 Balance
-            <input type="range" id="palette-balance" min="50" max="90" value="60" />
+            70/30 Balance
+            <input type="range" id="palette-balance" min="50" max="90" value="70" />
           </label>
         </article>
         <article class="card">
