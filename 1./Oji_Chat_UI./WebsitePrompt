@@ -9,6 +9,7 @@ NAME: Oji – Atlas Interactive Chat Interface
 OWNER: Kaje David Row
 DEPLOYMENT: Hostinger + GitHub Integration
 BACKEND: n8n webhook
+Github Website Folder to be used: 1./Oji_Chat_UI./Website
 
 ================================================
 BRANDING & DESIGN
