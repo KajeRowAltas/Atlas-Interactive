@@ -1,0 +1,196 @@
+You are GitHub Copilot working inside a new repository called “atlas-chatbot-webui”.
+Create a complete, professional front-end codebase for the Atlas–Oji personal chatbot web interface.
+
+================================================
+PROJECT INFORMATION
+================================================
+
+NAME: Oji – Atlas Interactive Chat Interface
+OWNER: Kaje David Row
+DEPLOYMENT: Hostinger + GitHub Integration
+BACKEND: n8n webhook
+
+================================================
+BRANDING & DESIGN
+================================================
+
+STYLE NAME: Atlas Geometric Surrealism
+
+COLORS:
+- Broken Yellow: #E6A430
+- Burnt Orange: #C94C1D
+- Deep Bordeaux Red: #9E2B1E
+- Teal Blue-Green: #1F5F5B
+- Light Beige Background: #F9F4E7
+RULE: Maintain 70/30 warm-to-cool color balance.
+
+TYPOGRAPHY:
+- Base font: A geometric serif-inspired typeface (preferably “Cormorant Garamond” or “Spectral” if web-safe).
+- Clean geometric realism with surreal symbolic accents.
+
+ICONOGRAPHY:
+- Use Heroicons (outlined).
+- Oji avatar: use local file “assets/Atlas_Logo.png”.
+- No user avatar.
+
+MOTIFS:
+- Spirals, sun rays, organic curves, geometric horizons.
+- Subtle paper grain texture overlay in background.
+
+================================================
+FRONTEND REQUIREMENTS
+================================================
+
+LAYOUT:
+- Sidebar (left) + main chat window.
+- Dark mode toggle required.
+
+PAGES TO BUILD:
+1. Login page
+2. Chat interface (main)
+3. Dashboard
+4. Settings
+5. Project Panel
+6. Admin Panel (UI controls + feature toggles)
+
+INITIAL FEATURES REQUIRED:
+- Message input system
+- File upload button
+- Quick action buttons
+- Sidebar navigation
+- Project action buttons (draft-only UI)
+- Command bar (/commands)
+- Memory viewer modal (UI only)
+- Chat history viewer
+- Dark mode toggle
+
+AVATARS:
+- AI Avatar: assets/Atlas_Logo.png - https://drive.google.com/file/d/1NTiiZ7XeFsMsSMkzddBRWD7iWCGu_a8S/view?usp=drive_link
+- User avatar: none
+
+TEXT PHRASES:
+- Input placeholder: “Add data here to get to work”
+- Welcome message: “Hey Kaje, good you are back. What are we working on today?”
+- System message sample: “Oji is grabbing some binary coffee…”
+
+================================================
+BACKEND CONNECTION
+================================================
+
+n8n ENDPOINT (POST only):
+https://n8n.srv1094917.hstgr.cloud/webhook-test/Oji
+
+
+================================================
+FILE STRUCTURE TO GENERATE
+================================================
+
+/ (root)
+  ├─ index.html (chat interface)
+  ├─ login.html
+  ├─ dashboard.html
+  ├─ settings.html
+  ├─ project-panel.html
+  ├─ admin.html
+  ├─ css/
+  │    ├─ styles.css
+  │    └─ dark.css
+  ├─ js/
+  │    ├─ app.js (global)
+  │    ├─ chat.js (chat logic)
+  │    ├─ api.js (n8n integration)
+  │    ├─ commands.js
+  │    ├─ dashboard.js
+  │    ├─ settings.js
+  │    ├─ project.js
+  │    └─ admin.js
+  ├─ components/
+  │    ├─ sidebar.html
+  │    ├─ header.html
+  │    ├─ quick-actions.html
+  │    ├─ message-bubble.html
+  │    ├─ command-bar.html
+  │    ├─ memory-viewer.html
+  │    └─ chat-history.html
+  ├─ assets/
+  │    ├─ Atlas_Logo.png
+  │    └─ textures/
+  │          └─ grain.png
+  ├─ README.md
+  └─ .gitignore
+
+================================================
+DETAILED FUNCTIONALITY
+================================================
+
+CHAT INTERFACE (index.html):
+- Large message window
+- Message bubbles with timestamps
+- AI messages use Atlas_Logo.png
+- Smooth auto-scroll
+- Animated “Oji is grabbing some binary coffee…” loader
+- Input bar:
+  * text field
+  * file upload icon
+  * send button
+  * quick-actions dropdown
+- Command bar triggered by “/”
+- Modal: memory viewer
+- Modal: chat history
+
+SIDEBAR:
+- Logo
+- Navigation:
+  * Chat
+  * Dashboard
+  * Project Panel
+  * Settings
+  * Admin
+- Dark mode toggle
+- Small surreal geometric accents
+
+API.JS:
+- Function sendMessage(text, files)
+- POST to n8n webhook:
+    headers: { "Content-Type": "application/json" }
+- Return assistant response and append to chat.
+
+================================================
+DEVELOPMENT NOTES
+================================================
+
+- Use modular vanilla JS (no frameworks).
+- Use Heroicons CDN.
+- Use flexbox + grid layouts.
+- Write clean semantic HTML.
+- Add TODO comments for future expansions (Trello, memory DB, analytics).
+- Design must feel warm, surreal, geometric, with balanced color fields.
+- Apply subtle noise overlay using grain.png with opacity ~3–5%.
+
+================================================
+OUTPUT EXPECTATION
+================================================
+
+Generate:
+1. Full HTML for each page.
+2. Full CSS including:
+   - Atlas palette
+   - light/dark modes
+   - geometric-surreal styling
+   - noise texture application
+3. Complete JS including:
+   - Chat logic
+   - n8n webhook calls
+   - Sidebar logic
+   - Command bar
+   - Modal systems
+   - Settings toggles
+4. README.md with:
+   - How to deploy on Hostinger
+   - How to connect GitHub integration
+   - How to modify API key
+   - Local development instructions
+
+Begin by creating the folder structure, then populate each file with code.
+Do not leave placeholders — produce working front-end code.
+
