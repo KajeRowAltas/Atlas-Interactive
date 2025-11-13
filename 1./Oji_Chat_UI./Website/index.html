@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Oji – Atlas Interactive Chat</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/dark.css" />
+  <link rel="icon" type="image/png" href="assets/Atlas_Logo.png" />
+  <script defer type="module" src="js/app.js"></script>
+  <script defer type="module" src="js/commands.js"></script>
+  <script defer type="module" src="js/chat.js"></script>
+</head>
+<body>
+  <div class="layout">
+    <aside id="sidebar" class="sidebar" data-include="components/sidebar.html"></aside>
+    <main>
+      <header id="header" class="header" data-include="components/header.html"></header>
+      <section class="chat-shell">
+        <div id="quick-actions" class="quick-actions" data-include="components/quick-actions.html"></div>
+        <div id="chat-window" class="chat-window">
+          <article class="message ai">
+            <div class="avatar">
+              <img src="assets/Atlas_Logo.png" alt="Oji avatar" />
+            </div>
+            <div class="content">
+              <div class="meta">
+                <span class="badge">Welcome</span>
+                <time>Today</time>
+              </div>
+              <p>Hey Kaje, good you are back. What are we working on today?</p>
+            </div>
+          </article>
+        </div>
+        <div id="composer" class="composer" data-include="components/message-bubble.html"></div>
+      </section>
+    </main>
+  </div>
+  <div id="command-bar" class="command-bar" data-include="components/command-bar.html"></div>
+  <div id="memory-viewer" class="modal" data-include="components/memory-viewer.html"></div>
+  <div id="chat-history" class="modal" data-include="components/chat-history.html"></div>
+</body>
+</html>

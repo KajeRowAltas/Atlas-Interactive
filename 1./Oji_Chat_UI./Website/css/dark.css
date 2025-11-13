@@ -1,0 +1,105 @@
+body.dark {
+  background: radial-gradient(circle at 18% 22%, rgba(201, 76, 29, 0.35), rgba(31, 31, 35, 0.8)),
+    linear-gradient(120deg, rgba(17, 34, 36, 0.92), rgba(31, 31, 35, 0.88));
+  color: #f7efe4;
+}
+
+body.dark::before {
+  opacity: 0.08;
+}
+
+body.dark .sidebar {
+  background: linear-gradient(180deg, rgba(31, 95, 91, 0.88), rgba(158, 43, 30, 0.92));
+  color: #f7efe4;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+}
+
+body.dark .nav-links a {
+  background: rgba(247, 240, 227, 0.06);
+  border-color: rgba(247, 240, 227, 0.1);
+}
+
+body.dark .nav-links a:hover,
+body.dark .nav-links a.active {
+  background: rgba(247, 240, 227, 0.26);
+  color: #1f252a;
+}
+
+body.dark .toggle-wrapper,
+body.dark .card,
+body.dark .composer,
+body.dark .command-bar,
+body.dark .modal .modal-content,
+body.dark .message {
+  background: rgba(28, 33, 36, 0.86);
+  border-color: rgba(230, 164, 48, 0.28);
+  color: #f7efe4;
+}
+
+body.dark .message.user {
+  background: rgba(201, 76, 29, 0.16);
+}
+
+body.dark .message .content .meta,
+body.dark .header .status,
+body.dark .table td,
+body.dark .table th {
+  color: rgba(230, 228, 224, 0.76);
+}
+
+body.dark .card input,
+body.dark .card select,
+body.dark .card textarea {
+  background: rgba(20, 24, 28, 0.8);
+  border-color: rgba(230, 164, 48, 0.25);
+  color: #f7efe4;
+}
+
+body.dark .header {
+  background: rgba(28, 33, 36, 0.86);
+  border-color: rgba(230, 164, 48, 0.26);
+}
+
+body.dark .chat-shell {
+  background: rgba(12, 16, 20, 0.75);
+}
+
+body.dark .composer input[type="text"] {
+  background: rgba(12, 16, 20, 0.7);
+  border-color: rgba(230, 164, 48, 0.25);
+  color: #f7efe4;
+}
+
+body.dark .icon-button,
+body.dark .quick-actions button {
+  background: rgba(230, 164, 48, 0.16);
+  color: #f8f1e6;
+}
+
+body.dark .icon-button:hover,
+body.dark .quick-actions button:hover {
+  background: rgba(201, 76, 29, 0.3);
+}
+
+body.dark .command-bar header {
+  border-color: rgba(230, 164, 48, 0.24);
+}
+
+body.dark .command-bar li:hover,
+body.dark .command-bar li.active {
+  background: rgba(201, 76, 29, 0.22);
+}
+
+body.dark .modal {
+  background: rgba(6, 8, 12, 0.7);
+}
+
+body.dark .login-card {
+  background: rgba(21, 24, 28, 0.85);
+  border-color: rgba(230, 164, 48, 0.25);
+}
+
+body.dark .login-card input {
+  border-color: rgba(230, 164, 48, 0.28);
+  background: rgba(12, 16, 20, 0.65);
+}
