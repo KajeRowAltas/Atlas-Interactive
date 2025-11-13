@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Settings · Oji Atlas Interface</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/dark.css" />
+  <link rel="icon" type="image/png" href="assets/Atlas_Logo.png" />
+  <script defer type="module" src="js/app.js"></script>
+  <script defer type="module" src="js/commands.js"></script>
+  <script defer type="module" src="js/settings.js"></script>
+</head>
+<body>
+  <div class="layout">
+    <aside id="sidebar" class="sidebar" data-include="components/sidebar.html"></aside>
+    <main>
+      <header id="header" class="header">
+        <h2>Settings</h2>
+        <div class="status">
+          <span class="badge">Studio Mode</span>
+          <span>Fine tune surreal operations</span>
+        </div>
+      </header>
+      <section class="dashboard-grid">
+        <article class="card">
+          <h3>Palette Warmth Ratio</h3>
+          <p>Control the warm-to-cool balance for the entire interface.</p>
+          <label>
+            70/30 Balance
+            <input type="range" id="palette-balance" min="50" max="90" value="70" />
+          </label>
+        </article>
+        <article class="card">
+          <h3>Notification Tone</h3>
+          <p>Choose the bell resonance for new Atlas updates.</p>
+          <select id="notification-tone">
+            <option value="aurora">Aurora Spiral</option>
+            <option value="desert">Desert Mirage</option>
+            <option value="tidal">Tidal Resonance</option>
+          </select>
+        </article>
+        <article class="card">
+          <h3>Memory Sync</h3>
+          <p>Toggle the memory systems that Oji should use during sessions.</p>
+          <label><input type="checkbox" checked data-setting="short-term" /> Session Anchors</label>
+          <label><input type="checkbox" checked data-setting="long-term" /> Long Horizon Projects</label>
+          <label><input type="checkbox" data-setting="dream" /> Dream Notes (coming soon)</label>
+        </article>
+        <article class="card">
+          <h3>Command Bar Shortcut</h3>
+          <p>Adjust how you open the command palette. Default is “/”.</p>
+          <input type="text" id="command-shortcut" value="/" maxlength="1" />
+        </article>
+      </section>
+    </main>
+  </div>
+  <div id="command-bar" class="command-bar" data-include="components/command-bar.html"></div>
+  <div id="memory-viewer" class="modal" data-include="components/memory-viewer.html"></div>
+  <div id="chat-history" class="modal" data-include="components/chat-history.html"></div>
+</body>
+</html>

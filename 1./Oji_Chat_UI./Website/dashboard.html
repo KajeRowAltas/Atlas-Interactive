@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard · Oji Atlas Interface</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/dark.css" />
+  <link rel="icon" type="image/png" href="assets/Atlas_Logo.png" />
+  <script defer type="module" src="js/app.js"></script>
+  <script defer type="module" src="js/commands.js"></script>
+  <script defer type="module" src="js/dashboard.js"></script>
+</head>
+<body>
+  <div class="layout">
+    <aside id="sidebar" class="sidebar" data-include="components/sidebar.html"></aside>
+    <main>
+      <header id="header" class="header">
+        <h2>Atlas Status Dashboard</h2>
+        <div class="status">
+          <span class="badge">Live</span>
+          <span>Monitoring surreal workflows</span>
+        </div>
+      </header>
+      <section class="dashboard-grid">
+        <article class="card">
+          <h3>Conversation Velocity</h3>
+          <p>Track how quickly Kaje cycles through Atlas projects and tasks. Ideal cadence is 7.3 exchanges per hour.</p>
+          <footer>
+            <button data-action="view-velocity">Open Insight</button>
+          </footer>
+        </article>
+        <article class="card">
+          <h3>Context Memory</h3>
+          <p>Review memory fragments that Oji is storing for upcoming sessions. Includes anchors, to-dos, and surreal cues.</p>
+          <footer>
+            <button data-action="open-memory">Review Memory</button>
+          </footer>
+        </article>
+        <article class="card">
+          <h3>Integration Health</h3>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Service</th>
+                <th>Status</th>
+                <th>Latency</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>n8n Webhook</td>
+                <td><span class="badge">Operational</span></td>
+                <td>320ms</td>
+              </tr>
+              <tr>
+                <td>Trello TODO Sync</td>
+                <td>Planned</td>
+                <td>—</td>
+              </tr>
+              <tr>
+                <td>Memory Graph DB</td>
+                <td>Planned</td>
+                <td>—</td>
+              </tr>
+            </tbody>
+          </table>
+        </article>
+        <article class="card">
+          <h3>Warmth Balance</h3>
+          <p>Ensure the 70/30 warm-to-cool palette ratio feels right. Use the slider in settings to adjust ambient gradients.</p>
+          <footer>
+            <button data-action="adjust-palette">Adjust Palette</button>
+          </footer>
+        </article>
+      </section>
+    </main>
+  </div>
+  <div id="command-bar" class="command-bar" data-include="components/command-bar.html"></div>
+  <div id="memory-viewer" class="modal" data-include="components/memory-viewer.html"></div>
+  <div id="chat-history" class="modal" data-include="components/chat-history.html"></div>
+</body>
+</html>
