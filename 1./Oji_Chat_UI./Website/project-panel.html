@@ -17,41 +17,54 @@
 <body>
   <div class="layout">
     <aside id="sidebar" class="sidebar" data-include="components/sidebar.html"></aside>
-    <main>
-      <header id="header" class="header">
-        <h2>Project Horizons</h2>
-        <div class="status">
-          <span class="badge">Draft UI</span>
-          <span>Atlas–Oji project orchestration</span>
+    <main class="page-shell">
+      <header class="page-header">
+        <div class="header-inner">
+          <div class="header-visual" aria-hidden="true">
+            <div class="sun"></div>
+            <div class="hills"></div>
+          </div>
+          <div class="header-content">
+            <span class="header-eyebrow">Project Horizons</span>
+            <h1>Atlas Project Panel</h1>
+            <p class="header-subtitle">Draft, orchestrate, and align upcoming Atlas initiatives with geometric clarity.</p>
+            <div class="header-status">
+              <span class="status-pill">Draft UI</span>
+              <span>Atlas–Oji project orchestration</span>
+            </div>
+          </div>
+          <div class="header-avatar">
+            <img src="assets/Atlas_Logo.png" alt="Atlas emblem" />
+          </div>
         </div>
       </header>
-      <section class="project-grid">
+      <section class="page-body project-grid">
         <article class="card">
           <h3>Launch Ritual</h3>
           <p>Prepare a surreal kickoff package for upcoming Atlas campaigns.</p>
           <footer>
-            <button data-project="launch">Draft Playbook</button>
+            <button class="btn-trapezoid" data-project="launch">Draft Playbook</button>
           </footer>
         </article>
         <article class="card">
           <h3>Knowledge Harvest</h3>
           <p>Capture research strands gathered from explorations and infuse them into Oji's memory.</p>
           <footer>
-            <button data-project="harvest">Map Threads</button>
+            <button class="btn-trapezoid" data-project="harvest">Map Threads</button>
           </footer>
         </article>
         <article class="card">
           <h3>Client Portal</h3>
           <p>Design the integrated portal for Atlas collaborators. Include command macros and generative docs.</p>
           <footer>
-            <button data-project="portal">Open Canvas</button>
+            <button class="btn-trapezoid" data-project="portal">Open Canvas</button>
           </footer>
         </article>
         <article class="card">
           <h3>Analytics Observatory</h3>
           <p>Future module: build metrics around emotional resonance and task completion.</p>
           <footer>
-            <button data-project="observatory">Add Blueprint</button>
+            <button class="btn-trapezoid" data-project="observatory">Add Blueprint</button>
           </footer>
         </article>
       </section>

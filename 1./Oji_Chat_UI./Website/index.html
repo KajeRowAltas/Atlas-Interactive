@@ -15,12 +15,13 @@
   <script defer type="module" src="js/chat.js"></script>
 </head>
 <body>
-  <div class="layout">
+  <div class="layout layout--context">
     <aside id="sidebar" class="sidebar" data-include="components/sidebar.html"></aside>
-    <main>
-      <header id="header" class="header" data-include="components/header.html"></header>
-      <section class="chat-shell">
+    <main class="page-shell chat-page">
+      <header id="header" class="page-header" data-include="components/header.html"></header>
+      <section class="chat-canvas">
         <div id="quick-actions" class="quick-actions" data-include="components/quick-actions.html"></div>
+        <div class="wave-divider"></div>
         <div id="chat-window" class="chat-window">
           <article class="message ai">
             <div class="avatar">
@@ -28,7 +29,7 @@
             </div>
             <div class="content">
               <div class="meta">
-                <span class="badge">Welcome</span>
+                <span class="status-pill">Oji</span>
                 <time>Today</time>
               </div>
               <p>Hey Kaje, good you are back. What are we working on today?</p>
@@ -38,6 +39,13 @@
         <div id="composer" class="composer" data-include="components/message-bubble.html"></div>
       </section>
     </main>
+    <aside class="context-panel">
+      <div class="context-shell">
+        <h3>Context Vault</h3>
+        <p>Future-facing prompts, memory anchors, and project notes will rise here as Oji learns what you need next.</p>
+        <div class="placeholder">Reserve this monolith for behaviour briefs, surreal directives, and project strata.</div>
+      </div>
+    </aside>
   </div>
   <div id="command-bar" class="command-bar" data-include="components/command-bar.html"></div>
   <div id="memory-viewer" class="modal" data-include="components/memory-viewer.html"></div>
