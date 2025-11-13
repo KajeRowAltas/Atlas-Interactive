@@ -20,6 +20,5 @@ jobs:
         password: ${{ secrets.FTP_PASSWORD }}  # Your password
         local-dir: 1./Oji_Chat_UI./Website/  # <-- CHANGE: Upload ONLY from /Website folder
         server-dir: ${{ secrets.FTP_REMOTE_DIR }}  # /public_html (overwrites site's root)
-        exclude: |  # Skip any Git files inside Website if needed
-          .git*
+      
           README.md
