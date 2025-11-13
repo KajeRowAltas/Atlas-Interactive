@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project Panel · Oji Atlas Interface</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/dark.css" />
+  <link rel="icon" type="image/png" href="assets/Atlas_Logo.png" />
+  <script defer type="module" src="js/app.js"></script>
+  <script defer type="module" src="js/commands.js"></script>
+  <script defer type="module" src="js/project.js"></script>
+</head>
+<body>
+  <div class="layout">
+    <aside id="sidebar" class="sidebar" data-include="components/sidebar.html"></aside>
+    <main class="page-shell">
+      <header class="page-header">
+        <div class="header-inner">
+          <div class="header-visual" aria-hidden="true">
+            <div class="sun"></div>
+            <div class="hills"></div>
+          </div>
+          <div class="header-content">
+            <span class="header-eyebrow">Project Horizons</span>
+            <h1>Atlas Project Panel</h1>
+            <p class="header-subtitle">Draft, orchestrate, and align upcoming Atlas initiatives with geometric clarity.</p>
+            <div class="header-status">
+              <span class="status-pill">Draft UI</span>
+              <span>Atlas–Oji project orchestration</span>
+            </div>
+          </div>
+          <div class="header-avatar">
+            <img src="assets/Atlas_Logo.png" alt="Atlas emblem" />
+          </div>
+        </div>
+      </header>
+      <section class="page-body project-grid">
+        <article class="card">
+          <h3>Launch Ritual</h3>
+          <p>Prepare a surreal kickoff package for upcoming Atlas campaigns.</p>
+          <footer>
+            <button class="btn-trapezoid" data-project="launch">Draft Playbook</button>
+          </footer>
+        </article>
+        <article class="card">
+          <h3>Knowledge Harvest</h3>
+          <p>Capture research strands gathered from explorations and infuse them into Oji's memory.</p>
+          <footer>
+            <button class="btn-trapezoid" data-project="harvest">Map Threads</button>
+          </footer>
+        </article>
+        <article class="card">
+          <h3>Client Portal</h3>
+          <p>Design the integrated portal for Atlas collaborators. Include command macros and generative docs.</p>
+          <footer>
+            <button class="btn-trapezoid" data-project="portal">Open Canvas</button>
+          </footer>
+        </article>
+        <article class="card">
+          <h3>Analytics Observatory</h3>
+          <p>Future module: build metrics around emotional resonance and task completion.</p>
+          <footer>
+            <button class="btn-trapezoid" data-project="observatory">Add Blueprint</button>
+          </footer>
+        </article>
+      </section>
+    </main>
+  </div>
+  <div id="command-bar" class="command-bar" data-include="components/command-bar.html"></div>
+  <div id="memory-viewer" class="modal" data-include="components/memory-viewer.html"></div>
+  <div id="chat-history" class="modal" data-include="components/chat-history.html"></div>
+</body>
+</html>
