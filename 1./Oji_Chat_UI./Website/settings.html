@@ -20,10 +20,7 @@
     <main class="page-shell">
       <header class="page-header">
         <div class="header-inner">
-          <div class="header-visual" aria-hidden="true">
-            <div class="sun"></div>
-            <div class="hills"></div>
-          </div>
+          <div class="header-visual" aria-hidden="true"></div>
           <div class="header-content">
             <span class="header-eyebrow">Studio Controls</span>
             <h1>Settings</h1>
@@ -50,11 +47,14 @@
         <article class="card">
           <h3>Notification Tone</h3>
           <p>Choose the bell resonance for new Atlas updates.</p>
-          <select id="notification-tone">
-            <option value="aurora">Aurora Spiral</option>
-            <option value="desert">Desert Mirage</option>
-            <option value="tidal">Tidal Resonance</option>
-          </select>
+          <label>
+            Select tone
+            <select id="notification-tone">
+              <option value="aurora">Aurora Spiral</option>
+              <option value="desert">Desert Mirage</option>
+              <option value="tidal">Tidal Resonance</option>
+            </select>
+          </label>
         </article>
         <article class="card">
           <h3>Memory Sync</h3>
@@ -66,7 +66,10 @@
         <article class="card">
           <h3>Command Bar Shortcut</h3>
           <p>Adjust how you open the command palette. Default is “/”.</p>
-          <input type="text" id="command-shortcut" value="/" maxlength="1" />
+          <label>
+            Shortcut key
+            <input type="text" id="command-shortcut" value="/" maxlength="1" />
+          </label>
         </article>
       </section>
     </main>
