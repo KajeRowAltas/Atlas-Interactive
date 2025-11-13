@@ -1,332 +1,105 @@
 body.dark {
-  background: #131818;
-  background-image: radial-gradient(circle at 18% 18%, rgba(201, 76, 29, 0.28), transparent 60%),
-    radial-gradient(circle at 80% 12%, rgba(230, 164, 48, 0.18), transparent 60%),
-    linear-gradient(135deg, rgba(8, 36, 34, 0.82), rgba(10, 16, 18, 0.88));
-  color: #f9f4e7;
+  background: radial-gradient(circle at 18% 22%, rgba(201, 76, 29, 0.35), rgba(31, 31, 35, 0.8)),
+    linear-gradient(120deg, rgba(17, 34, 36, 0.92), rgba(31, 31, 35, 0.88));
+  color: #f7efe4;
 }
 
 body.dark::before {
-  opacity: 0.28;
-  background-image: radial-gradient(rgba(249, 244, 231, 0.12) 1px, transparent 1px),
-    linear-gradient(145deg, rgba(201, 76, 29, 0.15), rgba(249, 244, 231, 0.04));
-  mix-blend-mode: screen;
-}
-
-body.dark h1,
-body.dark h2,
-body.dark h3,
-body.dark h4,
-body.dark h5,
-body.dark h6 {
-  color: #fdd6a6;
-}
-
-body.dark .layout {
-  color: #f9f4e7;
+  opacity: 0.08;
 }
 
 body.dark .sidebar {
-  background: linear-gradient(164deg, rgba(73, 24, 18, 0.95), rgba(31, 95, 91, 0.9));
-  color: #fcefdc;
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
-}
-
-body.dark .sidebar::before {
-  background: radial-gradient(circle, rgba(230, 164, 48, 0.45), transparent 70%);
-}
-
-body.dark .sidebar::after {
-  background: radial-gradient(circle, rgba(31, 95, 91, 0.6), transparent 70%);
-}
-
-body.dark .brand-name {
-  color: #fdd6a6;
-}
-
-body.dark .brand-subtitle {
-  color: rgba(249, 244, 231, 0.7);
+  background: linear-gradient(180deg, rgba(31, 95, 91, 0.88), rgba(158, 43, 30, 0.92));
+  color: #f7efe4;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
 }
 
 body.dark .nav-links a {
-  background: rgba(249, 244, 231, 0.06);
-  color: rgba(249, 244, 231, 0.82);
+  background: rgba(247, 240, 227, 0.06);
+  border-color: rgba(247, 240, 227, 0.1);
 }
 
 body.dark .nav-links a:hover,
 body.dark .nav-links a.active {
-  color: #131818;
-}
-
-body.dark .nav-links a.active {
-  background: rgba(230, 164, 48, 0.92);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.16);
-}
-
-body.dark .nav-links a:hover {
-  background: rgba(230, 164, 48, 0.28);
-}
-
-body.dark .nav-links a::before {
-  background: transparent;
-}
-
-body.dark .nav-links a:hover::before {
-  background: rgba(249, 244, 231, 0.6);
-}
-
-body.dark .nav-links a.active::before {
-  background: rgba(249, 244, 231, 0.9);
+  background: rgba(247, 240, 227, 0.26);
+  color: #1f252a;
 }
 
 body.dark .toggle-wrapper,
-body.dark .toggle-switch {
-  background: rgba(249, 244, 231, 0.14);
+body.dark .card,
+body.dark .composer,
+body.dark .command-bar,
+body.dark .modal .modal-content,
+body.dark .message {
+  background: rgba(28, 33, 36, 0.86);
+  border-color: rgba(230, 164, 48, 0.28);
+  color: #f7efe4;
 }
 
-body.dark .toggle-switch::after {
-  background: #f9f4e7;
+body.dark .message.user {
+  background: rgba(201, 76, 29, 0.16);
 }
 
-body.dark .toggle-switch.active {
-  background: rgba(230, 164, 48, 0.6);
+body.dark .message .content .meta,
+body.dark .header .status,
+body.dark .table td,
+body.dark .table th {
+  color: rgba(230, 228, 224, 0.76);
 }
 
-body.dark .toggle-switch.active::after {
-  background: #131818;
-}
-
-body.dark .icon-button {
-  background: rgba(230, 164, 48, 0.18);
-  color: #f9f4e7;
-}
-
-body.dark .icon-button:hover {
-  background: rgba(230, 164, 48, 0.3);
-}
-
-body.dark .main-content {
-  color: #f9f4e7;
-}
-
-body.dark .chat-hero {
-  background: rgba(20, 28, 31, 0.85);
-  border-color: rgba(249, 244, 231, 0.1);
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
-}
-
-body.dark .chat-hero::after {
-  background: radial-gradient(circle, rgba(230, 164, 48, 0.32), transparent 70%);
-}
-
-body.dark .chat-hero h2 {
-  color: rgba(249, 244, 231, 0.85);
-}
-
-body.dark .hero-status {
-  color: rgba(249, 244, 231, 0.6);
-}
-
-body.dark .badge {
-  background: rgba(230, 164, 48, 0.2);
-  color: rgba(249, 244, 231, 0.85);
-}
-
-body.dark .hero-avatar {
-  background: linear-gradient(135deg, rgba(230, 164, 48, 0.65), rgba(31, 95, 91, 0.75));
-  border-color: rgba(249, 244, 231, 0.2);
-}
-
-body.dark .chat-panel {
-  background: rgba(20, 26, 28, 0.85);
-  border-color: rgba(249, 244, 231, 0.08);
-  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.45);
-}
-
-body.dark .header,
-body.dark .page-header {
-  background: rgba(10, 16, 18, 0.82);
-  border-bottom-color: rgba(230, 164, 48, 0.15);
-}
-
-body.dark .quick-actions {
-  background: rgba(20, 28, 31, 0.78);
-  border-bottom-color: rgba(249, 244, 231, 0.08);
-}
-
-body.dark .quick-actions button {
-  background: rgba(230, 164, 48, 0.15);
-  color: rgba(249, 244, 231, 0.88);
-  border-color: rgba(230, 164, 48, 0.35);
-}
-
-body.dark .quick-actions button:hover {
-  background: rgba(230, 164, 48, 0.42);
-  color: #131818;
-}
-
-body.dark .chat-window {
-  color: #f9f4e7;
-}
-
-body.dark .message .content {
-  background: rgba(16, 22, 23, 0.9);
-  border-color: rgba(230, 164, 48, 0.18);
-  color: rgba(249, 244, 231, 0.92);
-  box-shadow: 0 18px 28px rgba(0, 0, 0, 0.55);
-}
-
-body.dark .message.ai .content {
-  background: rgba(21, 30, 32, 0.88);
-  border-color: rgba(31, 95, 91, 0.5);
-  color: rgba(230, 164, 48, 0.92);
-}
-
-body.dark .message .meta {
-  color: rgba(230, 164, 48, 0.65);
-}
-
-body.dark .message .meta .badge {
-  background: rgba(230, 164, 48, 0.16);
-  color: inherit;
-}
-
-body.dark .message.user .content {
-  background: rgba(201, 76, 29, 0.88);
-  border-color: rgba(255, 255, 255, 0.12);
-  color: #fff3e4;
-}
-
-body.dark .composer {
-  background: rgba(18, 24, 26, 0.9);
-  border-top-color: rgba(249, 244, 231, 0.08);
-}
-
-body.dark #chat-form {
-  background: rgba(10, 16, 18, 0.9);
+body.dark .card input,
+body.dark .card select,
+body.dark .card textarea {
+  background: rgba(20, 24, 28, 0.8);
   border-color: rgba(230, 164, 48, 0.25);
-  box-shadow: 0 18px 34px rgba(0, 0, 0, 0.45);
+  color: #f7efe4;
 }
 
-body.dark #message-input {
-  color: rgba(249, 244, 231, 0.92);
+body.dark .header {
+  background: rgba(28, 33, 36, 0.86);
+  border-color: rgba(230, 164, 48, 0.26);
 }
 
-body.dark #message-input::placeholder {
-  color: rgba(249, 244, 231, 0.36);
+body.dark .chat-shell {
+  background: rgba(12, 16, 20, 0.75);
 }
 
-body.dark #chat-form .icon-button {
-  background: rgba(230, 164, 48, 0.25);
-  color: #131818;
+body.dark .composer input[type="text"] {
+  background: rgba(12, 16, 20, 0.7);
+  border-color: rgba(230, 164, 48, 0.25);
+  color: #f7efe4;
 }
 
-body.dark #chat-form .send-button {
-  background: linear-gradient(135deg, rgba(201, 76, 29, 0.92), rgba(230, 164, 48, 0.85));
-  color: #131818;
-  box-shadow: 0 12px 28px rgba(201, 76, 29, 0.35);
+body.dark .icon-button,
+body.dark .quick-actions button {
+  background: rgba(230, 164, 48, 0.16);
+  color: #f8f1e6;
 }
 
-body.dark #chat-form .icon-button:hover {
-  background: rgba(249, 244, 231, 0.8);
-  color: #131818;
+body.dark .icon-button:hover,
+body.dark .quick-actions button:hover {
+  background: rgba(201, 76, 29, 0.3);
 }
 
-body.dark #chat-form .send-button:hover {
-  background: rgba(249, 244, 231, 0.92);
-}
-
-body.dark .composer small {
-  color: rgba(249, 244, 231, 0.55);
-}
-
-body.dark .context-panel {
-  background: linear-gradient(180deg, rgba(8, 36, 34, 0.75), rgba(17, 24, 24, 0.92));
-  border-left-color: rgba(249, 244, 231, 0.1);
-}
-
-body.dark .context-panel .context-shell {
-  background: rgba(10, 16, 18, 0.9);
-  border-color: rgba(249, 244, 231, 0.08);
-  color: rgba(249, 244, 231, 0.9);
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
-}
-
-body.dark .context-panel .context-shell h3 {
-  color: rgba(230, 164, 48, 0.85);
-}
-
-body.dark .context-panel .context-shell p {
-  color: rgba(249, 244, 231, 0.65);
-}
-
-body.dark .context-panel .context-shell .placeholder {
-  background: linear-gradient(135deg, rgba(230, 164, 48, 0.22), rgba(31, 95, 91, 0.2));
-  border-color: rgba(230, 164, 48, 0.32);
-  color: rgba(249, 244, 231, 0.72);
-}
-
-body.dark .command-bar {
-  background: rgba(10, 16, 18, 0.92);
-  border-color: rgba(230, 164, 48, 0.22);
-}
-
-body.dark .command-bar input {
-  color: rgba(249, 244, 231, 0.92);
-}
-
-body.dark .modal .modal-content {
-  background: rgba(16, 22, 24, 0.96);
+body.dark .command-bar header {
   border-color: rgba(230, 164, 48, 0.24);
-  color: rgba(249, 244, 231, 0.9);
 }
 
-body.dark .card {
-  background: rgba(10, 16, 18, 0.92);
-  border-color: rgba(230, 164, 48, 0.14);
-  color: rgba(249, 244, 231, 0.85);
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
+body.dark .command-bar li:hover,
+body.dark .command-bar li.active {
+  background: rgba(201, 76, 29, 0.22);
 }
 
-body.dark .card button {
-  background: linear-gradient(135deg, rgba(201, 76, 29, 0.9), rgba(230, 164, 48, 0.95));
-  color: #131818;
-}
-
-body.dark .table th,
-body.dark .table td {
-  border-bottom-color: rgba(249, 244, 231, 0.08);
-}
-
-body.dark .status-grid .status-card {
-  background: rgba(16, 22, 24, 0.92);
-  border-color: rgba(230, 164, 48, 0.12);
-}
-
-body.dark .settings-form input,
-body.dark .settings-form select {
-  background: rgba(16, 22, 24, 0.92);
-  border-color: rgba(230, 164, 48, 0.2);
-  color: rgba(249, 244, 231, 0.85);
-}
-
-body.dark .settings-form button {
-  color: #131818;
+body.dark .modal {
+  background: rgba(6, 8, 12, 0.7);
 }
 
 body.dark .login-card {
-  background: rgba(16, 22, 24, 0.92);
-  border-color: rgba(230, 164, 48, 0.18);
-  color: rgba(249, 244, 231, 0.88);
+  background: rgba(21, 24, 28, 0.85);
+  border-color: rgba(230, 164, 48, 0.25);
 }
 
 body.dark .login-card input {
-  background: rgba(10, 16, 18, 0.9);
-  border-color: rgba(230, 164, 48, 0.18);
-  color: rgba(249, 244, 231, 0.85);
-}
-
-body.dark .login-card button {
-  background: linear-gradient(135deg, rgba(201, 76, 29, 0.9), rgba(230, 164, 48, 0.88));
-  color: #131818;
+  border-color: rgba(230, 164, 48, 0.28);
+  background: rgba(12, 16, 20, 0.65);
 }

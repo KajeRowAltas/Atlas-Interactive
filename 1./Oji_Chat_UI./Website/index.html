@@ -15,25 +15,11 @@
   <script defer type="module" src="js/chat.js"></script>
 </head>
 <body>
-  <div class="layout layout--context">
+  <div class="layout">
     <aside id="sidebar" class="sidebar" data-include="components/sidebar.html"></aside>
-    <main class="main-content">
-      <section class="chat-hero">
-        <div class="hero-copy">
-          <span class="hero-eyebrow">Atlas Session</span>
-          <h1>Welcome Today</h1>
-          <h2>Hey Kaje, good you are back. What are we working on today?</h2>
-          <div class="hero-status">
-            <span class="badge">Online</span>
-            <span>Oji is grabbing some binary coffee…</span>
-          </div>
-        </div>
-        <div class="hero-avatar">
-          <img src="assets/Atlas_Logo.png" alt="Oji avatar" />
-        </div>
-      </section>
-      <section class="chat-panel">
-        <header id="header" class="header" data-include="components/header.html"></header>
+    <main>
+      <header id="header" class="header" data-include="components/header.html"></header>
+      <section class="chat-shell">
         <div id="quick-actions" class="quick-actions" data-include="components/quick-actions.html"></div>
         <div id="chat-window" class="chat-window">
           <article class="message ai">
@@ -42,7 +28,7 @@
             </div>
             <div class="content">
               <div class="meta">
-                <span class="badge">Oji</span>
+                <span class="badge">Welcome</span>
                 <time>Today</time>
               </div>
               <p>Hey Kaje, good you are back. What are we working on today?</p>
@@ -52,13 +38,6 @@
         <div id="composer" class="composer" data-include="components/message-bubble.html"></div>
       </section>
     </main>
-    <aside class="context-panel">
-      <div class="context-shell">
-        <h3>Context Vault</h3>
-        <p>Reserve this panel for project cues, behavioural notes, and memory threads that Oji can surface while you work.</p>
-        <div class="placeholder">Future integrations will live here — project briefs, surreal directives, and timeline anchors.</div>
-      </div>
-    </aside>
   </div>
   <div id="command-bar" class="command-bar" data-include="components/command-bar.html"></div>
   <div id="memory-viewer" class="modal" data-include="components/memory-viewer.html"></div>
