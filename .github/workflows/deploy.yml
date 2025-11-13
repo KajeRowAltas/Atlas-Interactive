@@ -1,24 +1,18 @@
 name: Deploy Website to Hostinger
-
 on:
   push:
-    branches: [ main ]  # Triggers on push to main
-
+    branches: [ main ] # Triggers on push to main
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
-
     - name: Deploy Website Folder to Hostinger FTP
       uses: SamKirkland/FTP-Deploy-Action@v4.3.5
       with:
-        server: ${{ secrets.FTP_SERVER }}  # ftp.atlas-interactive.com
-        username: ${{ secrets.FTP_USERNAME }}  # u685607740.OjiEdit
-        password: ${{ secrets.FTP_PASSWORD }}  # Your password
-        local-dir: 1./Oji_Chat_UI./Website/  # <-- CHANGE: Upload ONLY from /Website folder
-        server-dir: ${{ secrets.FTP_REMOTE_DIR }}  # /public_html (overwrites site's root)
-      
-          README.md
+        server: ${{ secrets.FTP_SERVER }} # ftp.atlas-interactive.com
+        username: ${{ secrets.FTP_USERNAME }} # u685607740.OjiEdit
+        password: ${{ secrets.FTP_PASSWORD }} # Your password
+        local-dir: 1./Oji_Chat_UI./Website/ # <-- CHANGE: Upload ONLY from /Website folder
+        server-dir: ${{ secrets.FTP_REMOTE_DIR }} # /public_html (overwrites site's root)
