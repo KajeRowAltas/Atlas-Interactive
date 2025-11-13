@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Oji – Atlas Interactive Chat</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/dark.css" />
+  <link rel="icon" type="image/png" href="assets/Atlas_Logo.png" />
+  <script defer type="module" src="js/app.js"></script>
+  <script defer type="module" src="js/commands.js"></script>
+  <script defer type="module" src="js/chat.js"></script>
+</head>
+<body>
+  <div class="layout layout--context">
+    <aside id="sidebar" class="sidebar" data-include="components/sidebar.html"></aside>
+    <main class="main-content">
+      <section class="chat-hero">
+        <div class="hero-copy">
+          <span class="hero-eyebrow">Atlas Session</span>
+          <h1>Welcome Today</h1>
+          <h2>Hey Kaje, good you are back. What are we working on today?</h2>
+          <div class="hero-status">
+            <span class="badge">Online</span>
+            <span>Oji is grabbing some binary coffee…</span>
+          </div>
+        </div>
+        <div class="hero-avatar">
+          <img src="assets/Atlas_Logo.png" alt="Oji avatar" />
+        </div>
+      </section>
+      <section class="chat-panel">
+        <header id="header" class="header" data-include="components/header.html"></header>
+        <div id="quick-actions" class="quick-actions" data-include="components/quick-actions.html"></div>
+        <div id="chat-window" class="chat-window">
+          <article class="message ai">
+            <div class="avatar">
+              <img src="assets/Atlas_Logo.png" alt="Oji avatar" />
+            </div>
+            <div class="content">
+              <div class="meta">
+                <span class="badge">Oji</span>
+                <time>Today</time>
+              </div>
+              <p>Hey Kaje, good you are back. What are we working on today?</p>
+            </div>
+          </article>
+        </div>
+        <div id="composer" class="composer" data-include="components/message-bubble.html"></div>
+      </section>
+    </main>
+    <aside class="context-panel">
+      <div class="context-shell">
+        <h3>Context Vault</h3>
+        <p>Reserve this panel for project cues, behavioural notes, and memory threads that Oji can surface while you work.</p>
+        <div class="placeholder">Future integrations will live here — project briefs, surreal directives, and timeline anchors.</div>
+      </div>
+    </aside>
+  </div>
+  <div id="command-bar" class="command-bar" data-include="components/command-bar.html"></div>
+  <div id="memory-viewer" class="modal" data-include="components/memory-viewer.html"></div>
+  <div id="chat-history" class="modal" data-include="components/chat-history.html"></div>
+</body>
+</html>
