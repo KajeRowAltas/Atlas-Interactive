@@ -87,9 +87,49 @@ body.dark .icon-button:hover {
   background: rgba(200, 73, 40, 0.4);
 }
 
+body.dark .noscript-banner {
+  background: rgba(200, 73, 40, 0.85);
+  color: var(--color-ivory);
+}
+
 body.dark .page-header {
   background: rgba(10, 44, 43, 0.85);
   box-shadow: inset 0 -var(--space-2) var(--space-5) rgba(200, 73, 40, 0.16);
+}
+
+body.dark .top-nav {
+  background: rgba(10, 44, 43, 0.85);
+  box-shadow: var(--shadow-warm);
+}
+
+body.dark .top-nav__brand {
+  color: rgba(246, 230, 201, 0.9);
+}
+
+body.dark .top-nav__brand img {
+  background: rgba(246, 230, 201, 0.16);
+  box-shadow: inset 0 0 0 1px rgba(246, 230, 201, 0.24);
+}
+
+body.dark .top-nav__links a {
+  color: rgba(246, 230, 201, 0.75);
+}
+
+body.dark .top-nav__links a:hover,
+body.dark .top-nav__links a:focus {
+  color: var(--color-gold);
+}
+
+body.dark .top-nav__cta {
+  background: var(--color-gold);
+  color: var(--color-midnight);
+  box-shadow: 0 16px 32px rgba(218, 155, 50, 0.35);
+}
+
+body.dark .top-nav__cta:hover,
+body.dark .top-nav__cta:focus {
+  background: rgba(200, 73, 40, 0.85);
+  color: var(--color-ivory);
 }
 
 body.dark .page-header::before {
@@ -181,6 +221,28 @@ body.dark #chat-form .icon-button:hover {
 
 body.dark .composer small {
   color: rgba(246, 230, 201, 0.6);
+}
+
+body.dark .site-footer {
+  background: rgba(10, 44, 43, 0.82);
+  border-top-color: rgba(218, 155, 50, 0.24);
+}
+
+body.dark .footer-meta {
+  color: rgba(246, 230, 201, 0.7);
+}
+
+body.dark .site-footer .divider {
+  color: rgba(246, 230, 201, 0.3);
+}
+
+body.dark .footer-links a {
+  color: rgba(218, 155, 50, 0.7);
+}
+
+body.dark .footer-links a:hover,
+body.dark .footer-links a:focus {
+  color: var(--color-gold);
 }
 
 body.dark .context-panel {
