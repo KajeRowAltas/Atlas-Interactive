@@ -1,11 +1,14 @@
 <form id="chat-form">
+  <label class="sr-only" for="message-input">Message Oji</label>
   <input type="text" id="message-input" placeholder="Add data here to get to work" autocomplete="off" />
   <label class="icon-button upload-button" for="file-input" title="Upload file">
     <span class="icon" data-heroicon="paper-clip"></span>
+    <span class="sr-only">Attach a file</span>
   </label>
   <input type="file" id="file-input" class="hidden" multiple />
   <button type="submit" class="icon-button send-button" title="Send message">
     <span class="icon" data-heroicon="paper-airplane"></span>
+    <span class="sr-only">Send message</span>
   </button>
 </form>
 <small>Files remain local until sent · surreal encryption pending.</small>

@@ -15,12 +15,113 @@
   <script defer type="module" src="js/chat.js"></script>
 </head>
 <body>
+  <noscript>
+    <div class="noscript-banner">
+      Atlas Interactive works best with JavaScript enabled. Enable scripts to unlock the full chat experience.
+    </div>
+  </noscript>
   <div class="layout layout--context">
-    <aside id="sidebar" class="sidebar" data-include="components/sidebar.html"></aside>
+    <aside id="sidebar" class="sidebar" data-include="components/sidebar.html">
+      <div class="sidebar-brand">
+        <img src="assets/Atlas_Logo.png" alt="Atlas logo" />
+        <div class="brand-meta">
+          <span class="brand-name">Oji</span>
+          <span class="brand-subtitle">Atlas Interactive</span>
+        </div>
+      </div>
+      <div class="sidebar-divider" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <nav class="nav-links" aria-label="Sidebar">
+        <a href="index.html" data-nav="chat">
+          <span class="icon" data-heroicon="chat-bubble-left"></span>
+          <span class="nav-label">Chat</span>
+          <span class="nav-arrow">➤</span>
+        </a>
+        <a href="dashboard.html" data-nav="dashboard">
+          <span class="icon" data-heroicon="chart-bar"></span>
+          <span class="nav-label">Dashboard</span>
+          <span class="nav-arrow">➤</span>
+        </a>
+        <a href="project-panel.html" data-nav="projects">
+          <span class="icon" data-heroicon="squares-2x2"></span>
+          <span class="nav-label">Project Panel</span>
+          <span class="nav-arrow">➤</span>
+        </a>
+        <a href="settings.html" data-nav="settings">
+          <span class="icon" data-heroicon="adjustments-horizontal"></span>
+          <span class="nav-label">Settings</span>
+          <span class="nav-arrow">➤</span>
+        </a>
+        <a href="admin.html" data-nav="admin">
+          <span class="icon" data-heroicon="shield-check"></span>
+          <span class="nav-label">Admin</span>
+          <span class="nav-arrow">➤</span>
+        </a>
+      </nav>
+      <div class="sidebar-divider" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="actions">
+        <div class="toggle-wrapper">
+          <span>Dark Mode</span>
+          <div id="dark-toggle" class="toggle-switch" role="switch" tabindex="0" aria-checked="false"></div>
+        </div>
+        <div class="action-buttons">
+          <button class="icon-button" id="open-history" title="Chat History">
+            <span class="icon" data-heroicon="clock"></span>
+          </button>
+          <button class="icon-button" id="open-memory" title="Memory Viewer" data-action="open-memory">
+            <span class="icon" data-heroicon="brain"></span>
+          </button>
+        </div>
+      </div>
+    </aside>
     <main class="page-shell chat-page">
-      <header id="header" class="page-header" data-include="components/header.html"></header>
+      <header id="header" class="page-header" data-include="components/header.html">
+        <nav class="top-nav" aria-label="Primary">
+          <a class="top-nav__brand" href="index.html">
+            <img src="assets/Atlas_Logo.png" alt="Atlas Interactive home" />
+            <span class="top-nav__brand-text">Atlas Interactive</span>
+          </a>
+          <ul class="top-nav__links">
+            <li><a href="dashboard.html">Features</a></li>
+            <li><a href="project-panel.html">Projects</a></li>
+            <li><a href="settings.html">Workspace</a></li>
+            <li><a href="admin.html">Admin</a></li>
+          </ul>
+          <a class="top-nav__cta" href="login.html">Sign in</a>
+        </nav>
+        <div class="header-inner">
+          <div class="header-visual" aria-hidden="true">
+            <div class="sun"></div>
+            <div class="hills"></div>
+          </div>
+          <div class="header-content">
+            <span class="header-eyebrow">Atlas Session</span>
+            <h1>Welcome back</h1>
+            <p class="header-subtitle">Let’s pick up the thread—what should we work on together today?</p>
+            <div class="header-status">
+              <span class="status-pill">Online</span>
+              <span>Oji is warmed up and ready for instructions.</span>
+            </div>
+          </div>
+          <div class="header-avatar">
+            <img src="assets/Atlas_Logo.png" alt="Oji avatar" />
+          </div>
+        </div>
+      </header>
       <section class="chat-canvas">
-        <div id="quick-actions" class="quick-actions" data-include="components/quick-actions.html"></div>
+        <div id="quick-actions" class="quick-actions" data-include="components/quick-actions.html">
+          <button data-quick="summarize">Summarize Brief</button>
+          <button data-quick="next-steps">Next Steps</button>
+          <button data-quick="log-memory">Log Memory</button>
+          <button data-quick="share-update">Share Update</button>
+        </div>
         <div class="wave-divider"></div>
         <div id="chat-window" class="chat-window">
           <article class="message ai">
@@ -32,12 +133,39 @@
                 <span class="status-pill">Oji</span>
                 <time>Today</time>
               </div>
-              <p>Hey Kaje, good you are back. What are we working on today?</p>
+              <p>Welcome back! Share a task, upload context, or pick a quick action to get started.</p>
             </div>
           </article>
         </div>
-        <div id="composer" class="composer" data-include="components/message-bubble.html"></div>
+        <div id="composer" class="composer" data-include="components/message-bubble.html">
+          <form id="chat-form">
+            <label class="sr-only" for="message-input">Message Oji</label>
+            <input type="text" id="message-input" placeholder="Add data here to get to work" autocomplete="off" />
+            <label class="icon-button upload-button" for="file-input" title="Upload file">
+              <span class="icon" data-heroicon="paper-clip"></span>
+              <span class="sr-only">Attach a file</span>
+            </label>
+            <input type="file" id="file-input" class="hidden" multiple />
+            <button type="submit" class="icon-button send-button" title="Send message">
+              <span class="icon" data-heroicon="paper-airplane"></span>
+              <span class="sr-only">Send message</span>
+            </button>
+          </form>
+          <small>Files remain local until sent · surreal encryption pending.</small>
+        </div>
       </section>
+      <footer class="site-footer" aria-label="Footer">
+        <div class="footer-meta">
+          <span>&copy; <span id="current-year">2024</span> Atlas Interactive</span>
+          <span class="divider" aria-hidden="true">•</span>
+          <span>Designed for creative workstreams.</span>
+        </div>
+        <nav class="footer-links" aria-label="Footer links">
+          <a href="#">About</a>
+          <a href="#">Privacy</a>
+          <a href="#">Support</a>
+        </nav>
+      </footer>
     </main>
     <aside class="context-panel">
       <div class="context-shell">
@@ -47,8 +175,68 @@
       </div>
     </aside>
   </div>
-  <div id="command-bar" class="command-bar" data-include="components/command-bar.html"></div>
-  <div id="memory-viewer" class="modal" data-include="components/memory-viewer.html"></div>
-  <div id="chat-history" class="modal" data-include="components/chat-history.html"></div>
+  <div id="command-bar" class="command-bar" data-include="components/command-bar.html">
+    <header>Atlas Command Palette</header>
+    <ul id="command-list">
+      <li data-command="/memory">
+        <span class="command-label">➤ Open Memory Viewer</span>
+        <span class="status-pill">/memory</span>
+      </li>
+      <li data-command="/history">
+        <span class="command-label">➤ View Chat History</span>
+        <span class="status-pill">/history</span>
+      </li>
+      <li data-command="/dashboard">
+        <span class="command-label">➤ Go to Dashboard</span>
+        <span class="status-pill">/dashboard</span>
+      </li>
+      <li data-command="/projects">
+        <span class="command-label">➤ Open Project Panel</span>
+        <span class="status-pill">/projects</span>
+      </li>
+      <li data-command="/settings">
+        <span class="command-label">➤ Open Settings</span>
+        <span class="status-pill">/settings</span>
+      </li>
+    </ul>
+  </div>
+  <div id="memory-viewer" class="modal" data-include="components/memory-viewer.html">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Atlas Memory Viewer</h3>
+        <button class="icon-button" data-close="memory-viewer" title="Close">
+          <span class="icon" data-heroicon="x-mark"></span>
+          <span class="sr-only">Close memory viewer</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Fragments captured in the last 72 hours. Follow the warm arrows to revisit each anchor.</p>
+        <ul>
+          <li>➤ Project Atlas launch notes filed under “Launch Ritual”.</li>
+          <li>➤ Client narrative keywords: surrealism, warmth, precision.</li>
+          <li>➤ TODO: Integrate Trello automation and memory graph sync.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div id="chat-history" class="modal" data-include="components/chat-history.html">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Chat History</h3>
+        <button class="icon-button" data-close="chat-history" title="Close">
+          <span class="icon" data-heroicon="x-mark"></span>
+          <span class="sr-only">Close chat history</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Select a previous horizon to restore the surreal thread.</p>
+        <ul id="history-list">
+          <li>➤ Today · Sprint planning</li>
+          <li>➤ Yesterday · Client warmup</li>
+          <li>➤ Last Week · Product refactor</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

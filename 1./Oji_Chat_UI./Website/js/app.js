@@ -166,6 +166,13 @@ function initCommandShortcut() {
   });
 }
 
+function setCurrentYear() {
+  const target = document.getElementById('current-year');
+  if (target) {
+    target.textContent = new Date().getFullYear().toString();
+  }
+}
+
 async function init() {
   const includeTargets = Array.from(document.querySelectorAll('[data-include]'));
   await Promise.all(includeTargets.map((el) => loadComponent(el)));
@@ -176,6 +183,7 @@ async function init() {
   applyStoredFeatures();
   setActiveNav();
   initCommandShortcut();
+  setCurrentYear();
   document.dispatchEvent(new CustomEvent('components:ready'));
 }
 
