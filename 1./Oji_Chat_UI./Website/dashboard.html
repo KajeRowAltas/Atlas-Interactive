@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard · Oji Atlas Interface</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/dark.css" />
+  <link rel="icon" type="image/png" href="assets/Atlas_Logo.png" />
+  <script defer type="module" src="js/app.js"></script>
+  <script defer type="module" src="js/commands.js"></script>
+  <script defer type="module" src="js/dashboard.js"></script>
+</head>
+<body>
+  <div class="layout">
+    <aside id="sidebar" class="sidebar" data-include="components/sidebar.html"></aside>
+    <main class="page-shell">
+      <header class="page-header">
+        <div class="header-inner">
+          <div class="header-visual" aria-hidden="true">
+            <div class="sun"></div>
+            <div class="hills"></div>
+          </div>
+          <div class="header-content">
+            <span class="header-eyebrow">Atlas Command</span>
+            <h1>Atlas Status Dashboard</h1>
+            <p class="header-subtitle">Monitoring surreal workflows and keeping the palette in equilibrium.</p>
+            <div class="header-status">
+              <span class="status-pill">Live</span>
+              <span>Signal clear across automations.</span>
+            </div>
+          </div>
+          <div class="header-avatar">
+            <img src="assets/Atlas_Logo.png" alt="Atlas emblem" />
+          </div>
+        </div>
+      </header>
+      <section class="page-body dashboard-grid">
+        <article class="card">
+          <h3>Conversation Velocity</h3>
+          <p>Track how quickly Kaje cycles through Atlas projects. Ideal cadence is 7.3 exchanges per hour with steady warm insights.</p>
+          <footer>
+            <button class="btn-trapezoid" data-action="view-velocity">Open Insight</button>
+          </footer>
+        </article>
+        <article class="card">
+          <h3>Context Memory</h3>
+          <p>Review memory fragments Oji is storing for upcoming sessions. Includes anchors, to-dos, and surreal cues.</p>
+          <footer>
+            <button class="btn-trapezoid" data-action="open-memory">Review Memory</button>
+          </footer>
+        </article>
+        <article class="card">
+          <h3>Integration Health</h3>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Service</th>
+                <th>Status</th>
+                <th>Latency</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>n8n Webhook</td>
+                <td><span class="status-pill">Operational</span></td>
+                <td>320ms</td>
+              </tr>
+              <tr>
+                <td>Trello TODO Sync</td>
+                <td>Planned</td>
+                <td>—</td>
+              </tr>
+              <tr>
+                <td>Memory Graph DB</td>
+                <td>Planned</td>
+                <td>—</td>
+              </tr>
+            </tbody>
+          </table>
+        </article>
+        <article class="card">
+          <h3>Warmth Balance</h3>
+          <p>Ensure the 60/40 warm-to-cool palette ratio holds. Adjust gradients in settings to maintain the Atlas signature glow.</p>
+          <footer>
+            <button class="btn-trapezoid" data-action="adjust-palette">Adjust Palette</button>
+          </footer>
+        </article>
+      </section>
+    </main>
+  </div>
+  <div id="command-bar" class="command-bar" data-include="components/command-bar.html"></div>
+  <div id="memory-viewer" class="modal" data-include="components/memory-viewer.html"></div>
+  <div id="chat-history" class="modal" data-include="components/chat-history.html"></div>
+</body>
+</html>
