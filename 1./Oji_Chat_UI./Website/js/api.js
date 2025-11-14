@@ -56,15 +56,10 @@ export async function sendMessage(message, files = []) {
     filePayload = await Promise.all(Array.from(files).map(fileToPayload));
   }
 
-  //  IMPORTANT CHANGE:
-  //  Your workflow expects "session_id" (snake_case), not "sessionId".
   const payload = {
-    session_id: sessionId,      // <-- FIXED!
+    session_id: sessionId,
     message,
-    speaker: "user",            // safe default
-    project_id: "atlas",        // optional safe default
-    tags: [],
-    emotions: {},
+    speaker: 'user',
     timestamp: new Date().toISOString(),
     files: filePayload
   };
