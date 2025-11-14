@@ -16,7 +16,7 @@ function scrollToBottom() {
 
 function createMessage(role, text) {
   const article = document.createElement('article');
-  article.className = `message ${role}`;
+  article.className = `message ${role} message--incoming`;
 
   const avatar = document.createElement('div');
   avatar.className = 'avatar';
@@ -36,12 +36,12 @@ function createMessage(role, text) {
 
   const meta = document.createElement('div');
   meta.className = 'meta';
+  const author = document.createElement('span');
+  author.className = 'author';
+  author.textContent = role === 'ai' ? 'Oji' : 'You';
   const time = document.createElement('time');
   time.textContent = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-  const badge = document.createElement('span');
-  badge.className = 'badge';
-  badge.textContent = role === 'ai' ? 'Oji' : 'Kaje';
-  meta.append(badge, time);
+  meta.append(author, time);
 
   const paragraph = document.createElement('p');
   paragraph.textContent = text;
@@ -53,7 +53,7 @@ function createMessage(role, text) {
 
 function showLoader() {
   const message = document.createElement('article');
-  message.className = 'message ai';
+  message.className = 'message ai message--incoming is-loading';
   message.id = 'oji-loader';
   const avatar = document.createElement('div');
   avatar.className = 'avatar';
@@ -66,12 +66,12 @@ function showLoader() {
   content.className = 'content';
   const meta = document.createElement('div');
   meta.className = 'meta';
-  const badge = document.createElement('span');
-  badge.className = 'badge';
-  badge.textContent = 'Processing';
+  const author = document.createElement('span');
+  author.className = 'author';
+  author.textContent = 'Oji';
   const time = document.createElement('time');
   time.textContent = 'now';
-  meta.append(badge, time);
+  meta.append(author, time);
   const loader = document.createElement('div');
   loader.className = 'loader';
   loader.innerHTML = '<span></span><span></span><span></span>Oji is grabbing some binary coffee…';

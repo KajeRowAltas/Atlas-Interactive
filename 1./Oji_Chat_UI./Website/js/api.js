@@ -39,24 +39,28 @@ function fileToPayload(file) {
   });
 }
 
-export async function sendMessage(message) {
+export async function sendMessage(message, files = []) {
   const sessionId = getSessionId();
+
+  let filePayload = [];
+  if (files && files.length) {
+    filePayload = await Promise.all(Array.from(files).map(fileToPayload));
+  }
 
   const payload = {
     message,
-    sessionId,                   // ✅ REQUIRED
+    sessionId,
     timestamp: new Date().toISOString(),
-    files: []
+    files: filePayload
   };
 
-  return fetch(N8N_ENDPOINT, {
+  const response = await fetch(N8N_ENDPOINT, {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/json',
+      'Content-Type': 'application/json'
     },
-    body: JSON.stringify(payload),
+    body: JSON.stringify(payload)
   });
-}
 
   if (!response.ok) {
     throw new Error(`n8n webhook error: ${response.status}`);
@@ -69,5 +73,3 @@ export async function sendMessage(message) {
 
   return data;
 }
-
-export { sendMessage };
