@@ -232,6 +232,15 @@ body.dark .loader span {
   background: rgba(233, 164, 48, 0.45);
 }
 
+body.dark .message .attachment-list {
+  background: rgba(233, 164, 48, 0.14);
+  box-shadow: inset 0 0 0 1px rgba(233, 164, 48, 0.18);
+}
+
+body.dark .message .attachment-size {
+  color: rgba(249, 244, 231, 0.72);
+}
+
 body.dark .composer {
   background: rgba(13, 32, 32, 0.88);
   box-shadow: inset 0 0 0 1px rgba(233, 164, 48, 0.12), 0 22px 42px rgba(0, 0, 0, 0.48);
@@ -260,6 +269,15 @@ body.dark .upload-button:focus-visible,
 body.dark .send-button:focus-visible {
   background: linear-gradient(145deg, rgba(233, 164, 48, 0.65), rgba(201, 76, 29, 0.6));
   box-shadow: 0 22px 38px rgba(233, 164, 48, 0.35), inset 0 0 0 1px rgba(249, 244, 231, 0.45);
+}
+
+body.dark #chat-form.is-sending #message-input {
+  opacity: 0.65;
+}
+
+body.dark #chat-form.is-sending .upload-button,
+body.dark #chat-form.is-sending .send-button {
+  opacity: 0.55;
 }
 
 body.dark .composer small {

@@ -7,12 +7,45 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css" />
-  <link rel="stylesheet" href="css/dark.css" />
+  <script>
+    window.__OJICACHE_VERSION__ = window.__OJICACHE_VERSION__ || Date.now().toString();
+  </script>
+  <link rel="stylesheet" data-cache-bust-href="css/styles.css" />
+  <link rel="stylesheet" data-cache-bust-href="css/dark.css" />
   <link rel="icon" type="image/png" href="assets/Atlas_Logo.png" />
-  <script defer type="module" src="js/app.js"></script>
-  <script defer type="module" src="js/commands.js"></script>
-  <script defer type="module" src="js/dashboard.js"></script>
+  <script defer type="module" data-cache-bust-src="js/app.js"></script>
+  <script defer type="module" data-cache-bust-src="js/commands.js"></script>
+  <script defer type="module" data-cache-bust-src="js/dashboard.js"></script>
+  <script>
+    (function () {
+      const version = window.__OJICACHE_VERSION__;
+      if (!version) {
+        return;
+      }
+
+      document
+        .querySelectorAll('[data-cache-bust-href]')
+        .forEach((element) => {
+          const base = element.getAttribute('data-cache-bust-href');
+          if (!base) {
+            return;
+          }
+          const separator = base.includes('?') ? '&' : '?';
+          element.setAttribute('href', `${base}${separator}v=${version}`);
+        });
+
+      document
+        .querySelectorAll('[data-cache-bust-src]')
+        .forEach((element) => {
+          const base = element.getAttribute('data-cache-bust-src');
+          if (!base) {
+            return;
+          }
+          const separator = base.includes('?') ? '&' : '?';
+          element.setAttribute('src', `${base}${separator}v=${version}`);
+        });
+    })();
+  </script>
 </head>
 <body>
   <div class="layout">
