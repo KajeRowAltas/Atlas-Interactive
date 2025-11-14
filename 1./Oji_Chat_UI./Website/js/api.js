@@ -1,6 +1,9 @@
 const N8N_ENDPOINT = 'https://n8n.srv1094917.hstgr.cloud/webhook-test/Oji';
 const SESSION_KEY = 'oji-session-id';
 
+/**
+ * Generate or retrieve persistent session ID
+ */
 function getSessionId() {
   if (typeof window === 'undefined') {
     return 'session-server';
@@ -23,6 +26,9 @@ function getSessionId() {
   }
 }
 
+/**
+ * Convert a File to a JSON upload payload
+ */
 function fileToPayload(file) {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
@@ -39,6 +45,9 @@ function fileToPayload(file) {
   });
 }
 
+/**
+ * Send message to the n8n Webhook
+ */
 export async function sendMessage(message, files = []) {
   const sessionId = getSessionId();
 
@@ -47,9 +56,15 @@ export async function sendMessage(message, files = []) {
     filePayload = await Promise.all(Array.from(files).map(fileToPayload));
   }
 
+  //  IMPORTANT CHANGE:
+  //  Your workflow expects "session_id" (snake_case), not "sessionId".
   const payload = {
+    session_id: sessionId,      // <-- FIXED!
     message,
-    sessionId,
+    speaker: "user",            // safe default
+    project_id: "atlas",        // optional safe default
+    tags: [],
+    emotions: {},
     timestamp: new Date().toISOString(),
     files: filePayload
   };
