@@ -797,6 +797,52 @@ button {
   color: rgba(19, 55, 53, 0.75);
 }
 
+.message .attachment-list {
+  list-style: none;
+  margin: 0.85rem 0 0;
+  padding: 0.75rem 0.9rem;
+  border-radius: 14px;
+  background: rgba(249, 244, 231, 0.22);
+  box-shadow: inset 0 0 0 1px rgba(19, 55, 53, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.message.ai .attachment-list {
+  background: rgba(249, 244, 231, 0.18);
+  box-shadow: inset 0 0 0 1px rgba(249, 244, 231, 0.25);
+}
+
+.message.user .attachment-list {
+  background: rgba(249, 244, 231, 0.12);
+  box-shadow: inset 0 0 0 1px rgba(249, 244, 231, 0.2);
+}
+
+.message .attachment-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.01em;
+}
+
+.message .attachment-name {
+  font-weight: 600;
+  word-break: break-word;
+}
+
+.message .attachment-size {
+  font-variant-numeric: tabular-nums;
+  color: rgba(19, 55, 53, 0.65);
+}
+
+.message.ai .attachment-size,
+.message.user .attachment-size {
+  color: rgba(249, 244, 231, 0.75);
+}
+
 .message.ai .content {
   background: linear-gradient(145deg, rgba(230, 164, 48, 0.88), rgba(201, 76, 29, 0.78), rgba(158, 43, 30, 0.88));
   color: var(--atlas-beige);
@@ -914,6 +960,17 @@ button {
 .send-button:active {
   transform: translateY(1px);
   box-shadow: inset 0 6px 12px rgba(31, 95, 91, 0.35);
+}
+
+#chat-form.is-sending #message-input {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+#chat-form.is-sending .upload-button,
+#chat-form.is-sending .send-button {
+  opacity: 0.6;
+  pointer-events: none;
 }
 
 .composer small {
