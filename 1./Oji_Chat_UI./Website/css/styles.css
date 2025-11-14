@@ -200,16 +200,6 @@ button {
   pointer-events: none;
 }
 
-.sidebar::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: var(--grain-texture) repeat;
-  opacity: 0.25;
-  mix-blend-mode: screen;
-  pointer-events: none;
-}
-
 .sidebar::after {
   content: "";
   position: absolute;
