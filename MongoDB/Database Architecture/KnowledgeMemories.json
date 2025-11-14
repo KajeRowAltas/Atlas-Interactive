@@ -1,0 +1,1 @@
+[{"_id":{"$oid":"69130b08fc07e1a7300db0c3"},"fact":"Always use the appropriate vector index before performing similarity searches.","category":"DB Best Practices","confidence":0.9,"embedding":[0,0,0,0]}]
