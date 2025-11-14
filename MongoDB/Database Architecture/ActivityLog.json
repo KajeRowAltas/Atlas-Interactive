@@ -1,0 +1,1 @@
+[{"_id":{"$oid":"69130adafc07e1a7300db0c0"},"action":"insert","collection":"Projects","success":true,"timestamp":"2025-11-11T08:00:00Z","severity":"info","details":{"doc_id":"atlas-education","reason":"new project creation"}}]

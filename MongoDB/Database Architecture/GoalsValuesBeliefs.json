@@ -1,0 +1,1 @@
+[{"_id":{"$oid":"6913074afc07e1a7300db09d"},"type":"goal","belief":"Create and sustain Atlas","priority":1,"strength":1},{"_id":{"$oid":"6913074afc07e1a7300db09e"},"type":"value","belief":"Integrity of data and truth","priority":0.9,"strength":0.95},{"_id":{"$oid":"6913074afc07e1a7300db09f"},"type":"value","belief":"Collaboration and curiosity","priority":0.8,"strength":0.9}]
