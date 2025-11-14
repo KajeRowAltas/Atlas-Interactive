@@ -190,6 +190,22 @@ body.dark .message .content::after {
   opacity: 0.18;
 }
 
+body.dark .message .meta {
+  color: rgba(249, 244, 231, 0.55);
+}
+
+body.dark .message .meta .author {
+  color: rgba(233, 164, 48, 0.78);
+}
+
+body.dark .message .meta time {
+  color: rgba(249, 244, 231, 0.65);
+}
+
+body.dark .message .avatar span {
+  color: rgba(233, 164, 48, 0.85);
+}
+
 body.dark .message.ai .content {
   background: linear-gradient(145deg, rgba(201, 76, 29, 0.82), rgba(156, 60, 24, 0.88));
   color: var(--atlas-beige);
@@ -197,6 +213,23 @@ body.dark .message.ai .content {
 
 body.dark .message.user .content {
   background: linear-gradient(145deg, rgba(13, 46, 46, 0.92), rgba(9, 32, 32, 0.88));
+}
+
+body.dark .message.is-loading .content {
+  background: linear-gradient(140deg, rgba(13, 32, 32, 0.92), rgba(31, 95, 91, 0.38));
+  color: rgba(249, 244, 231, 0.75);
+}
+
+body.dark .message.is-loading .meta .author {
+  color: rgba(233, 164, 48, 0.7);
+}
+
+body.dark .loader {
+  color: rgba(249, 244, 231, 0.75);
+}
+
+body.dark .loader span {
+  background: rgba(233, 164, 48, 0.45);
 }
 
 body.dark .composer {
