@@ -1,4 +1,28 @@
-Oji Information Architecture — Conceptual Overview
+OjiDB — Information Architecture Overview
+
+OjiDB is the cognitive database that powers Oji, a personalized AI agent.
+It contains the full architecture for identity, personality, memory, emotion, self-reflection, project management, and knowledge retrieval.
+
+This document describes the complete conceptual layout of OjiDB V1.
+
+📌 Table of Contents
+
+Core Identity & Personality
+
+Memory System
+
+Emotion & Affective Layer
+
+Meta-Cognition, Logging & Self-Improvement
+
+Interaction Layer
+
+Project / Life Management Layer
+
+Open Storage & Config
+
+Blueprint & Index Metadata
+
 1. Core Identity & Personality
 Collections
 
@@ -19,11 +43,12 @@ name, backstory, voice_style
 created_at, updated_at, version
 
 Meaning:
-→ This is who Oji is at a narrative + configuration level.
+
+This defines who Oji is at a narrative and configuration level.
 
 PersonalityTraits
 
-Purpose: Parametric controls that shape behaviour.
+Purpose: Parametric personality controls.
 
 Fields:
 
@@ -34,22 +59,24 @@ level (0–1)
 example, context
 
 Meaning:
-→ This is how Oji tends to act in different contexts.
+
+This defines how Oji behaves across different contexts.
 
 GoalsValuesBeliefs
 
-Purpose: Motivational core.
+Purpose: Motivational and value-orientation core.
 
 Fields:
 
 type: "goal" | "value" | "belief"
 
-belief (text)
+belief
 
 priority, strength
 
 Meaning:
-→ This is what Oji cares about and orients toward (Atlas, integrity, etc.).
+
+This defines what Oji cares about and orients toward.
 
 2. Memory System
 Collections
@@ -68,7 +95,7 @@ VectorMemoryChunks (reserved/empty)
 
 SemanticMemories
 
-Purpose: Long-term facts and concepts with embeddings.
+Purpose: Long-term factual and conceptual memory.
 
 Fields:
 
@@ -79,7 +106,8 @@ sources
 embedding (float array)
 
 Meaning:
-→ This is Oji’s semantic memory bank, searchable via vectors.
+
+Oji’s semantic knowledge base, fully vector-searchable.
 
 KnowledgeMemories
 
@@ -90,30 +118,34 @@ Fields:
 fact, category, confidence, embedding
 
 Meaning:
-→ “How to think and work with systems.”
+
+Encodes “how to think” and best practices.
 
 ProceduralMemories
 
-Purpose: Skills & action procedures.
+Purpose: Actionable skills and processes.
 
 Fields:
 
 name (e.g. Vector Search, Insert Document)
 
-trigger (when to run)
+trigger
 
-steps (ordered list)
+steps
 
 success_rate
 
 Meaning:
-→ This is Oji’s procedural skill library.
+
+Oji’s skill library (procedural knowledge).
 
 EpisodicMemories
 
-(Empty in this snapshot)
+(Empty in V1)
+
 Meaning:
-→ Would store time-stamped “episodes” of interactions or experiences.
+
+Intended for storing time-stamped personal experiences.
 
 ShortTermMemory
 
@@ -128,13 +160,16 @@ key, value
 expires_at
 
 Meaning:
-→ Local, ephemeral context for the current workflow.
+
+Short-lived contextual information for the current interaction.
 
 VectorMemoryChunks
 
-(Empty here)
-Purpose:
-→ Designed for chunked, retrieval-optimised vector memory units.
+(Empty in V1)
+
+Meaning:
+
+Reserved for chunked embedding storage optimised for retrieval.
 
 3. Emotion & Affective Layer
 Collections
@@ -145,28 +180,27 @@ EmotionalHistory (empty)
 
 CurrentEmotionalState
 
-Purpose: Live emotional snapshot.
+Purpose: Dynamic emotional snapshot.
 
 Fields:
 
 _id: "current"
 
-mood (e.g. neutral)
-
-energy
-
-triggers
+mood, energy, triggers
 
 last_update
 
 Meaning:
-→ Represents the active emotional state Oji is “in right now”.
+
+Tracks the emotional “state” Oji is in right now.
 
 EmotionalHistory
 
 (Reserved)
+
 Meaning:
-→ For storing emotional trends over time.
+
+Intended for storing long-term emotional trends.
 
 4. Meta-Cognition, Logging & Self-Improvement
 Collections
@@ -179,37 +213,39 @@ QueryAnalysis
 
 ActivityLog
 
+Purpose: Operational audit trail.
+
 Fields:
 
-action (insert, update…)
+action, collection, success
 
-collection
-
-success
-
-timestamp
-
-severity
+timestamp, severity
 
 details (e.g. doc_id, reason)
 
 Meaning:
-→ Oji’s operational audit trail.
+
+Tracks all operations Oji performs.
 
 ReflectionsInsights
 
+Purpose: Long-term self-reflection engine.
+
 Fields:
 
-insight (e.g. “I often insert without checking duplicates.”)
+insight
 
 strength
 
 generated_at
 
 Meaning:
-→ Oji’s self-reflection layer (self-improvement engine).
+
+This is how Oji learns about itself and improves over time.
 
 QueryAnalysis
+
+Purpose: Parsed structure of user queries.
 
 Fields:
 
@@ -226,24 +262,27 @@ result_summary
 timestamp
 
 Meaning:
-→ Structured understanding of user input → action.
+
+Shows how user input → internal reasoning → action.
 
 5. Interaction Layer
 Collections
 
 ChatHistories
-(plus ShortTermMemory as supporting context)
 
 ChatHistories
+
+Purpose: Conversation logs.
 
 Fields:
 
 sessionId
 
-messages (human + ai, with metadata)
+messages (human + ai with metadata)
 
 Meaning:
-→ Full conversations used for:
+
+Supports:
 
 context reconstruction
 
@@ -264,6 +303,8 @@ ProjectFiles
 
 Projects
 
+Purpose: High-level personal project registry.
+
 Fields:
 
 name, main
@@ -279,27 +320,26 @@ domain, status, searchReady
 embedding_text
 
 Meaning:
-→ Canonical registry of your life-projects
-(Atlas, Trading, Sports, Business, etc.).
+
+Oji’s project intelligence system (Atlas, Trading, Training, etc.).
 
 ProjectMilestones
 
-(Empty now)
-→ Reserved for stepping stones in a project timeline.
+(Reserved)
+
+Milestones for long-term project tracking.
 
 ProjectTasks
 
-(Empty now)
-→ Reserved for atomic, actionable tasks.
+(Reserved)
+
+Atomic, actionable tasks inside each project.
 
 ProjectFiles
 
-(Empty now)
-→ Reserved for file/resource references.
+(Reserved)
 
-Together
-
-These 4 collections form your personal PKM (Project Knowledge Management) system inside Oji.
+Project-related resources & file references.
 
 7. Open Storage & Config
 Collections
@@ -308,35 +348,57 @@ OpenStorage
 
 OpenStorage
 
-Purpose: General-purpose unstructured storage.
+Purpose: Flexible unstructured storage.
 
 Fields:
 
-key (e.g. oji_system_prompt_v1)
+key
 
-value (text / structured object)
+value (text / structured data)
 
 metadata
 
 expires_at (optional)
 
 Meaning:
-→ Oji’s “drawer” for prompts, configs, and temporary structured data.
+
+Oji’s “drawer” for prompts, configs, documents, and temporary data.
 
 8. Blueprint & Index Metadata
 
-These are meta-level technical collections (not part of the cognitive graph):
+From the export:
 
-OjiDB_blueprint.json — structural list of collections & their indexes
+OjiDB_blueprint.json
 
-indexes.json — raw index definitions from MongoDB
+indexes.json
+
+These files are meta-level and not part of the cognitive graph.
 
 Used for:
 
-rebuilding the database elsewhere
+database rebuilding
 
-letting other LLMs understand the DB structure
+search/index mapping
 
-providing search/index context
+revealing structure to other LLMs
 
-versioning the cognitive architecture
+maintaining version control over the architecture
+
+🧠 About OjiDB
+
+OjiDB is designed as a cognitive architecture, not just a data store.
+Its structure mirrors functional components of memory, identity, skill acquisition, emotional state, and self-improvement.
+
+Future versions (V2+) will extend:
+
+episodic memory
+
+emotion tracking
+
+project intelligence
+
+vector memory chunking
+
+compound index optimization
+
+higher-order behavioural models
