@@ -1,0 +1,1 @@
+[{"_id":{"$oid":"69130a65fc07e1a7300db0b4"},"session_id":"db-agent-20251111-1","key":"last_operation","value":{"collection":"Projects","action":"update","doc_id":"atlas-education"},"expires_at":"2025-11-11T09:10:00Z"}]

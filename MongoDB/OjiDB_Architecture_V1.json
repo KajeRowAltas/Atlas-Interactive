@@ -1,0 +1,204 @@
+{
+  "database": "OjiDB",
+  "description": "OjiDB V1 — integrated cognitive, memory, emotion, and project management database for Oji-AI.",
+  "indexMetadataFile": "indexes.json",
+  "collections": {
+    "AgentProfile": {
+      "role": "core_identity",
+      "description": "Static configuration and backstory of the Oji agent, including name, voice style, and narrative identity.",
+      "fields": [
+        "_id",
+        "backstory",
+        "created_at",
+        "name",
+        "updated_at",
+        "version",
+        "voice_style"
+      ]
+    },
+    "PersonalityTraits": {
+      "role": "personality_model",
+      "description": "Parameterized traits that shape Oji's behaviour (e.g. empathy, precision) with levels and contextual examples.",
+      "fields": [
+        "_id",
+        "context",
+        "example",
+        "level",
+        "trait"
+      ]
+    },
+    "CurrentEmotionalState": {
+      "role": "affective_state",
+      "description": "Single-document snapshot of Oji's current mood, energy, and active emotional triggers.",
+      "fields": [
+        "_id",
+        "energy",
+        "last_update",
+        "mood",
+        "triggers"
+      ]
+    },
+    "EmotionalHistory": {
+      "role": "affective_history",
+      "description": "Historical log of emotional states over time (currently empty in this export).",
+      "fields": []
+    },
+    "ShortTermMemory": {
+      "role": "working_memory",
+      "description": "Ephemeral, session-scoped key–value items with expiry, used as scratchpad / working memory.",
+      "fields": [
+        "_id",
+        "expires_at",
+        "key",
+        "session_id",
+        "value"
+      ]
+    },
+    "SemanticMemories": {
+      "role": "semantic_memory",
+      "description": "Long-term facts, concepts, and labelled knowledge with vector embeddings for retrieval.",
+      "fields": [
+        "_id",
+        "category",
+        "confidence",
+        "created_at",
+        "embedding",
+        "fact",
+        "metadata",
+        "sources"
+      ]
+    },
+    "EpisodicMemories": {
+      "role": "episodic_memory",
+      "description": "Time-stamped experiences or interaction episodes (currently empty in this export).",
+      "fields": []
+    },
+    "ProceduralMemories": {
+      "role": "procedural_memory",
+      "description": "How-to scripts and multi-step procedures Oji can execute in response to triggers.",
+      "fields": [
+        "_id",
+        "name",
+        "steps",
+        "success_rate",
+        "trigger"
+      ]
+    },
+    "KnowledgeMemories": {
+      "role": "knowledge_base",
+      "description": "Higher-level rules or best practices that guide how Oji works with tools and data.",
+      "fields": [
+        "_id",
+        "category",
+        "confidence",
+        "embedding",
+        "fact"
+      ]
+    },
+    "GoalsValuesBeliefs": {
+      "role": "motivational_system",
+      "description": "Core goals, values, and beliefs that orient Oji's decisions and prioritisation.",
+      "fields": [
+        "_id",
+        "belief",
+        "priority",
+        "strength",
+        "type"
+      ]
+    },
+    "ReflectionsInsights": {
+      "role": "metacognition",
+      "description": "Self-reflective observations about Oji's own behaviour, used for self-improvement.",
+      "fields": [
+        "_id",
+        "generated_at",
+        "insight",
+        "strength"
+      ]
+    },
+    "ActivityLog": {
+      "role": "activity_log",
+      "description": "Operational log of actions Oji took on the database and tools, including success/failure details.",
+      "fields": [
+        "_id",
+        "action",
+        "collection",
+        "details",
+        "severity",
+        "success",
+        "timestamp"
+      ]
+    },
+    "ChatHistories": {
+      "role": "conversation_history",
+      "description": "Stored chat transcripts per session, including both human and AI messages.",
+      "fields": [
+        "_id",
+        "messages",
+        "sessionId"
+      ]
+    },
+    "QueryAnalysis": {
+      "role": "query_parsing",
+      "description": "Structured interpretation of user queries: intent, entities, chosen tools, and outcomes.",
+      "fields": [
+        "_id",
+        "entities",
+        "executed_tool",
+        "intent",
+        "query",
+        "result_summary",
+        "timestamp"
+      ]
+    },
+    "OpenStorage": {
+      "role": "unstructured_storage",
+      "description": "Generic key–value store for arbitrary config, prompts, or temporary structured blobs.",
+      "fields": [
+        "_id",
+        "expires_at",
+        "key",
+        "metadata",
+        "value"
+      ]
+    },
+    "Projects": {
+      "role": "project_model",
+      "description": "High-level project records with ids, domains, status, sub-projects, and embeddings.",
+      "fields": [
+        "_id",
+        "createdAt",
+        "domain",
+        "embedding_text",
+        "main",
+        "name",
+        "project_id",
+        "searchReady",
+        "status",
+        "subProjects",
+        "updatedAt",
+        "version"
+      ]
+    },
+    "ProjectMilestones": {
+      "role": "project_milestones",
+      "description": "Per-project milestone records reserved for timeline and goal tracking.",
+      "fields": []
+    },
+    "ProjectTasks": {
+      "role": "project_tasks",
+      "description": "Atomic actionable tasks linked to projects or milestones.",
+      "fields": []
+    },
+    "ProjectFiles": {
+      "role": "project_files",
+      "description": "References or metadata for project-related files and resources.",
+      "fields": []
+    },
+    "VectorMemoryChunks": {
+      "role": "vector_index",
+      "description": "Pre-chunked vectorised memory units optimised for retrieval.",
+      "fields": []
+    }
+  }
+}

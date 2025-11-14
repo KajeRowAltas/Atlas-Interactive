@@ -187,6 +187,17 @@ button {
   background: linear-gradient(185deg, rgba(31, 95, 91, 0.95), rgba(158, 43, 30, 0.9), rgba(201, 76, 29, 0.96));
   box-shadow: inset 0 0 0 1px rgba(249, 244, 231, 0.12), var(--atlas-warm-shadow);
   overflow: hidden;
+  border-right: 1px solid rgba(249, 244, 231, 0.2);
+}
+
+.sidebar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--grain-texture) repeat;
+  opacity: 0.25;
+  mix-blend-mode: screen;
+  pointer-events: none;
 }
 
 .sidebar::before {

@@ -1,0 +1,1 @@
+[{"_id":{"$oid":"69130a87fc07e1a7300db0b7"},"insight":"I often insert without checking for duplicate project_id. Add validation step.","strength":0.85,"generated_at":"2025-11-11T08:10:00Z"}]

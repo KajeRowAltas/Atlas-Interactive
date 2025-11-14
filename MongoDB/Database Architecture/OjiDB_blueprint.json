@@ -1,0 +1,467 @@
+{
+  "database": "OjiDB",
+  "collections": {
+    "OpenStorage": {
+      "documents_file": "OpenStorage.json",
+      "indexes": [
+        {
+          "v": 2,
+          "key": {
+            "_id": 1
+          },
+          "name": "_id_"
+        },
+        {
+          "v": 2,
+          "key": {
+            "expires_at": 1
+          },
+          "name": "expires_at_1",
+          "expireAfterSeconds": 0
+        },
+        {
+          "v": 2,
+          "key": {
+            "key": 1
+          },
+          "name": "key_1",
+          "unique": true
+        }
+      ]
+    },
+    "SemanticMemories": {
+      "documents_file": "SemanticMemories.json",
+      "indexes": [
+        {
+          "v": 2,
+          "key": {
+            "_id": 1
+          },
+          "name": "_id_"
+        },
+        {
+          "v": 2,
+          "key": {
+            "category": 1
+          },
+          "name": "category_1"
+        }
+      ]
+    },
+    "ProceduralMemories": {
+      "documents_file": "ProceduralMemories.json",
+      "indexes": [
+        {
+          "v": 2,
+          "key": {
+            "_id": 1
+          },
+          "name": "_id_"
+        },
+        {
+          "v": 2,
+          "key": {
+            "success_rate": -1
+          },
+          "name": "success_rate_-1"
+        }
+      ]
+    },
+    "CurrentEmotionalState": {
+      "documents_file": "CurrentEmotionalState.json",
+      "indexes": [
+        {
+          "v": 2,
+          "key": {
+            "_id": 1
+          },
+          "name": "_id_"
+        }
+      ]
+    },
+    "ShortTermMemory": {
+      "documents_file": "ShortTermMemory.json",
+      "indexes": [
+        {
+          "v": 2,
+          "key": {
+            "_id": 1
+          },
+          "name": "_id_"
+        },
+        {
+          "v": 2,
+          "key": {
+            "expires_at": 1
+          },
+          "name": "expires_at_1",
+          "expireAfterSeconds": 0
+        },
+        {
+          "v": 2,
+          "key": {
+            "session_id": 1
+          },
+          "name": "session_id_1",
+          "unique": true
+        }
+      ]
+    },
+    "ChatHistories": {
+      "documents_file": "ChatHistories.json",
+      "indexes": [
+        {
+          "v": 2,
+          "key": {
+            "_id": 1
+          },
+          "name": "_id_"
+        },
+        {
+          "v": 2,
+          "key": {
+            "session_id": 1
+          },
+          "name": "session_id_1",
+          "unique": true
+        }
+      ]
+    },
+    "GoalsValuesBeliefs": {
+      "documents_file": "GoalsValuesBeliefs.json",
+      "indexes": [
+        {
+          "v": 2,
+          "key": {
+            "_id": 1
+          },
+          "name": "_id_"
+        },
+        {
+          "v": 2,
+          "key": {
+            "type": 1
+          },
+          "name": "type_1"
+        },
+        {
+          "v": 2,
+          "key": {
+            "priority": -1
+          },
+          "name": "priority_-1"
+        }
+      ]
+    },
+    "QueryAnalysis": {
+      "documents_file": "QueryAnalysis.json",
+      "indexes": [
+        {
+          "v": 2,
+          "key": {
+            "_id": 1
+          },
+          "name": "_id_"
+        },
+        {
+          "v": 2,
+          "key": {
+            "intent": 1
+          },
+          "name": "intent_1"
+        }
+      ]
+    },
+    "KnowledgeMemories": {
+      "documents_file": "KnowledgeMemories.json",
+      "indexes": [
+        {
+          "v": 2,
+          "key": {
+            "_id": 1
+          },
+          "name": "_id_"
+        }
+      ]
+    },
+    "ReflectionsInsights": {
+      "documents_file": "ReflectionsInsights.json",
+      "indexes": [
+        {
+          "v": 2,
+          "key": {
+            "_id": 1
+          },
+          "name": "_id_"
+        },
+        {
+          "v": 2,
+          "key": {
+            "strength": -1
+          },
+          "name": "strength_-1"
+        },
+        {
+          "v": 2,
+          "key": {
+            "generated_at": -1
+          },
+          "name": "generated_at_-1"
+        }
+      ]
+    },
+    "ActivityLog": {
+      "documents_file": "ActivityLog.json",
+      "indexes": [
+        {
+          "v": 2,
+          "key": {
+            "_id": 1
+          },
+          "name": "_id_"
+        },
+        {
+          "v": 2,
+          "key": {
+            "timestamp": -1
+          },
+          "name": "timestamp_-1"
+        },
+        {
+          "v": 2,
+          "key": {
+            "severity": 1
+          },
+          "name": "severity_1"
+        },
+        {
+          "v": 2,
+          "key": {
+            "timestamp": 1
+          },
+          "name": "timestamp_1",
+          "expireAfterSeconds": 7776000
+        }
+      ]
+    },
+    "EpisodicMemories": {
+      "documents_file": "EpisodicMemories.json",
+      "indexes": [
+        {
+          "v": 2,
+          "key": {
+            "_id": 1
+          },
+          "name": "_id_"
+        },
+        {
+          "v": 2,
+          "key": {
+            "timestamp": -1
+          },
+          "name": "timestamp_-1"
+        },
+        {
+          "v": 2,
+          "key": {
+            "importance": -1
+          },
+          "name": "importance_-1"
+        }
+      ]
+    },
+    "ProjectMilestones": {
+      "documents_file": "ProjectMilestones.json",
+      "indexes": [
+        {
+          "v": 2,
+          "key": {
+            "_id": 1
+          },
+          "name": "_id_"
+        },
+        {
+          "v": 2,
+          "key": {
+            "project_id": 1
+          },
+          "name": "project_id_1"
+        }
+      ]
+    },
+    "PersonalityTraits": {
+      "documents_file": "PersonalityTraits.json",
+      "indexes": [
+        {
+          "v": 2,
+          "key": {
+            "_id": 1
+          },
+          "name": "_id_"
+        },
+        {
+          "v": 2,
+          "key": {
+            "trait": 1
+          },
+          "name": "trait_1",
+          "unique": true
+        }
+      ]
+    },
+    "Projects": {
+      "documents_file": "Projects.json",
+      "indexes": [
+        {
+          "v": 2,
+          "key": {
+            "_id": 1
+          },
+          "name": "_id_"
+        },
+        {
+          "v": 2,
+          "key": {
+            "project_id": 1
+          },
+          "name": "project_id_1",
+          "unique": true
+        },
+        {
+          "v": 2,
+          "key": {
+            "status": 1
+          },
+          "name": "status_1"
+        },
+        {
+          "v": 2,
+          "key": {
+            "importance": -1
+          },
+          "name": "importance_-1"
+        }
+      ]
+    },
+    "VectorMemoryChunks": {
+      "documents_file": "VectorMemoryChunks.json",
+      "indexes": [
+        {
+          "v": 2,
+          "key": {
+            "_id": 1
+          },
+          "name": "_id_"
+        },
+        {
+          "v": 2,
+          "key": {
+            "metadata.project": 1
+          },
+          "name": "metadata.project_1"
+        },
+        {
+          "v": 2,
+          "key": {
+            "metadata.type": 1
+          },
+          "name": "metadata.type_1"
+        }
+      ]
+    },
+    "ProjectTasks": {
+      "documents_file": "ProjectTasks.json",
+      "indexes": [
+        {
+          "v": 2,
+          "key": {
+            "_id": 1
+          },
+          "name": "_id_"
+        },
+        {
+          "v": 2,
+          "key": {
+            "project_id": 1,
+            "task_id": 1
+          },
+          "name": "project_id_1_task_id_1",
+          "unique": true
+        },
+        {
+          "v": 2,
+          "key": {
+            "project_id": 1,
+            "status": 1
+          },
+          "name": "project_id_1_status_1"
+        },
+        {
+          "v": 2,
+          "key": {
+            "due_date": 1
+          },
+          "name": "due_date_1"
+        }
+      ]
+    },
+    "EmotionalHistory": {
+      "documents_file": "EmotionalHistory.json",
+      "indexes": [
+        {
+          "v": 2,
+          "key": {
+            "_id": 1
+          },
+          "name": "_id_"
+        },
+        {
+          "v": 2,
+          "key": {
+            "timestamp": -1
+          },
+          "name": "timestamp_-1"
+        },
+        {
+          "v": 2,
+          "key": {
+            "timestamp": 1
+          },
+          "name": "timestamp_1",
+          "expireAfterSeconds": 15552000
+        }
+      ]
+    },
+    "ProjectFiles": {
+      "documents_file": "ProjectFiles.json",
+      "indexes": [
+        {
+          "v": 2,
+          "key": {
+            "_id": 1
+          },
+          "name": "_id_"
+        },
+        {
+          "v": 2,
+          "key": {
+            "project_id": 1
+          },
+          "name": "project_id_1"
+        }
+      ]
+    },
+    "AgentProfile": {
+      "documents_file": "AgentProfile.json",
+      "indexes": [
+        {
+          "v": 2,
+          "key": {
+            "_id": 1
+          },
+          "name": "_id_"
+        }
+      ]
+    }
+  }
+}
