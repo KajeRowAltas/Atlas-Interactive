@@ -49,7 +49,29 @@ Website/
 
 - API requests are sent to `https://n8n.srv1094917.hstgr.cloud/webhook-test/Oji` via POST.
 - To modify the endpoint, update `N8N_ENDPOINT` in `js/api.js`.
-- Files are encoded as Data URLs before being sent in the JSON payload.
+- Session identifiers are generated in `js/api.js#getSessionId` and persisted to `localStorage` (`oji-session-id`).
+- The webhook payload now conforms to OjiDB expectations:
+  ```json
+  {
+    "session_id": "session-1700000000000-deadbeef",
+    "message": "Current prompt text",
+    "timestamp": "2024-05-01T12:34:56.789Z",
+    "speaker": "user",
+    "project_id": null,
+    "tags": ["brief", "surreal"],
+    "files": [
+      {
+        "name": "moodboard.png",
+        "url": "data:image/png;base64,iVBOR...",
+        "type": "image/png",
+        "size": 102400,
+        "description": ""
+      }
+    ]
+  }
+  ```
+- Each file is converted to a Data URL for the `url` field while retaining metadata (`name`, `type`, `size`). When no files are attached, an empty array is sent.
+- Optional `project_id` and `tags` can be provided through the third argument of `sendMessage` (see `js/api.js`).
 
 ## Hostinger Deployment
 

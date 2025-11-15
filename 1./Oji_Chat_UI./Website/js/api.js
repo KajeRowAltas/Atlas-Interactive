@@ -35,9 +35,10 @@ function fileToPayload(file) {
     reader.onload = () => {
       resolve({
         name: file.name,
-        type: file.type,
-        size: file.size,
-        content: reader.result
+        url: reader.result,
+        type: file.type || 'application/octet-stream',
+        size: typeof file.size === 'number' ? file.size : undefined,
+        description: ''
       });
     };
     reader.onerror = () => reject(reader.error);
@@ -48,19 +49,38 @@ function fileToPayload(file) {
 /**
  * Send message to the n8n Webhook
  */
-export async function sendMessage(message, files = []) {
-  const sessionId = getSessionId();
+export async function sendMessage(message, files = [], options = {}) {
+  let sessionId = getSessionId();
+  if (typeof sessionId !== 'string' || !sessionId.trim()) {
+    sessionId = `session-${Date.now()}-${Math.random().toString(16).slice(2)}`;
+  }
+
+  const {
+    speaker = 'user',
+    projectId = null,
+    tags = []
+  } = options;
+
+  const normalisedTags = Array.isArray(tags) ? tags.filter(Boolean).map(String) : [];
 
   let filePayload = [];
   if (files && files.length) {
     filePayload = await Promise.all(Array.from(files).map(fileToPayload));
   }
 
+  const timestamp = new Date().toISOString();
+
+  if (typeof message !== 'string') {
+    throw new TypeError('Message must be a string');
+  }
+
   const payload = {
     session_id: sessionId,
     message,
-    speaker: 'user',
-    timestamp: new Date().toISOString(),
+    timestamp,
+    speaker,
+    project_id: projectId,
+    tags: normalisedTags,
     files: filePayload
   };
 
