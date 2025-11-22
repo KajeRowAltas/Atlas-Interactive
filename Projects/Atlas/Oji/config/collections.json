@@ -1,0 +1,10 @@
+[
+  "ChatHistories",
+  "ShortTermMemory",
+  "LongTermMemory",
+  "IntentSummaries",
+  "ToolFeedback",
+  "ReflectionQueue",
+  "RAGSnippets",
+  "ToolsCatalog"
+]

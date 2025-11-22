@@ -1,0 +1,10 @@
+[{
+  "id": "snippet_kb_example",
+  "content": "Oji's knowledge base supports semantic search over FAQs, product docs, and prior resolutions.",
+  "source": "KnowledgeBase"
+},
+{
+  "id": "snippet_tool_example",
+  "content": "Available tools: create_ticket(ticketType, priority), send_email(to, subject, body).",
+  "source": "ToolsCatalog"
+}]

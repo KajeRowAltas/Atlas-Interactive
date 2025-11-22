@@ -1,0 +1,30 @@
+// Run with: mongosh "mongodb+srv://<user>:<password>@<cluster-url>/OjiDB" --file OjiDB_blueprint.json
+// Creates baseline collections with validation and sample seed documents.
+
+db.createCollection("ChatHistories");
+db.createCollection("ShortTermMemory");
+db.createCollection("LongTermMemory");
+db.createCollection("IntentSummaries");
+db.createCollection("ToolFeedback");
+db.createCollection("ReflectionQueue");
+db.createCollection("RAGSnippets");
+db.createCollection("ToolsCatalog");
+
+db.ChatHistories.insertOne({
+  sessionId: "demo-session-001",
+  message: "Hey Oji",
+  response: "Hi! I'm here to help.",
+  createdAt: new Date()
+});
+
+db.RAGSnippets.insertMany([
+  { id: "snippet_kb_example", content: "Oji's knowledge base supports semantic search over FAQs, product docs, and prior resolutions.", source: "KnowledgeBase" },
+  { id: "snippet_tool_example", content: "Available tools: create_ticket(ticketType, priority), send_email(to, subject, body).", source: "ToolsCatalog" }
+]);
+
+db.ToolsCatalog.insertOne({
+  tool: "create_ticket",
+  description: "Open a support ticket with type and priority",
+  parameters: ["ticketType", "priority"],
+  updatedAt: new Date()
+});
