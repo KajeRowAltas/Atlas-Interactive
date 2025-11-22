@@ -1,6 +1,6 @@
 # Oji Beginner Guide
 
-This guide walks you through creating MongoDB Atlas resources, importing the n8n workflows, and testing the first conversation with Oji.
+This guide (for the assets under `Projects/Atlas/Oji`) walks you through creating MongoDB Atlas resources, importing the n8n workflows, and testing the first conversation with Oji.
 
 ## 1. Create the MongoDB Atlas cluster and database `OjiDB`
 1. Sign in to [MongoDB Atlas](https://cloud.mongodb.com/).

@@ -1,6 +1,6 @@
 # Oji Conversational AI (Atlas Interactive)
 
-This folder contains the complete n8n implementation for **Oji**, a three-agent conversational system backed by MongoDB Atlas. The assets here can be imported directly so you get a working, self-learning assistant from day one.
+This folder (in the repo path `Projects/Atlas/Oji`) contains the complete n8n implementation for **Oji**, a three-agent conversational system backed by MongoDB Atlas. The assets here can be imported directly so you get a working, self-learning assistant from day one.
 
 ## Visual layout of the workflows
 
