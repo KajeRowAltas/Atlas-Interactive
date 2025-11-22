@@ -1,51 +1,54 @@
 {
   "name": "02_Response_Agent",
   "nodes": [
-    {"parameters": {}, "id": "1", "name": "Execute Workflow Trigger", "type": "n8n-nodes-base.executeWorkflowTrigger", "typeVersion": 1, "position": [100, 200]},
-    {"parameters": {"content": "Triggered only by 01. Do not expose externally.", "color": "#F7E26B"}, "id": "2", "name": "Note: Entry", "type": "n8n-nodes-base.note", "typeVersion": 1, "position": [100, 60]},
-    {"parameters": {"functionCode": "const analysis = $json.arguments?.analysis || $json.analysis || $json;\nreturn [{ json: { analysis, session_id: analysis.session_id, user_message: analysis.user_message } }];"}, "id": "3", "name": "Function: Extract Input", "type": "n8n-nodes-base.function", "typeVersion": 1, "position": [100, 360]},
-    {"parameters": {"content": "Parallel RAG fetches. Merge nodes mirror the schematic.", "color": "#F7E26B"}, "id": "4", "name": "Note: RAG", "type": "n8n-nodes-base.note", "typeVersion": 1, "position": [360, 360]},
+    {"parameters": {}, "id": "1", "name": "Execute Workflow Trigger", "type": "n8n-nodes-base.executeWorkflowTrigger", "typeVersion": 1, "position": [80, 160]},
+    {"parameters": {"content": "Triggered only by 01. Do not expose externally.", "color": "#F7E26B"}, "id": "2", "name": "Note: Entry", "type": "n8n-nodes-base.note", "typeVersion": 1, "position": [80, 20]},
 
-    {"parameters": {"operation": "find", "collection": "SemanticMemories", "query": "={{ { tags: { $in: $json.analysis.memory_tags || [] } } }}"}, "id": "5", "name": "Mongo: Semantic", "type": "n8n-nodes-base.mongoDb", "typeVersion": 2, "position": [-80, 560], "credentials": {"mongoDb": {"id": "MongoDB Atlas", "name": "MongoDB Atlas"}}},
-    {"parameters": {"operation": "find", "collection": "KnowledgeMemories", "query": "={{ { topic: { $exists: true } } }}"}, "id": "6", "name": "Mongo: Knowledge", "type": "n8n-nodes-base.mongoDb", "typeVersion": 2, "position": [140, 560], "credentials": {"mongoDb": {"id": "MongoDB Atlas", "name": "MongoDB Atlas"}}},
-    {"parameters": {"mode": "append"}, "id": "7", "name": "Merge Memories A", "type": "n8n-nodes-base.merge", "typeVersion": 2, "position": [40, 720]},
+    {"parameters": {"functionCode": "const analysis = $json.arguments?.analysis || $json.analysis || $json;\nreturn [{ json: { analysis, session_id: analysis.session_id, user_message: analysis.user_message } }];"}, "id": "3", "name": "Function: Extract Input", "type": "n8n-nodes-base.function", "typeVersion": 1, "position": [80, 320]},
+    {"parameters": {"content": "Parallel RAG tools connect into the agent.", "color": "#F7E26B"}, "id": "4", "name": "Note: RAG", "type": "n8n-nodes-base.note", "typeVersion": 1, "position": [320, 320]},
 
-    {"parameters": {"operation": "find", "collection": "ProceduralMemories", "query": "={{ { procedure: { $exists: true } } }}"}, "id": "8", "name": "Mongo: Procedural", "type": "n8n-nodes-base.mongoDb", "typeVersion": 2, "position": [360, 560], "credentials": {"mongoDb": {"id": "MongoDB Atlas", "name": "MongoDB Atlas"}}},
-    {"parameters": {"operation": "find", "collection": "EpisodicMemories", "query": "={{ { sessionId: $json.session_id } }}"}, "id": "9", "name": "Mongo: Episodic", "type": "n8n-nodes-base.mongoDb", "typeVersion": 2, "position": [580, 560], "credentials": {"mongoDb": {"id": "MongoDB Atlas", "name": "MongoDB Atlas"}}},
-    {"parameters": {"mode": "append"}, "id": "10", "name": "Merge Memories B", "type": "n8n-nodes-base.merge", "typeVersion": 2, "position": [460, 720]},
+    {"parameters": {"operation": "find", "collection": "SemanticMemories", "query": "={{ { tags: { $in: $json.analysis.memory_tags || [] } } }}"}, "id": "5", "name": "Mongo: Semantic", "type": "n8n-nodes-base.mongoDb", "typeVersion": 2, "position": [-120, 520], "credentials": {"mongoDb": {"id": "MongoDB Atlas", "name": "MongoDB Atlas"}}},
+    {"parameters": {"operation": "find", "collection": "KnowledgeMemories", "query": "={{ { topic: { $exists: true } } }}"}, "id": "6", "name": "Mongo: Knowledge", "type": "n8n-nodes-base.mongoDb", "typeVersion": 2, "position": [80, 520], "credentials": {"mongoDb": {"id": "MongoDB Atlas", "name": "MongoDB Atlas"}}},
+    {"parameters": {"mode": "append"}, "id": "7", "name": "Merge Memories A", "type": "n8n-nodes-base.merge", "typeVersion": 2, "position": [-20, 680]},
 
-    {"parameters": {"operation": "find", "collection": "GoalsValuesBeliefs", "query": "={{ { } }}"}, "id": "11", "name": "Mongo: Goals", "type": "n8n-nodes-base.mongoDb", "typeVersion": 2, "position": [800, 560], "credentials": {"mongoDb": {"id": "MongoDB Atlas", "name": "MongoDB Atlas"}}},
-    {"parameters": {"operation": "find", "collection": "CurrentEmotionalState", "query": "={{ { } }}"}, "id": "12", "name": "Mongo: Emotions", "type": "n8n-nodes-base.mongoDb", "typeVersion": 2, "position": [1020, 560], "credentials": {"mongoDb": {"id": "MongoDB Atlas", "name": "MongoDB Atlas"}}},
-    {"parameters": {"operation": "find", "collection": "PersonalityTraits", "query": "={{ { } }}"}, "id": "13", "name": "Mongo: Traits", "type": "n8n-nodes-base.mongoDb", "typeVersion": 2, "position": [1240, 560], "credentials": {"mongoDb": {"id": "MongoDB Atlas", "name": "MongoDB Atlas"}}},
-    {"parameters": {"mode": "append"}, "id": "14", "name": "Merge Memories C", "type": "n8n-nodes-base.merge", "typeVersion": 2, "position": [1020, 720]},
+    {"parameters": {"operation": "find", "collection": "ProceduralMemories", "query": "={{ { procedure: { $exists: true } } }}"}, "id": "8", "name": "Mongo: Procedural", "type": "n8n-nodes-base.mongoDb", "typeVersion": 2, "position": [280, 520], "credentials": {"mongoDb": {"id": "MongoDB Atlas", "name": "MongoDB Atlas"}}},
+    {"parameters": {"operation": "find", "collection": "EpisodicMemories", "query": "={{ { sessionId: $json.session_id } }}"}, "id": "9", "name": "Mongo: Episodic", "type": "n8n-nodes-base.mongoDb", "typeVersion": 2, "position": [480, 520], "credentials": {"mongoDb": {"id": "MongoDB Atlas", "name": "MongoDB Atlas"}}},
+    {"parameters": {"mode": "append"}, "id": "10", "name": "Merge Memories B", "type": "n8n-nodes-base.merge", "typeVersion": 2, "position": [380, 680]},
 
-    {"parameters": {"mode": "append"}, "id": "15", "name": "Merge All", "type": "n8n-nodes-base.merge", "typeVersion": 2, "position": [460, 900]},
-    {"parameters": {"content": "All RAG payloads meet here before response generation.", "color": "#F7E26B"}, "id": "16", "name": "Note: Merge", "type": "n8n-nodes-base.note", "typeVersion": 1, "position": [700, 900]},
+    {"parameters": {"operation": "find", "collection": "GoalsValuesBeliefs", "query": "={{ { } }}"}, "id": "11", "name": "Mongo: Goals", "type": "n8n-nodes-base.mongoDb", "typeVersion": 2, "position": [680, 520], "credentials": {"mongoDb": {"id": "MongoDB Atlas", "name": "MongoDB Atlas"}}},
+    {"parameters": {"operation": "find", "collection": "CurrentEmotionalState", "query": "={{ { } }}"}, "id": "12", "name": "Mongo: Emotions", "type": "n8n-nodes-base.mongoDb", "typeVersion": 2, "position": [880, 520], "credentials": {"mongoDb": {"id": "MongoDB Atlas", "name": "MongoDB Atlas"}}},
+    {"parameters": {"operation": "find", "collection": "PersonalityTraits", "query": "={{ { } }}"}, "id": "13", "name": "Mongo: Traits", "type": "n8n-nodes-base.mongoDb", "typeVersion": 2, "position": [1080, 520], "credentials": {"mongoDb": {"id": "MongoDB Atlas", "name": "MongoDB Atlas"}}},
+    {"parameters": {"mode": "append"}, "id": "14", "name": "Merge Memories C", "type": "n8n-nodes-base.merge", "typeVersion": 2, "position": [880, 680]},
 
-    {"parameters": {"functionCode": "return [{ json: { analysis: $json.analysis || $json, merged_memories: [$json] } }];"}, "id": "26", "name": "Function: Bundle RAG", "type": "n8n-nodes-base.function", "typeVersion": 1, "position": [260, 980]},
-    {"parameters": {"content": "Packs merged RAG arrays into merged_memories for the model.", "color": "#F7E26B"}, "id": "27", "name": "Note: Bundle", "type": "n8n-nodes-base.note", "typeVersion": 1, "position": [500, 980]},
+    {"parameters": {"mode": "append"}, "id": "15", "name": "Merge All", "type": "n8n-nodes-base.merge", "typeVersion": 2, "position": [380, 860]},
+    {"parameters": {"content": "All tool outputs for the agent.", "color": "#F7E26B"}, "id": "16", "name": "Note: Merge", "type": "n8n-nodes-base.note", "typeVersion": 1, "position": [620, 840]},
 
-    {"parameters": {"filePath": "../../Project/Atlas/Oji_2/prompts/response_system_prompt.txt"}, "id": "17", "name": "Read System Prompt", "type": "n8n-nodes-base.readBinaryFile", "typeVersion": 1, "position": [40, 1080]},
-    {"parameters": {"filePath": "../../Project/Atlas/Oji_2/prompts/response_rag_prompt.txt"}, "id": "18", "name": "Read RAG Prompt", "type": "n8n-nodes-base.readBinaryFile", "typeVersion": 1, "position": [260, 1080]},
-    {"parameters": {"content": "Use both prompts: system (tone) + RAG (structure).", "color": "#F7E26B"}, "id": "19", "name": "Note: Prompts", "type": "n8n-nodes-base.note", "typeVersion": 1, "position": [500, 1080]},
+    {"parameters": {"functionCode": "return [{ json: { analysis: $json.analysis || $json, merged_memories: [$json] } }];"}, "id": "26", "name": "Function: Bundle RAG", "type": "n8n-nodes-base.function", "typeVersion": 1, "position": [220, 940]},
+    {"parameters": {"content": "Pack merged memories for the agent call.", "color": "#F7E26B"}, "id": "27", "name": "Note: Bundle", "type": "n8n-nodes-base.note", "typeVersion": 1, "position": [460, 940]},
+
+    {"parameters": {"filePath": "../prompts/response_system_prompt.txt"}, "id": "17", "name": "Read System Prompt", "type": "n8n-nodes-base.readBinaryFile", "typeVersion": 1, "position": [40, 1040]},
+    {"parameters": {"filePath": "../prompts/response_rag_prompt.txt"}, "id": "18", "name": "Read RAG Prompt", "type": "n8n-nodes-base.readBinaryFile", "typeVersion": 1, "position": [260, 1040]},
+    {"parameters": {"content": "Use both prompts: system + RAG template.", "color": "#F7E26B"}, "id": "19", "name": "Note: Prompts", "type": "n8n-nodes-base.note", "typeVersion": 1, "position": [500, 1040]},
 
     {"parameters": {
       "model": "gpt-4o-mini",
       "operation": "chat",
       "systemMessage": "={{ Buffer.from($items(\"Read System Prompt\")[0].binary.data.data,'base64').toString() }}",
       "messages": [
-        {"role": "user", "content": "User: {{$json.analysis.user_message}}\nQueryAnalysis: {{$json.analysis | json}}\nRAG Prompt: {{ Buffer.from($items(\"Read RAG Prompt\")[0].binary.data.data,'base64').toString() }}\nRAG Data: {{$json.merged_memories | json}}"}
+        {"role": "system", "content": "You are the Response Agent. Tools: semantic, knowledge, procedural, episodic, goals, emotions, traits."},
+        {"role": "user", "content": "User: {{$json.analysis.user_message}}\nQueryAnalysis: {{$json.analysis | json}}\nRAG Prompt: {{ Buffer.from($items(\"Read RAG Prompt\")[0].binary.data.data,'base64').toString() }}\nToolPayload: {{$json.merged_memories | json}}"}
       ],
       "options": {"temperature": 0.4, "maxTokens": 600}
-    }, "id": "20", "name": "OpenAI: Compose Reply", "type": "n8n-nodes-base.openAi", "typeVersion": 4, "position": [40, 1260], "credentials": {"openAIApi": {"id": "OpenAI", "name": "OpenAI"}}},
+    }, "id": "20", "name": "OpenAI Agent: Compose Reply", "type": "n8n-nodes-base.openAi", "typeVersion": 4, "position": [40, 1200], "credentials": {"openAIApi": {"id": "OpenAI", "name": "OpenAI"}}},
+    {"parameters": {"content": "Agent invoked with multiple connected tool contexts.", "color": "#F7E26B"}, "id": "28", "name": "Note: Agent", "type": "n8n-nodes-base.note", "typeVersion": 1, "position": [280, 1200]},
 
-    {"parameters": {"operation": "insert", "collection": "ChatHistories", "fields": "={{ { sessionId: $json.analysis.session_id, userMessage: $json.analysis.user_message, assistantMessage: $json.choices[0].message.content, analysis: $json.analysis, timestamp: new Date().toISOString() } }}"}, "id": "21", "name": "Mongo: Save Chat", "type": "n8n-nodes-base.mongoDb", "typeVersion": 2, "position": [40, 1420], "credentials": {"mongoDb": {"id": "MongoDB Atlas", "name": "MongoDB Atlas"}}},
-    {"parameters": {"operation": "insert", "collection": "ActivityLog", "fields": "={{ { sessionId: $json.analysis.session_id, action: 'responded', timestamp: new Date().toISOString() } }}"}, "id": "22", "name": "Mongo: Log Response", "type": "n8n-nodes-base.mongoDb", "typeVersion": 2, "position": [260, 1420], "credentials": {"mongoDb": {"id": "MongoDB Atlas", "name": "MongoDB Atlas"}}},
+    {"parameters": {"operation": "insert", "collection": "ChatHistories", "fields": "={{ { sessionId: $json.analysis.session_id, userMessage: $json.analysis.user_message, assistantMessage: $json.choices[0].message.content, analysis: $json.analysis, timestamp: new Date().toISOString() } }}"}, "id": "21", "name": "Mongo: Save Chat", "type": "n8n-nodes-base.mongoDb", "typeVersion": 2, "position": [40, 1360], "credentials": {"mongoDb": {"id": "MongoDB Atlas", "name": "MongoDB Atlas"}}},
+    {"parameters": {"operation": "insert", "collection": "ActivityLog", "fields": "={{ { sessionId: $json.analysis.session_id, action: 'responded', timestamp: new Date().toISOString() } }}"}, "id": "22", "name": "Mongo: Log Response", "type": "n8n-nodes-base.mongoDb", "typeVersion": 2, "position": [260, 1360], "credentials": {"mongoDb": {"id": "MongoDB Atlas", "name": "MongoDB Atlas"}}},
 
-    {"parameters": {"workflowId": "03_Reflection_Agent", "options": {"additionalFields": {"arguments": [{"name": "chat", "value": "={{$json}}"}], "continueOnFail": true}}}, "id": "23", "name": "Execute: Reflection Agent", "type": "n8n-nodes-base.executeWorkflow", "typeVersion": 1, "position": [480, 1420]},
-    {"parameters": {"content": "Fire-and-forget reflection. Continue on fail is TRUE.", "color": "#F7E26B"}, "id": "24", "name": "Note: Reflection Trigger", "type": "n8n-nodes-base.note", "typeVersion": 1, "position": [720, 1420]},
+    {"parameters": {"workflowId": "03_Reflection_Agent", "options": {"additionalFields": {"arguments": [{"name": "chat", "value": "={{$json}}"}], "continueOnFail": true}}}, "id": "23", "name": "Execute: Reflection Agent", "type": "n8n-nodes-base.executeWorkflow", "typeVersion": 1, "position": [480, 1360]},
+    {"parameters": {"content": "Fire-and-forget reflection with Continue on Fail = true.", "color": "#F7E26B"}, "id": "24", "name": "Note: Reflection Trigger", "type": "n8n-nodes-base.note", "typeVersion": 1, "position": [720, 1360]},
 
-    {"parameters": {}, "id": "25", "name": "Return to Caller", "type": "n8n-nodes-base.respondToWebhook", "typeVersion": 1, "position": [40, 1580]}
+    {"parameters": {}, "id": "25", "name": "Return to Caller", "type": "n8n-nodes-base.respondToWebhook", "typeVersion": 1, "position": [40, 1520]}
   ],
   "connections": {
     "Execute Workflow Trigger": {"main": [[{"node": "Function: Extract Input", "type": "main", "index": 0}]]},
@@ -66,8 +69,8 @@
     "Merge All": {"main": [[{"node": "Function: Bundle RAG", "type": "main", "index": 0}]]},
     "Function: Bundle RAG": {"main": [[{"node": "Read System Prompt", "type": "main", "index": 0}]]},
     "Read System Prompt": {"main": [[{"node": "Read RAG Prompt", "type": "main", "index": 0}]]},
-    "Read RAG Prompt": {"main": [[{"node": "OpenAI: Compose Reply", "type": "main", "index": 0}]]},
-    "OpenAI: Compose Reply": {"main": [[{"node": "Mongo: Save Chat", "type": "main", "index": 0}]]},
+    "Read RAG Prompt": {"main": [[{"node": "OpenAI Agent: Compose Reply", "type": "main", "index": 0}]]},
+    "OpenAI Agent: Compose Reply": {"main": [[{"node": "Mongo: Save Chat", "type": "main", "index": 0}]]},
     "Mongo: Save Chat": {"main": [[{"node": "Mongo: Log Response", "type": "main", "index": 0}]]},
     "Mongo: Log Response": {"main": [[{"node": "Execute: Reflection Agent", "type": "main", "index": 0}, {"node": "Return to Caller", "type": "main", "index": 0}]]}
   }
