@@ -32,7 +32,7 @@ Website/
 
 ## Local Development
 
-1. Clone the repository and navigate to `1./Oji_Chat_UI./Website`.
+1. Clone the repository and navigate to `Projects/Atlas/ui/oji_chat_ui/Website`.
 2. Serve the directory with any static server:
    ```bash
    python -m http.server 8080
@@ -75,7 +75,7 @@ Website/
 
 ## Hostinger Deployment
 
-1. Zip the contents of `1./Oji_Chat_UI./Website` or sync via Git.
+1. Zip the contents of `Projects/Atlas/ui/oji_chat_ui/Website` or sync via Git.
 2. Upload to Hostinger’s `public_html` (or configured subdirectory) using the file manager or FTP.
 3. Ensure `index.html` is set as the default document.
 4. Confirm `assets/`, `css/`, `js/`, and `components/` folders preserve structure.
@@ -84,7 +84,7 @@ Website/
 
 1. Push the project to GitHub.
 2. In Hostinger, open **Git** integration and provide the repository URL.
-3. Set the deployment directory to `1./Oji_Chat_UI./Website`.
+3. Set the deployment directory to `Projects/Atlas/ui/oji_chat_ui/Website`.
 4. Trigger manual deploy or enable automatic deployment on push.
 
 ## Future Enhancements (TODO)
