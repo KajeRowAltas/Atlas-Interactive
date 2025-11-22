@@ -1,0 +1,261 @@
+{
+  "name": "01_Main_Conversation_Flow",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "oji/chat"
+      },
+      "id": "1",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [200, 300],
+      "notes": "Receives incoming chat messages with sessionId and message fields.",
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "keepOnlySet": true,
+        "values": [
+          { "name": "sessionId", "value": "={{$json[\"sessionId\"] || 'demo-session-001'}}" },
+          { "name": "userMessage", "value": "={{$json[\"message\"]}}" }
+        ]
+      },
+      "id": "2",
+      "name": "Set Session & Message",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [450, 300],
+      "notes": "Stores sessionId and userMessage variables for downstream nodes.",
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "operation": "find",
+        "collection": "ShortTermMemory",
+        "query": "{\"sessionId\": \"={{$json.sessionId}}\"}",
+        "options": {
+          "limit": 5,
+          "sort": "{\"updatedAt\": -1}"
+        }
+      },
+      "id": "3",
+      "name": "MongoDB ShortTermMemory",
+      "type": "n8n-nodes-base.mongodb",
+      "typeVersion": 2,
+      "position": [700, 300],
+      "credentials": {
+        "mongodb": "MongoDB Atlas - Oji"
+      },
+      "notes": "Loads the latest short-term memory entries for this session using the official MongoDB node.",
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "workflowId": "01_Query_Analysis_Agent"
+      },
+      "id": "4",
+      "name": "Execute Query Analysis Agent",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [950, 300],
+      "notes": "Calls the dedicated Query Analysis Agent workflow to classify intent and routing flags.",
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "operation": "find",
+        "collection": "RAGSnippets",
+        "query": "{\"source\": \"KnowledgeBase\", \"tags\": {\"$in\": {{$json.intent || []}}}}",
+        "options": {
+          "limit": 5
+        }
+      },
+      "id": "5",
+      "name": "MongoDB Knowledge RAG",
+      "type": "n8n-nodes-base.mongodb",
+      "typeVersion": 2,
+      "position": [1200, 150],
+      "credentials": {
+        "mongodb": "MongoDB Atlas - Oji"
+      },
+      "notes": "Retrieves semantic knowledge snippets relevant to the detected intent.",
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "operation": "find",
+        "collection": "ToolsCatalog",
+        "query": "{}",
+        "options": {
+          "limit": 5
+        }
+      },
+      "id": "6",
+      "name": "MongoDB Tooling RAG",
+      "type": "n8n-nodes-base.mongodb",
+      "typeVersion": 2,
+      "position": [1200, 450],
+      "credentials": {
+        "mongodb": "MongoDB Atlas - Oji"
+      },
+      "notes": "Fetches available tools and actions Oji can propose for this session.",
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "mode": "wait",
+        "join": "combine"
+      },
+      "id": "7",
+      "name": "Merge RAG Results",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 2,
+      "position": [1450, 300],
+      "notes": "Combines knowledge and tool RAG results before crafting the response.",
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "workflowId": "02_Response_Agent"
+      },
+      "id": "8",
+      "name": "Execute Response Agent",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [1700, 300],
+      "notes": "Calls the Response Agent workflow with analysis plus RAG snippets to compose the reply.",
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "operation": "insert",
+        "collection": "ChatHistories",
+        "fields": [
+          { "name": "sessionId", "value": "={{$json.sessionId}}" },
+          { "name": "message", "value": "={{$json.userMessage}}" },
+          { "name": "response", "value": "={{$json.reply}}" },
+          { "name": "analysis", "value": "={{$json.intent}}" },
+          { "name": "createdAt", "value": "={{new Date().toISOString()}}" }
+        ]
+      },
+      "id": "9",
+      "name": "MongoDB Save ChatHistory",
+      "type": "n8n-nodes-base.mongodb",
+      "typeVersion": 2,
+      "position": [1950, 300],
+      "credentials": {
+        "mongodb": "MongoDB Atlas - Oji"
+      },
+      "notes": "Stores the prompt, response, and analysis to the ChatHistories collection.",
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{$json.reply || 'Oji reply placeholder'}}"
+      },
+      "id": "10",
+      "name": "Webhook Response",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [2200, 200],
+      "notes": "Returns the Response Agent output to the caller.",
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "workflowId": "02_Reflection_Async_Flow",
+        "options": {}
+      },
+      "id": "11",
+      "name": "Trigger Reflection Async",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [2200, 400],
+      "notes": "Starts the reflection workflow after sending the reply.",
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "color": "#FFD166",
+        "content": "Main flow overview: Webhook → Set Session → Load ShortTermMemory → Query Analysis → Parallel RAG → Response Agent → Save Chat → Response → Trigger Reflection."
+      },
+      "id": "12",
+      "name": "Sticky Note - Main Flow",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [1400, 50]
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          { "node": "Set Session & Message", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Set Session & Message": {
+      "main": [
+        [
+          { "node": "MongoDB ShortTermMemory", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "MongoDB ShortTermMemory": {
+      "main": [
+        [
+          { "node": "Execute Query Analysis Agent", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Execute Query Analysis Agent": {
+      "main": [
+        [
+          { "node": "MongoDB Knowledge RAG", "type": "main", "index": 0 },
+          { "node": "MongoDB Tooling RAG", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "MongoDB Knowledge RAG": {
+      "main": [
+        [
+          { "node": "Merge RAG Results", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "MongoDB Tooling RAG": {
+      "main": [
+        [
+          { "node": "Merge RAG Results", "type": "main", "index": 1 }
+        ]
+      ]
+    },
+    "Merge RAG Results": {
+      "main": [
+        [
+          { "node": "Execute Response Agent", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Execute Response Agent": {
+      "main": [
+        [
+          { "node": "MongoDB Save ChatHistory", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "MongoDB Save ChatHistory": {
+      "main": [
+        [
+          { "node": "Webhook Response", "type": "main", "index": 0 },
+          { "node": "Trigger Reflection Async", "type": "main", "index": 0 }
+        ]
+      ]
+    }
+  },
+  "settings": {},
+  "version": 2
+}
