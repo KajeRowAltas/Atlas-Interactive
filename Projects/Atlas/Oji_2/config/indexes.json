@@ -1,0 +1,19 @@
+[
+  {"collection": "AgentProfile", "keys": {"_id": 1}, "options": {"unique": true}},
+  {"collection": "PersonalityTraits", "keys": {"trait": 1}},
+  {"collection": "GoalsValuesBeliefs", "keys": {"goal": 1}},
+  {"collection": "SemanticMemories", "keys": {"tags": 1, "topic": 1}},
+  {"collection": "KnowledgeMemories", "keys": {"topic": 1}},
+  {"collection": "ProceduralMemories", "keys": {"procedure": 1}},
+  {"collection": "EpisodicMemories", "keys": {"sessionId": 1, "timestamp": -1}},
+  {"collection": "ShortTermMemory", "keys": {"sessionId": 1, "timestamp": -1}},
+  {"collection": "CurrentEmotionalState", "keys": {"updatedAt": -1}},
+  {"collection": "EmotionalHistory", "keys": {"sessionId": 1, "timestamp": -1}},
+  {"collection": "ChatHistories", "keys": {"sessionId": 1, "timestamp": -1}},
+  {"collection": "QueryAnalysis", "keys": {"sessionId": 1, "timestamp": -1}},
+  {"collection": "ActivityLog", "keys": {"timestamp": -1}},
+  {"collection": "ReflectionsInsights", "keys": {"sessionId": 1, "timestamp": -1}},
+  {"collection": "ProjectTasks", "keys": {"status": 1}},
+  {"collection": "VectorMemoryChunks", "keys": {"tags": 1}},
+  {"collection": "OpenStorage", "keys": {"key": 1}}
+]
