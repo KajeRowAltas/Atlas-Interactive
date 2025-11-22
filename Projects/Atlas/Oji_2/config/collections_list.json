@@ -1,0 +1,19 @@
+[
+  "AgentProfile",
+  "PersonalityTraits",
+  "GoalsValuesBeliefs",
+  "SemanticMemories",
+  "KnowledgeMemories",
+  "ProceduralMemories",
+  "EpisodicMemories",
+  "ShortTermMemory",
+  "CurrentEmotionalState",
+  "EmotionalHistory",
+  "ChatHistories",
+  "QueryAnalysis",
+  "ActivityLog",
+  "ReflectionsInsights",
+  "ProjectTasks",
+  "VectorMemoryChunks",
+  "OpenStorage"
+]

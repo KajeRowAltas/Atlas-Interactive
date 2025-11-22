@@ -1,0 +1,205 @@
+{
+  "name": "01_Query_Analysis_Agent",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "1",
+      "name": "Manual Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [100, 200]
+    },
+    {
+      "parameters": {
+        "content": "Start here. Replace Manual Trigger with your preferred entry node later (e.g., webhook or chat UI).",
+        "color": "#F7E26B"
+      },
+      "id": "2",
+      "name": "Note: User Entry",
+      "type": "n8n-nodes-base.note",
+      "typeVersion": 1,
+      "position": [100, 60]
+    },
+    {
+      "parameters": {
+        "mode": "keepKeyMatches",
+        "values": {
+          "string": [
+            {"name": "user_message", "value": "Hey Oji, who are you?"},
+            {"name": "session_id", "value": ""}
+          ]
+        }
+      },
+      "id": "3",
+      "name": "Set User Message",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [100, 360]
+    },
+    {
+      "parameters": {
+        "functionCode": "const crypto = require('crypto');\nconst prior = $json.session_id;\nconst session_id = (prior && prior.length > 0) ? prior : `oji-${Date.now().toString(36)}-${crypto.randomBytes(2).toString('hex')}`;\nreturn [{ json: { ...$json, session_id } }];"
+      },
+      "id": "4",
+      "name": "Function: Ensure Session",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [100, 520]
+    },
+    {
+      "parameters": {
+        "content": "Guarantees every run has a session_id used across all agents.",
+        "color": "#F7E26B"
+      },
+      "id": "5",
+      "name": "Note: Session",
+      "type": "n8n-nodes-base.note",
+      "typeVersion": 1,
+      "position": [340, 520]
+    },
+    {
+      "parameters": {
+        "operation": "insert",
+        "collection": "ActivityLog",
+        "fields": "={{$json}}",
+        "options": {}
+      },
+      "id": "6",
+      "name": "MongoDB: Log Inbound",
+      "type": "n8n-nodes-base.mongoDb",
+      "typeVersion": 2,
+      "position": [100, 680],
+      "credentials": {
+        "mongoDb": {
+          "id": "MongoDB Atlas",
+          "name": "MongoDB Atlas"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": "gpt-4o-mini",
+        "operation": "chat",
+        "systemMessage": "={{$binary.data ? Buffer.from($binary.data.data,'base64').toString() : $json.system_prompt || ''}}",
+        "messages": [
+          {
+            "role": "user",
+            "content": "={{$json.user_message}}"
+          }
+        ],
+        "options": {
+          "temperature": 0.2,
+          "maxTokens": 500
+        }
+      },
+      "id": "7",
+      "name": "OpenAI: Query Analysis",
+      "type": "n8n-nodes-base.openAi",
+      "typeVersion": 4,
+      "position": [100, 1040],
+      "credentials": {
+        "openAIApi": {
+          "id": "OpenAI",
+          "name": "OpenAI"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "filePath": "../../Project/Atlas/Oji_2/prompts/query_analysis_prompt.txt"
+      },
+      "id": "8",
+      "name": "Read Prompt",
+      "type": "n8n-nodes-base.readBinaryFile",
+      "typeVersion": 1,
+      "position": [320, 880]
+    },
+    {
+      "parameters": {
+        "content": "Feeds the dedicated Query Analysis prompt into OpenAI.",
+        "color": "#F7E26B"
+      },
+      "id": "9",
+      "name": "Note: Prompt",
+      "type": "n8n-nodes-base.note",
+      "typeVersion": 1,
+      "position": [560, 880]
+    },
+    {
+      "parameters": {
+        "operation": "insert",
+        "collection": "QueryAnalysis",
+        "fields": "={{$json}}",
+        "options": {}
+      },
+      "id": "10",
+      "name": "MongoDB: Save Analysis",
+      "type": "n8n-nodes-base.mongoDb",
+      "typeVersion": 2,
+      "position": [100, 1200],
+      "credentials": {
+        "mongoDb": {
+          "id": "MongoDB Atlas",
+          "name": "MongoDB Atlas"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "insert",
+        "collection": "ShortTermMemory",
+        "fields": "={{$json}}",
+        "options": {}
+      },
+      "id": "11",
+      "name": "MongoDB: ST Memory",
+      "type": "n8n-nodes-base.mongoDb",
+      "typeVersion": 2,
+      "position": [100, 1360],
+      "credentials": {
+        "mongoDb": {
+          "id": "MongoDB Atlas",
+          "name": "MongoDB Atlas"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "workflowId": "02_Response_Agent",
+        "options": {
+          "additionalFields": {
+            "arguments": [
+              {"name": "analysis", "value": "={{$json}}"}
+            ]
+          }
+        }
+      },
+      "id": "12",
+      "name": "Execute: Response Agent",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [100, 1520]
+    },
+    {
+      "parameters": {
+        "content": "Triggers the Response Agent. Keep this as the only outbound call.",
+        "color": "#F7E26B"
+      },
+      "id": "13",
+      "name": "Note: Handoff",
+      "type": "n8n-nodes-base.note",
+      "typeVersion": 1,
+      "position": [340, 1520]
+    }
+  ],
+  "connections": {
+    "Manual Trigger": {"main": [[{"node": "Set User Message", "type": "main", "index": 0}]]},
+    "Set User Message": {"main": [[{"node": "Function: Ensure Session", "type": "main", "index": 0}]]},
+    "Function: Ensure Session": {"main": [[{"node": "MongoDB: Log Inbound", "type": "main", "index": 0}]]},
+    "MongoDB: Log Inbound": {"main": [[{"node": "Read Prompt", "type": "main", "index": 0}]]},
+    "Read Prompt": {"main": [[{"node": "OpenAI: Query Analysis", "type": "main", "index": 0}]]},
+    "OpenAI: Query Analysis": {"main": [[{"node": "MongoDB: Save Analysis", "type": "main", "index": 0}]]},
+    "MongoDB: Save Analysis": {"main": [[{"node": "MongoDB: ST Memory", "type": "main", "index": 0}]]},
+    "MongoDB: ST Memory": {"main": [[{"node": "Execute: Response Agent", "type": "main", "index": 0}]]}
+  }
+}
