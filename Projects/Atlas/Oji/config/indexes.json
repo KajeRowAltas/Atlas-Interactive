@@ -1,0 +1,10 @@
+// Run with: mongosh "mongodb+srv://<user>:<password>@<cluster-url>/OjiDB" --file indexes.json
+
+db.ChatHistories.createIndex({ sessionId: 1, createdAt: -1 });
+db.ShortTermMemory.createIndex({ sessionId: 1, updatedAt: -1 });
+db.LongTermMemory.createIndex({ topic: 1, updatedAt: -1 });
+db.IntentSummaries.createIndex({ intent: 1, createdAt: -1 });
+db.ToolFeedback.createIndex({ tool: 1, createdAt: -1 });
+db.ReflectionQueue.createIndex({ status: 1, createdAt: -1 });
+db.RAGSnippets.createIndex({ source: 1 });
+db.ToolsCatalog.createIndex({ tool: 1 }, { unique: true });

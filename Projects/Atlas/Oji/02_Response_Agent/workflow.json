@@ -1,0 +1,150 @@
+{
+  "name": "02_Response_Agent",
+  "nodes": [
+    {
+      "parameters": {
+        "color": "#FFD166",
+        "content": "Webhook → Set variables → Load system & agent prompts → OpenAI → Return reply with citations/actions."
+      },
+      "id": "0",
+      "name": "Sticky Note - Response Agent",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [200, 80]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "oji/response-agent"
+      },
+      "id": "1",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [200, 260],
+      "notes": "Receives analysis JSON, RAG snippets, and tool hints.",
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "keepOnlySet": true,
+        "values": [
+          { "name": "sessionId", "value": "={{$json.sessionId}}" },
+          { "name": "analysis", "value": "={{$json.analysis}}" },
+          { "name": "knowledgeRAG", "value": "={{$json["MongoDB Knowledge RAG"]}}" },
+          { "name": "toolingRAG", "value": "={{$json["MongoDB Tooling RAG"]}}" }
+        ]
+      },
+      "id": "2",
+      "name": "Set Conversation Inputs",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [450, 260],
+      "notes": "Normalizes incoming payload for prompt assembly.",
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "filePath": "../prompts/response_system_prompt.txt"
+      },
+      "id": "3",
+      "name": "Load System Prompt",
+      "type": "n8n-nodes-base.readBinaryFile",
+      "typeVersion": 1,
+      "position": [700, 180],
+      "notes": "Loads the system behavior prompt for Oji.",
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "filePath": "../prompts/response_agent_prompt.txt"
+      },
+      "id": "4",
+      "name": "Load Agent Prompt",
+      "type": "n8n-nodes-base.readBinaryFile",
+      "typeVersion": 1,
+      "position": [700, 340],
+      "notes": "Loads the structured response instructions.",
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "operation": "chat",
+        "model": "gpt-4o-mini",
+        "messages": [
+          {
+            "role": "system",
+            "message": "={{$binary.data.toString()}}"
+          },
+          {
+            "role": "user",
+            "message": "={{$json.analysis}}\nKnowledge RAG: {{JSON.stringify($json.knowledgeRAG || [])}}\nTooling RAG: {{JSON.stringify($json.toolingRAG || [])}}\nFollow the agent instructions: {{Buffer.from($items("Load Agent Prompt")[0].binary.data.data, 'base64').toString()}}"
+          }
+        ]
+      },
+      "id": "5",
+      "name": "OpenAI - Response Agent",
+      "type": "n8n-nodes-base.openAIApi",
+      "typeVersion": 1,
+      "position": [950, 260],
+      "credentials": {
+        "openAIApi": "OpenAI - Oji"
+      },
+      "notes": "Combines analysis with RAG snippets to generate the final reply payload.",
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{$json}}"
+      },
+      "id": "6",
+      "name": "Return Reply",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [1200, 260],
+      "notes": "Sends reply, citations, and suggested actions back to the main flow.",
+      "notesInFlow": true
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          { "node": "Set Conversation Inputs", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Set Conversation Inputs": {
+      "main": [
+        [
+          { "node": "Load System Prompt", "type": "main", "index": 0 },
+          { "node": "Load Agent Prompt", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Load System Prompt": {
+      "main": [
+        [
+          { "node": "OpenAI - Response Agent", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Load Agent Prompt": {
+      "main": [
+        [
+          { "node": "OpenAI - Response Agent", "type": "main", "index": 1 }
+        ]
+      ]
+    },
+    "OpenAI - Response Agent": {
+      "main": [
+        [
+          { "node": "Return Reply", "type": "main", "index": 0 }
+        ]
+      ]
+    }
+  },
+  "settings": {},
+  "version": 2
+}
