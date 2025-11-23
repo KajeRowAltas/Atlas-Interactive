@@ -1,3 +1,5 @@
+This is an older version but shows most. VectorMemory index has been changed to Hybrid_Search
+
 {
   "database": "OjiDB",
   "collections": {
