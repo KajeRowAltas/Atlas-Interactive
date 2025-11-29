@@ -2,8 +2,6 @@
 
 Atlas Geometric Surrealism inspired web interface for the Atlas–Oji personal chatbot.
 
-**Canonical location:** The maintained copy of these static assets lives at `references/atlas_website_design/` in the repo root. This `Projects/Atlas/ui/oji_chat_ui/Website` folder is kept for historical reference; prefer edits in the canonical location.
-
 ## Project Structure
 
 ```

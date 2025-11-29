@@ -1,20 +1,30 @@
-# Atlas Interactive Monorepo
+# Atlas Interactive – Source of Truth
 
-This repository organizes the original Atlas deliverables, MongoDB exports, and related initiatives into a consistent, scalable layout. Each initiative lives under `Projects/` with shared database resources under `Shared_Resources/`.
+This repository is the canonical home for the Atlas Interactive app stack: the Flutter mission-control dashboard, FastAPI backend, n8n Oji agents, MongoDB schemas/blueprints (OjiDB), and static design assets.
 
-## Project directories
-- [Projects/Atlas](Projects/Atlas/README.md) — Atlas VR experience assets, including the Oji chat UI, prompt collections, and research notes.
-- [Projects/De_Frisdrank_Fabriek](Projects/De_Frisdrank_Fabriek/README.md) — Beverage factory automation and operational modeling.
-- [Projects/Crypto](Projects/Crypto/README.md) — Trading strategy workspace and supporting documentation.
-- [Projects/Sports](Projects/Sports/README.md) — Sports analytics and activity tracking backlog.
-- [Projects/Nutrition](Projects/Nutrition/README.md) — Nutrition tracking and health-focused workflows.
-- [Projects/Gaming](Projects/Gaming/README.md) — Video game design, prototyping, and experimentation.
-- [Projects/_review_needed](Projects/_review_needed/README.md) — Items awaiting proper placement (e.g., legacy CI/CD workflows) preserved for review.
+## Stack overview
+- `atlas_dashboard/` — Flutter desktop/web shell with CommandController + MainShell (Oracle chat, Terminal, Dashboard, Markets).
+- `backend/` — FastAPI service with chat and trading websocket routes; Dockerfile + scripts for local runs.
+- `docker-compose.yml` — Boots backend + MongoDB 7 for local development.
+- `styles.css`, `dark.css` — Brand tokens mirrored by the Flutter theme.
+- `references/atlas_website_design/` — Canonical static Atlas/Oji UI (HTML/CSS/JS) used by design + theme mapping.
+- `Projects/Atlas/Oji` and `Projects/Atlas/Oji_2` — n8n workflows, prompts, and OjiDB blueprints/indexes.
+- `Projects/Atlas/ui/oji_chat_ui/` — Historical static site copy (see README in that folder).
+- `Shared_Resources/Mongodb/` — OjiDB architecture exports and collection/index metadata.
+- `docs/project_digest_for_chatgpt.md` — Canonical high-level digest (read this first).
 
-## Shared resources
-- [Shared_Resources/Mongodb](Shared_Resources/Mongodb/Readme.md) — OjiDB architecture and project definitions exported from MongoDB, including collection JSON dumps and index metadata.
+## Getting started
+1) Install Flutter, Python 3.11, and Docker/Docker Compose.
+2) From `atlas_dashboard/`: `flutter pub get` then `flutter run -d macos` (or `-d chrome`).
+3) From `backend/`: `python -m venv venv && source venv/bin/activate && pip install -r requirements.txt && uvicorn app.main:app --reload`.
+4) From repo root: `docker-compose up` to run backend + MongoDB.
 
-## Conventions
-- Keep project-specific assets inside their project directory; introduce feature folders (`ui/`, `docs/`, `data/`, etc.) as needed.
-- Reuse common assets by linking to `Shared_Resources/` rather than duplicating files across projects.
-- When adding new initiatives, create a project directory with a `README.md` and `LICENSE` to describe scope, structure, and usage.
+## Docs
+- Digest: `docs/project_digest_for_chatgpt.md` (mirrors the latest project summary and layout).
+- Oji agent guides: `Projects/Atlas/Oji/README.md`, `Projects/Atlas/Oji_2/README_BEGINNER_GUIDE.md`.
+- OjiDB architecture: `Shared_Resources/Mongodb/Readme.md`.
+
+## Contributing
+- Treat this repo as the single source of truth; add new assets here before deploying anywhere else.
+- Keep secrets out of git (`backend/.env`, n8n credential files). Use `.env.example` for placeholders.
+- Prefer incremental changes: keep app building, backend tests passing, and workflows importable.

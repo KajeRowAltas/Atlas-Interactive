@@ -1,0 +1,19 @@
+.DS_Store
+
+# Flutter
+atlas_dashboard/.dart_tool/
+atlas_dashboard/build/
+atlas_dashboard/.flutter-plugins*
+atlas_dashboard/.packages
+
+# Python backend
+backend/venv/
+backend/.env
+backend/__pycache__/
+backend/.pytest_cache/
+
+# General
+*.log
+.idea/
+.vscode/
+*.swp
