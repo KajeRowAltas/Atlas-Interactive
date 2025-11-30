@@ -4,13 +4,14 @@
 Atlas Interactive is a multi-surface AI workspace that blends a Flutter-based mission control dashboard, a FastAPI backend, and n8n agent workflows for the Oji conversational assistant. The stack includes design system assets (HTML/CSS prototypes and Flutter theme mappings), MongoDB schemas/blueprints for OjiDB, and Docker tooling to run the API with Mongo locally. Primary use cases center on chatting with Oji, monitoring trading/ops signals, issuing commands through an embedded terminal, and iterating on the assistant’s memory and prompt architecture.
 
 ## 2. Repository Structure & Key Files
-- Root workspace
-  - `atlas_dashboard/` — Flutter desktop/web shell for Atlas with Atlas-branded theming.
-  - `backend/` — FastAPI service with chat and trading websocket endpoints backed by Mongo.
-  - `docker-compose.yml` — Spins up the backend plus MongoDB 7 with a named volume.
-  - `references/atlas_website_design/` — Static Atlas/Oji web UI prototype (HTML/CSS/JS).
-  - `styles.css`, `dark.css` — Brand tokens/gradients mirrored by the Flutter theme helpers.
-  - `Atlas-Interactive/` — Versioned monorepo of Oji agent assets, Mongo schemas, and docs.
+- Root workspace (Git root hosts docs and project directories)
+  - `Projects/Atlas/Atlas-Interactive/atlas_dashboard/` — Flutter desktop/web shell for Atlas with Atlas-branded theming.
+  - `Projects/Atlas/Atlas-Interactive/backend/` — FastAPI service with chat and trading websocket endpoints backed by Mongo.
+  - `Projects/Atlas/Atlas-Interactive/docker-compose.yml` — Spins up the backend plus MongoDB 7 with a named volume.
+  - `Projects/Atlas/Atlas-Interactive/references/atlas_website_design/` — Static Atlas/Oji web UI prototype (HTML/CSS/JS), canonical design source.
+  - `Projects/Atlas/Atlas-Interactive/styles.css`, `Projects/Atlas/Atlas-Interactive/dark.css` — Brand tokens/gradients mirrored by the Flutter theme helpers.
+  - `Projects/Atlas/Oji`, `Projects/Atlas/Oji_2` — Oji agent assets, Mongo schemas, and docs.
+  - `Shared_Resources/Mongodb/` — OjiDB architecture and collection schema JSON dumps.
 
 - Frontend (Flutter)
   - `atlas_dashboard/lib/main.dart` — Entry point; `CommandController` + `MainShell` navigation for Oracle chat, Terminal logs, Dashboard cards, and Markets placeholder with command parsing (`/nav`, `/panic`).
@@ -41,9 +42,9 @@ Atlas Interactive is a multi-surface AI workspace that blends a Flutter-based mi
   - `Shared_Resources/Mongodb/` — OjiDB architecture blueprint/indexes and collection schema JSON dumps.
 
 - Reference site assets
-  - `references/atlas_website_design/index.html` (plus `login.html`, `dashboard.html`, `settings.html`, `project-panel.html`, `admin.html`) — Canonical static Atlas/Oji UI mock pages.
-  - `references/atlas_website_design/css/styles.css` and `css/dark.css` — Theme tokens and dark overrides reused by Flutter theme mapping.
-  - `references/atlas_website_design/js/*.js` — Modular JS for chat UI, webhook API integration, commands, dashboard/settings/project/admin interactions.
+  - `Projects/Atlas/Atlas-Interactive/references/atlas_website_design/index.html` (plus `login.html`, `dashboard.html`, `settings.html`, `project-panel.html`, `admin.html`) — Canonical static Atlas/Oji UI mock pages.
+  - `Projects/Atlas/Atlas-Interactive/references/atlas_website_design/css/styles.css` and `css/dark.css` — Theme tokens and dark overrides reused by Flutter theme mapping.
+  - `Projects/Atlas/Atlas-Interactive/references/atlas_website_design/js/*.js` — Modular JS for chat UI, webhook API integration, commands, dashboard/settings/project/admin interactions.
   - Historical copy preserved at `Projects/Atlas/ui/oji_chat_ui/Website` (do not edit; reference only).
 
 ## 3. Domain Concepts & Terminology
