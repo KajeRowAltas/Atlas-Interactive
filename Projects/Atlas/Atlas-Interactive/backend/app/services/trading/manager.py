@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import asyncio
+import logging
 import os
 from dataclasses import dataclass
 from datetime import datetime, timezone
@@ -16,6 +17,8 @@ from app.services.trading.models import (
     TradingStartRequest,
     TradingStatusResponse,
 )
+
+logger = logging.getLogger("app")
 
 
 def utc_now() -> datetime:
@@ -151,6 +154,7 @@ class TradingBotManager:
                 if request.indicator_settings is not None
                 else IndicatorSettings(),
             )
+            logger.info(f"Starting bot with config: {config}")
             bot = TradingBot(
                 exchange=exchange,
                 config=config,
@@ -174,6 +178,7 @@ class TradingBotManager:
                 self._runtime.state = "stopped"
                 return
 
+            logger.info("Stopping bot")
             self._runtime.state = "stopping"
             if self._stop_event is not None:
                 self._stop_event.set()
@@ -185,6 +190,25 @@ class TradingBotManager:
         except asyncio.TimeoutError:
             self._runtime.last_error = "Timed out while stopping bot."
             self._runtime.state = "error"
+
+    async def get_open_trades(self, symbol: Optional[str] = None) -> list[dict[str, Any]]:
+        creds = load_bitget_credentials_from_env()
+        if not (creds.api_key and creds.secret_key and creds.passphrase):
+            raise RuntimeError(
+                "Missing Bitget credentials in env: BITGET_API_KEY, BITGET_SECRET_KEY, BITGET_PASSPHRASE."
+            )
+        try:
+            exchange = create_ccxt_bitget_exchange(
+                creds=creds,
+                market_type="swap",  # Assuming "swap" for open trades
+            )
+            # Fetch open orders. The 'symbol' argument can filter by specific trading pair.
+            open_orders = await exchange.fetch_open_orders(symbol=symbol)
+            await exchange.close()
+            return open_orders
+        except Exception as exc:
+            logger.exception("Failed to fetch open trades from Bitget")
+            raise RuntimeError(f"Failed to fetch open trades: {exc}") from exc
 
 
 trading_bot_manager = TradingBotManager()

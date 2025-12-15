@@ -3,7 +3,7 @@ from __future__ import annotations
 from datetime import datetime
 from typing import Literal, Optional
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 BotState = Literal["stopped", "starting", "running", "stopping", "error"]
 MarketType = Literal["swap"]
@@ -59,3 +59,15 @@ class TradingStatusResponse(BaseModel):
     last_tick_at: Optional[datetime] = None
     last_price: Optional[float] = None
     last_error: Optional[str] = None
+
+
+class OpenTrade(BaseModel):
+    model_config = ConfigDict(extra="allow")
+
+    symbol: str
+    type: str
+    side: str
+    amount: float
+    price: float
+    datetime: str
+    status: str

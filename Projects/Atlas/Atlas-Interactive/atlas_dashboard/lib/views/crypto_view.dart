@@ -1,4 +1,6 @@
 import 'dart:async';
+import 'dart:convert';
+import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
@@ -32,11 +34,13 @@ class _CryptoViewState extends State<CryptoView> {
   String? _error;
   bool _connecting = false;
   Map<String, dynamic>? _indicatorSettings;
+  List<dynamic>? _openTrades;
 
   @override
   void initState() {
     super.initState();
     _fetchIndicatorSettings();
+    _fetchOpenTrades();
   }
 
   @override
@@ -70,7 +74,20 @@ class _CryptoViewState extends State<CryptoView> {
       setState(() {
         _indicatorSettings = settings;
       });
-    } catch (e) {
+    } catch (e, s) {
+      log('Failed to fetch indicator settings', error: e, stackTrace: s);
+      setState(() => _error = e.toString());
+    }
+  }
+
+  Future<void> _fetchOpenTrades() async {
+    try {
+      final trades = await _api().getOpenTrades();
+      setState(() {
+        _openTrades = trades;
+      });
+    } catch (e, s) {
+      log('Failed to fetch open trades', error: e, stackTrace: s);
       setState(() => _error = e.toString());
     }
   }
@@ -97,10 +114,12 @@ class _CryptoViewState extends State<CryptoView> {
               _status = event['status'] as Map<String, dynamic>?;
           });
         },
-        onError: (e) {
+        onError: (e, s) {
+          log('WebSocket error', error: e, stackTrace: s);
           setState(() => _error = e.toString());
         },
         onDone: () {
+          log('WebSocket connection closed');
           setState(() => _channel = null);
         },
         cancelOnError: false,
@@ -110,7 +129,8 @@ class _CryptoViewState extends State<CryptoView> {
         _channel = channel;
         _channelSub = sub;
       });
-    } catch (e) {
+    } catch (e, s) {
+      log('Failed to connect to WebSocket', error: e, stackTrace: s);
       setState(() => _error = e.toString());
     } finally {
       setState(() => _connecting = false);
@@ -121,7 +141,8 @@ class _CryptoViewState extends State<CryptoView> {
     try {
       final status = await _api().status();
       setState(() => _status = status);
-    } catch (e) {
+    } catch (e, s) {
+      log('Failed to refresh status', error: e, stackTrace: s);
       setState(() => _error = e.toString());
     }
   }
@@ -136,9 +157,11 @@ class _CryptoViewState extends State<CryptoView> {
         enableAnalysis: true,
         indicatorSettings: _indicatorSettings,
       );
+      log('Bot started: $status');
       setState(() => _status = status);
       await _connectWs();
-    } catch (e) {
+    } catch (e, s) {
+      log('Failed to start bot', error: e, stackTrace: s);
       setState(() => _error = e.toString());
     }
   }
@@ -147,7 +170,8 @@ class _CryptoViewState extends State<CryptoView> {
     try {
       final status = await _api().stop();
       setState(() => _status = status);
-    } catch (e) {
+    } catch (e, s) {
+      log('Failed to stop bot', error: e, stackTrace: s);
       setState(() => _error = e.toString());
     }
   }
@@ -227,11 +251,18 @@ class _CryptoViewState extends State<CryptoView> {
                             try {
                               await _api()
                                   .setIndicatorSettings(_indicatorSettings!);
-                            } catch (e) {
+                            } catch (e, s) {
+                              log('Failed to save indicator settings',
+                                  error: e, stackTrace: s);
                               setState(() => _error = e.toString());
                             }
                           },
-                        )
+                        ),
+                      const SizedBox(height: 16),
+                      _OpenTradesDisplay(
+                        openTrades: _openTrades,
+                        onRefresh: _fetchOpenTrades,
+                      ),
                     ],
                   ),
                 ),
@@ -533,7 +564,8 @@ class _IndicatorSettings extends StatelessWidget {
             label: 'Period',
             value: rsi['period'].toString(),
             onChanged: (value) {
-              final newSettings = Map<String, dynamic>.from(settings);
+              final newSettings =
+                  json.decode(json.encode(settings)) as Map<String, dynamic>;
               newSettings['rsi']['period'] = int.tryParse(value) ?? 14;
               onChanged(newSettings);
             },
@@ -553,7 +585,8 @@ class _IndicatorSettings extends StatelessWidget {
             label: 'Period',
             value: bbands['period'].toString(),
             onChanged: (value) {
-              final newSettings = Map<String, dynamic>.from(settings);
+              final newSettings =
+                  json.decode(json.encode(settings)) as Map<String, dynamic>;
               newSettings['bbands']['period'] = int.tryParse(value) ?? 20;
               onChanged(newSettings);
             },
@@ -563,7 +596,8 @@ class _IndicatorSettings extends StatelessWidget {
             label: 'Std Dev',
             value: bbands['std_dev'].toString(),
             onChanged: (value) {
-              final newSettings = Map<String, dynamic>.from(settings);
+              final newSettings =
+                  json.decode(json.encode(settings)) as Map<String, dynamic>;
               newSettings['bbands']['std_dev'] =
                   double.tryParse(value) ?? 2.0;
               onChanged(newSettings);
@@ -585,7 +619,8 @@ class _IndicatorSettings extends StatelessWidget {
             label: 'Swing Points',
             value: marketStructure['swing_points'].toString(),
             onChanged: (value) {
-              final newSettings = Map<String, dynamic>.from(settings);
+              final newSettings =
+                  json.decode(json.encode(settings)) as Map<String, dynamic>;
               newSettings['market_structure']['swing_points'] =
                   int.tryParse(value) ?? 10;
               onChanged(newSettings);

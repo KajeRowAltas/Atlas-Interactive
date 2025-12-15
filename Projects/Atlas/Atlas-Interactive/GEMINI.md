@@ -36,6 +36,15 @@ To start both the frontend and backend services with a single command, you can u
 
 This will open two new terminal windows: one for the backend and one for the frontend.
 
+### Logging
+
+The `start_dev.sh` script is configured to capture logs for both the backend and frontend in the `backend/logs` directory.
+
+*   `backend.log`: Contains logs for the FastAPI backend.
+*   `frontend.log`: Contains logs for the Flutter frontend.
+
+The logging for the backend is configured in `app/main.py`. The logging for the frontend is configured in `app/view/crypto_view.dart`.
+
 ### Frontend (Flutter)
 
 To run the Flutter frontend:
@@ -68,3 +77,27 @@ To run with Docker:
 
 *   All changes to the Atlas-Interactive application should be kept within this directory to maintain a single source of truth.
 *   The project uses a Flutter application for the main interface and a FastAPI backend for chat, AI memory, trading, and other services, utilizing MongoDB Atlas. For detailed MongoDB architecture, refer to `mongodb/layout.md`.
+
+## Known Issues
+
+### Bitget "Classic Account" Incompatibility
+
+The trading bot is currently not functional due to an incompatibility with Bitget's "Classic Account" type. The investigation has revealed the following issues:
+
+1.  **Bitget API v1 Decommissioned**: The `ccxt` library, even after being updated to the latest version (`4.5.27`), appears to still be making some calls to the Bitget v1 API. This results in the following error:
+    ```
+    ccxt.base.errors.BadSymbol: bitget {"code":"30032","msg":"The V1 API has been decommissioned. Please migrate to a newer version."}
+    ```
+2.  **Classic Account Incompatibility**: When attempting to use the Bitget v2/v3 API with a "Classic Account", the API returns the following error:
+    ```
+    {"code":"40084","msg":"You are in Classic Account mode, and the Unified Account API is not supported at this time"}
+    ```
+3.  **Lack of `ccxt` documentation for Classic Accounts**: There is no clear documentation on how to configure `ccxt` to work with Bitget "Classic Accounts".
+
+**Recommendation:**
+
+The recommended solution is to upgrade the Bitget account from a "Classic Account" to a "Unified Account". This will ensure compatibility with the latest Bitget APIs and the `ccxt` library.
+
+**Upgrade Instructions:**
+
+You can find instructions on how to upgrade your account here: https://www.bitget.com/academy/en/article/An-Introduction-to-Bitget-s-Unified-Trading-Account
