@@ -1,0 +1,53 @@
+{
+  "name": "01_Query_Analysis_Agent",
+  "nodes": [
+    {"parameters": {}, "id": "1", "name": "Manual Trigger", "type": "n8n-nodes-base.manualTrigger", "typeVersion": 1, "position": [80, 160]},
+    {"parameters": {"content": "Entry point. Swap this with chat/webhook in production.", "color": "#F7E26B"}, "id": "2", "name": "Note: User Entry", "type": "n8n-nodes-base.note", "typeVersion": 1, "position": [80, 20]},
+
+    {"parameters": {"mode": "keepKeyMatches", "values": {"string": [{"name": "user_message", "value": "Hey Oji, who are you?"}, {"name": "session_id", "value": ""}]}}, "id": "3", "name": "Set User Message", "type": "n8n-nodes-base.set", "typeVersion": 1, "position": [80, 320]},
+    {"parameters": {"functionCode": "const crypto = require('crypto');\nconst incoming = $json.session_id;\nconst session_id = incoming && incoming.length ? incoming : `oji-${Date.now().toString(36)}-${crypto.randomBytes(2).toString('hex')}`;\nreturn [{ json: { ...$json, session_id } }];"}, "id": "4", "name": "Function: Ensure Session", "type": "n8n-nodes-base.function", "typeVersion": 1, "position": [80, 480]},
+    {"parameters": {"content": "Guarantees every turn has a session_id.", "color": "#F7E26B"}, "id": "5", "name": "Note: Session", "type": "n8n-nodes-base.note", "typeVersion": 1, "position": [320, 480]},
+
+    {"parameters": {"operation": "insert", "collection": "ActivityLog", "fields": "={{$json}}"}, "id": "6", "name": "MongoDB: Log Inbound", "type": "n8n-nodes-base.mongoDb", "typeVersion": 2, "position": [80, 640], "credentials": {"mongoDb": {"id": "MongoDB Atlas", "name": "MongoDB Atlas"}}},
+    {"parameters": {"content": "Capture the raw user input for traceability.", "color": "#F7E26B"}, "id": "7", "name": "Note: Intake Log", "type": "n8n-nodes-base.note", "typeVersion": 1, "position": [320, 640]},
+
+    {"parameters": {"operation": "find", "collection": "AgentProfile", "query": "={{ { active: true } }}"}, "id": "8", "name": "MongoDB Tool: Profile", "type": "n8n-nodes-base.mongoDb", "typeVersion": 2, "position": [80, 800], "credentials": {"mongoDb": {"id": "MongoDB Atlas", "name": "MongoDB Atlas"}}},
+    {"parameters": {"operation": "find", "collection": "ShortTermMemory", "query": "={{ { sessionId: $json.session_id } }}"}, "id": "9", "name": "MongoDB Tool: Short Term", "type": "n8n-nodes-base.mongoDb", "typeVersion": 2, "position": [300, 800], "credentials": {"mongoDb": {"id": "MongoDB Atlas", "name": "MongoDB Atlas"}}},
+    {"parameters": {"mode": "combine"}, "id": "10", "name": "Merge: Tools", "type": "n8n-nodes-base.merge", "typeVersion": 2, "position": [180, 960]},
+    {"parameters": {"content": "Agent sees profile + last turn via connected tools.", "color": "#F7E26B"}, "id": "11", "name": "Note: Tools", "type": "n8n-nodes-base.note", "typeVersion": 1, "position": [420, 880]},
+
+    {"parameters": {"filePath": "../prompts/query_analysis_prompt.txt"}, "id": "12", "name": "Read Prompt", "type": "n8n-nodes-base.readBinaryFile", "typeVersion": 1, "position": [80, 1120]},
+    {"parameters": {"content": "Primary system prompt for the Query Analysis agent.", "color": "#F7E26B"}, "id": "13", "name": "Note: Prompt", "type": "n8n-nodes-base.note", "typeVersion": 1, "position": [320, 1120]},
+
+    {"parameters": {
+      "model": "gpt-4o-mini",
+      "operation": "chat",
+      "systemMessage": "={{ Buffer.from($items(\"Read Prompt\")[0].binary.data.data,'base64').toString() }}",
+      "messages": [
+        {"role": "system", "content": "Tools provided: profile + short-term memory"},
+        {"role": "user", "content": "User said: {{$json.user_message}}\nSession: {{$json.session_id}}\nProfile: {{$items(\"MongoDB Tool: Profile\")[0].json | json}}\nShortTermMemory: {{$items(\"MongoDB Tool: Short Term\")[0].json | json}}"}
+      ],
+      "options": {"temperature": 0.2, "maxTokens": 500}
+    }, "id": "14", "name": "OpenAI Agent: Query Analysis", "type": "n8n-nodes-base.openAi", "typeVersion": 4, "position": [80, 1280], "credentials": {"openAIApi": {"id": "OpenAI", "name": "OpenAI"}}},
+    {"parameters": {"content": "AI agent runs with multiple tool contexts (profile + memory).", "color": "#F7E26B"}, "id": "15", "name": "Note: Agent", "type": "n8n-nodes-base.note", "typeVersion": 1, "position": [320, 1280]},
+
+    {"parameters": {"operation": "insert", "collection": "QueryAnalysis", "fields": "={{ { sessionId: $json.session_id, analysis: $json.choices[0].message.content, raw: $json } }}"}, "id": "16", "name": "MongoDB: Save Analysis", "type": "n8n-nodes-base.mongoDb", "typeVersion": 2, "position": [80, 1440], "credentials": {"mongoDb": {"id": "MongoDB Atlas", "name": "MongoDB Atlas"}}},
+    {"parameters": {"operation": "insert", "collection": "ShortTermMemory", "fields": "={{ { sessionId: $json.session_id, analysis: $json.choices[0].message.content, createdAt: new Date().toISOString() } }}"}, "id": "17", "name": "MongoDB: ST Memory", "type": "n8n-nodes-base.mongoDb", "typeVersion": 2, "position": [80, 1600], "credentials": {"mongoDb": {"id": "MongoDB Atlas", "name": "MongoDB Atlas"}}},
+
+    {"parameters": {"workflowId": "02_Response_Agent", "options": {"additionalFields": {"arguments": [{"name": "analysis", "value": "={{$json}}"}]}}}, "id": "18", "name": "Execute: Response Agent", "type": "n8n-nodes-base.executeWorkflow", "typeVersion": 1, "position": [80, 1760]},
+    {"parameters": {"content": "Only outbound hop. Response Agent continues chain.", "color": "#F7E26B"}, "id": "19", "name": "Note: Handoff", "type": "n8n-nodes-base.note", "typeVersion": 1, "position": [320, 1760]}
+  ],
+  "connections": {
+    "Manual Trigger": {"main": [[{"node": "Set User Message", "type": "main", "index": 0}]]},
+    "Set User Message": {"main": [[{"node": "Function: Ensure Session", "type": "main", "index": 0}]]},
+    "Function: Ensure Session": {"main": [[{"node": "MongoDB: Log Inbound", "type": "main", "index": 0}]]},
+    "MongoDB: Log Inbound": {"main": [[{"node": "MongoDB Tool: Profile", "type": "main", "index": 0}, {"node": "MongoDB Tool: Short Term", "type": "main", "index": 0}]]},
+    "MongoDB Tool: Profile": {"main": [[{"node": "Merge: Tools", "type": "main", "index": 0}]]},
+    "MongoDB Tool: Short Term": {"main": [[{"node": "Merge: Tools", "type": "main", "index": 1}]]},
+    "Merge: Tools": {"main": [[{"node": "Read Prompt", "type": "main", "index": 0}]]},
+    "Read Prompt": {"main": [[{"node": "OpenAI Agent: Query Analysis", "type": "main", "index": 0}]]},
+    "OpenAI Agent: Query Analysis": {"main": [[{"node": "MongoDB: Save Analysis", "type": "main", "index": 0}]]},
+    "MongoDB: Save Analysis": {"main": [[{"node": "MongoDB: ST Memory", "type": "main", "index": 0}]]},
+    "MongoDB: ST Memory": {"main": [[{"node": "Execute: Response Agent", "type": "main", "index": 0}]]}
+  }
+}

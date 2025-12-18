@@ -1,6 +1,5 @@
-This document outlines the architecture of the OjiDB database.
-It includes vector indexes for collections with embedding fields.
-The vector indexes are designed for "Hybrid Search" (vector + full-text search).
+This is an older version but shows most. VectorMemory index has been changed to Hybrid_Search
+
 {
   "database": "OjiDB",
   "collections": {
@@ -49,20 +48,7 @@ The vector indexes are designed for "Hybrid Search" (vector + full-text search).
           },
           "name": "category_1"
         }
-      ],
-      "vector_index": {
-        "name": "vector_index",
-        "type": "vector",
-        "fields": [
-          {
-            "path": "embedding",
-            "type": "vector",
-            "dimensions": 1536,
-            "similarity": "cosine"
-          }
-        ],
-        "note": "Designed for Hybrid Search."
-      }
+      ]
     },
     "ProceduralMemories": {
       "documents_file": "ProceduralMemories.json",
@@ -198,20 +184,7 @@ The vector indexes are designed for "Hybrid Search" (vector + full-text search).
           },
           "name": "_id_"
         }
-      ],
-      "vector_index": {
-        "name": "vector_index",
-        "type": "vector",
-        "fields": [
-          {
-            "path": "embedding",
-            "type": "vector",
-            "dimensions": 1536,
-            "similarity": "cosine"
-          }
-        ],
-        "note": "Designed for Hybrid Search."
-      }
+      ]
     },
     "ReflectionsInsights": {
       "documents_file": "ReflectionsInsights.json",
@@ -370,20 +343,7 @@ The vector indexes are designed for "Hybrid Search" (vector + full-text search).
           },
           "name": "importance_-1"
         }
-      ],
-      "vector_index": {
-        "name": "vector_index",
-        "type": "vector",
-        "fields": [
-          {
-            "path": "embedding",
-            "type": "vector",
-            "dimensions": 1536,
-            "similarity": "cosine"
-          }
-        ],
-        "note": "Designed for Hybrid Search."
-      }
+      ]
     },
     "VectorMemoryChunks": {
       "documents_file": "VectorMemoryChunks.json",
@@ -409,20 +369,7 @@ The vector indexes are designed for "Hybrid Search" (vector + full-text search).
           },
           "name": "metadata.type_1"
         }
-      ],
-      "vector_index": {
-        "name": "vector_index",
-        "type": "vector",
-        "fields": [
-          {
-            "path": "embedding",
-            "type": "vector",
-            "dimensions": 1536,
-            "similarity": "cosine"
-          }
-        ],
-        "note": "Designed for Hybrid Search."
-      }
+      ]
     },
     "ProjectTasks": {
       "documents_file": "ProjectTasks.json",

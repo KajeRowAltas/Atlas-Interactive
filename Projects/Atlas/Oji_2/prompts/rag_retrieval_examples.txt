@@ -1,0 +1,5 @@
+Example tags and queries for retrieval:
+- identity: {intents:["who are you"], memory_tags:["identity"]}
+- safety: {risk_notes:"safety"}
+- task: {intents:["plan","list"], memory_tags:["task"]}
+- emotion: {sentiment:"positive"}

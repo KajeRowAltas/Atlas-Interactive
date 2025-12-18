@@ -7,44 +7,46 @@ class AtlasCard extends StatelessWidget {
     super.key,
     this.child,
     this.padding = const EdgeInsets.all(20),
-    this.background,
   });
 
   final Widget? child;
   final EdgeInsets padding;
-  final Color? background;
 
   @override
   Widget build(BuildContext context) {
-    final isDark = Theme.of(context).brightness == Brightness.dark;
-    final baseDecoration = AtlasSurfaces.card(isDark);
-    final cardGradient = isDark
-        ? const LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [
-              Color.fromRGBO(31, 95, 91, 0.18),
-              Color.fromRGBO(233, 164, 48, 0.08),
-            ],
-          )
-        : AtlasGradients.cardHighlight;
-
     return Container(
       clipBehavior: Clip.antiAlias,
-      decoration: baseDecoration.copyWith(
-        color: background ?? baseDecoration.color,
+      decoration: BoxDecoration(
+        color: AtlasPalette.beige.withValues(alpha: 0.85), // Mirrors .card background base
+        borderRadius: BorderRadius.circular(AtlasRadii.card),
+        border: Border.all(
+          color: AtlasPalette.deepTeal.withValues(alpha: 0.08),
+        ),
+        boxShadow: const [
+          // Mirrors .card shadow from styles.css
+          BoxShadow(
+            color: Color.fromRGBO(233, 164, 48, 0.25),
+            blurRadius: 42,
+            offset: Offset(0, 24),
+          ),
+          BoxShadow(
+            color: Color.fromRGBO(31, 95, 91, 0.08),
+            blurRadius: 8,
+            offset: Offset(0, 0),
+            spreadRadius: 1,
+          ),
+        ],
       ),
       child: Stack(
         children: [
-          Positioned.fill(
+          const Positioned.fill(
             child: DecoratedBox(
               decoration: BoxDecoration(
-                gradient: cardGradient,
+                gradient: AtlasGradients.cardHighlight,
               ),
             ),
           ),
-          Positioned.fill(
-              child: AtlasSurfaces.grain(opacity: isDark ? 0.16 : 0.22)),
+          Positioned.fill(child: AtlasSurfaces.grain(opacity: 0.22)),
           Padding(
             padding: padding,
             child: child,

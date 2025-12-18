@@ -1,0 +1,8 @@
+{
+  "input": {"message": "Hey Oji, who are you?", "session_id": null},
+  "expected": {
+    "intents": ["introduce"],
+    "entities": ["Oji"],
+    "follow_up_needed": true
+  }
+}

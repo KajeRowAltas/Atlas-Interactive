@@ -91,8 +91,7 @@ async function sendMessage(text, files = []) {
   const payload = {
     message: text.trim(),
     timestamp: new Date().toISOString(),
-    session_id: getSessionId(), // Canonical snake_case (Mongo index + backend contract)
-    sessionId: getSessionId(), // Back-compat for older n8n nodes/prompts
+    sessionId: getSessionId(), // Automatically include session ID
     files: []
   };
 

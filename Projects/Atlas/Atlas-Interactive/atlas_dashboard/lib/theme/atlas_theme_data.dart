@@ -2,33 +2,22 @@ import 'dart:math';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 /// Canonical Atlas palette translated from css/styles.css :root tokens.
 class AtlasPalette {
-  static const Color yellow =
-      Color(0xFFE6A430); // Mirrors --atlas-yellow in styles.css
-  static const Color orange =
-      Color(0xFFC94C1D); // Mirrors --atlas-orange in styles.css
-  static const Color red =
-      Color(0xFF9E2B1E); // Mirrors --atlas-red in styles.css
-  static const Color deepRed =
-      Color(0xFF6C1C19); // Mirrors --atlas-deep-red in styles.css
-  static const Color teal =
-      Color(0xFF1F5F5B); // Mirrors --atlas-teal in styles.css
-  static const Color deepTeal =
-      Color(0xFF133735); // Mirrors --atlas-deep-teal in styles.css
-  static const Color beige =
-      Color(0xFFF9F4E7); // Mirrors --atlas-beige in styles.css
+  static const Color yellow = Color(0xFFE6A430); // Mirrors --atlas-yellow in styles.css
+  static const Color orange = Color(0xFFC94C1D); // Mirrors --atlas-orange in styles.css
+  static const Color red = Color(0xFF9E2B1E); // Mirrors --atlas-red in styles.css
+  static const Color deepRed = Color(0xFF6C1C19); // Mirrors --atlas-deep-red in styles.css
+  static const Color teal = Color(0xFF1F5F5B); // Mirrors --atlas-teal in styles.css
+  static const Color deepTeal = Color(0xFF133735); // Mirrors --atlas-deep-teal in styles.css
+  static const Color beige = Color(0xFFF9F4E7); // Mirrors --atlas-beige in styles.css
 
   // Body gradient anchors from dark.css (body.dark background stops).
   static const Color midnightTeal = Color(0xFF0F2423);
   static const Color obsidianTeal = Color(0xFF132F2D);
   static const Color ember = Color(0xFF2B0F12);
-
-  // Page-shell base colors pulled from styles.css and dark.css.
-  static const Color shellLight = Color.fromRGBO(249, 244, 231, 0.92);
-  static const Color shellDark = Color.fromRGBO(13, 32, 32, 0.92);
-  static const Color layoutDark = Color.fromRGBO(10, 28, 28, 0.6);
 }
 
 /// Border radii defined in css/styles.css root tokens.
@@ -37,8 +26,7 @@ class AtlasRadii {
   static const double lg = 34; // --radius-lg
   static const double md = 22; // --radius-md
   static const double sm = 14; // --radius-sm
-  static const double pageShell =
-      48; // page-shell border-radius: 48px 0 0 48px;
+  static const double pageShell = 48; // page-shell border-radius: 48px 0 0 48px;
   static const double header = 28; // .header-inner border-radius
   static const double card = 28; // .card border-radius
   static const double navItem = 24; // .nav-links a border-radius
@@ -77,43 +65,6 @@ class AtlasShadows {
       blurRadius: 40,
     ),
   ];
-
-  static List<BoxShadow> shell(bool isDark) => isDark
-      ? const [
-          BoxShadow(
-            color: Color.fromRGBO(0, 0, 0, 0.4),
-            blurRadius: 48,
-            offset: Offset(0, 22),
-          ),
-        ]
-      : soft;
-
-  static List<BoxShadow> card(bool isDark) => isDark
-      ? const [
-          BoxShadow(
-            color: Color.fromRGBO(0, 0, 0, 0.42),
-            blurRadius: 32,
-            offset: Offset(0, 18),
-          ),
-          BoxShadow(
-            color: Color.fromRGBO(233, 164, 48, 0.14),
-            blurRadius: 0,
-            spreadRadius: 1,
-          ),
-        ]
-      : const [
-          BoxShadow(
-            color: Color.fromRGBO(233, 164, 48, 0.25),
-            blurRadius: 42,
-            offset: Offset(0, 24),
-          ),
-          BoxShadow(
-            color: Color.fromRGBO(31, 95, 91, 0.08),
-            blurRadius: 8,
-            offset: Offset(0, 0),
-            spreadRadius: 1,
-          ),
-        ];
 }
 
 /// Gradients and overlays mapped from the reference CSS.
@@ -176,36 +127,23 @@ class AtlasGradients {
     end: Alignment.centerRight,
     colors: [AtlasPalette.yellow, AtlasPalette.orange],
   ); // Mirrors .status-pill / .top-nav__cta
-
-  static const LinearGradient terminalChrome = LinearGradient(
-    begin: Alignment.topLeft,
-    end: Alignment.bottomRight,
-    colors: [
-      Color.fromRGBO(31, 95, 91, 0.5),
-      Color.fromRGBO(13, 32, 32, 0.9),
-    ],
-  ); // Matches dark.css terminal/surface tint
 }
 
 /// Typography scale recreated from styles.css.
 class AtlasTypography {
   static TextTheme textTheme() {
-    final baseSans = const TextStyle(
+    final baseSans = GoogleFonts.inter(
       height: 1.6, // body line-height: 1.6
       color: AtlasPalette.deepTeal,
-      fontFamily: 'Inter',
     );
-    final serif = const TextStyle(
+    final serif = GoogleFonts.cormorantGaramond(
       color: AtlasPalette.deepTeal,
       height: 1.2,
       fontWeight: FontWeight.w600,
-      fontFamily: 'CormorantGaramond',
     );
 
     return TextTheme(
-      displayLarge: serif.copyWith(
-          fontSize: 44,
-          letterSpacing: 5.12), // brand-name letter-spacing 0.32em
+      displayLarge: serif.copyWith(fontSize: 44, letterSpacing: 5.12), // brand-name letter-spacing 0.32em
       headlineMedium: serif.copyWith(fontSize: 40),
       titleLarge: serif.copyWith(fontSize: 32),
       titleMedium: baseSans.copyWith(
@@ -229,82 +167,41 @@ class AtlasTypography {
     );
   }
 
-  static TextStyle eyebrow(Color color) => TextStyle(
+  static TextStyle eyebrow(Color color) => GoogleFonts.inter(
         fontSize: 13,
         fontWeight: FontWeight.w600,
         letterSpacing: 3.2, // .header-eyebrow letter-spacing: 0.2em
         color: color,
-        fontFamily: 'Inter',
       );
 
-  static TextStyle serifDisplay(Color color) => TextStyle(
+  static TextStyle serifDisplay(Color color) => GoogleFonts.cormorantGaramond(
         fontSize: 44, // 2.75rem h1
         fontWeight: FontWeight.w600,
         letterSpacing: 0,
         color: color,
-        fontFamily: 'CormorantGaramond',
       );
 
-  static TextStyle body(Color color) => TextStyle(
+  static TextStyle body(Color color) => GoogleFonts.inter(
         fontSize: 14,
         height: 1.6,
         color: color,
-        fontFamily: 'Inter',
       );
 
-  static TextStyle navLabel(bool active) => TextStyle(
+  static TextStyle navLabel(bool active) => GoogleFonts.inter(
         fontSize: 14,
         fontWeight: FontWeight.w600,
         letterSpacing: 0.32,
         color: active
             ? AtlasPalette.beige
             : AtlasPalette.beige.withValues(alpha: 0.82),
-        fontFamily: 'Inter',
       );
 }
 
 /// Provides glass and grain utilities to mirror the CSS blur and SVG noise.
 class AtlasSurfaces {
-  static Color panelColor(bool isDark) =>
-      isDark ? AtlasPalette.shellDark : AtlasPalette.shellLight;
-
-  static Color shellOutline(bool isDark) => isDark
-      ? AtlasPalette.yellow.withValues(alpha: 0.14)
-      : AtlasPalette.deepTeal.withValues(alpha: 0.1);
-
-  static BoxDecoration shell(bool isDark) {
-    return BoxDecoration(
-      color: panelColor(isDark),
-      borderRadius: const BorderRadius.only(
-        topLeft: Radius.circular(AtlasRadii.pageShell),
-        bottomLeft: Radius.circular(AtlasRadii.pageShell),
-      ),
-      boxShadow: AtlasShadows.shell(isDark),
-      border: Border.all(
-        color: shellOutline(isDark),
-      ),
-    );
-  }
-
-  static BoxDecoration card(bool isDark) {
-    return BoxDecoration(
-      color: isDark
-          ? AtlasPalette.shellDark.withValues(alpha: 0.95)
-          : AtlasPalette.beige.withValues(alpha: 0.88),
-      borderRadius: BorderRadius.circular(AtlasRadii.card),
-      boxShadow: AtlasShadows.card(isDark),
-      border: Border.all(
-        color: isDark
-            ? AtlasPalette.yellow.withValues(alpha: 0.08)
-            : AtlasPalette.deepTeal.withValues(alpha: 0.1),
-      ),
-    );
-  }
-
   static Widget glass({
     required Widget child,
-    BorderRadius borderRadius =
-        const BorderRadius.all(Radius.circular(AtlasRadii.header)),
+    BorderRadius borderRadius = const BorderRadius.all(Radius.circular(AtlasRadii.header)),
     double opacity = 0.8,
     double blurSigma = 12,
     List<BoxShadow> shadows = AtlasShadows.soft,
@@ -315,18 +212,18 @@ class AtlasSurfaces {
       child: Stack(
         children: [
           BackdropFilter(
-            filter: ImageFilter.blur(sigmaX: blurSigma, sigmaY: blurSigma),
-            child: Container(
-              decoration: BoxDecoration(
-                color: tint.withValues(alpha: opacity),
-                boxShadow: shadows,
-                border: Border.all(
-                  color: AtlasPalette.deepTeal.withValues(alpha: 0.1),
-                  width: 1,
+              filter: ImageFilter.blur(sigmaX: blurSigma, sigmaY: blurSigma),
+              child: Container(
+                decoration: BoxDecoration(
+                  color: tint.withValues(alpha: opacity),
+                  boxShadow: shadows,
+                  border: Border.all(
+                    color: AtlasPalette.deepTeal.withValues(alpha: 0.1),
+                    width: 1,
+                  ),
                 ),
               ),
             ),
-          ),
           child,
         ],
       ),
@@ -346,43 +243,13 @@ class AtlasSurfaces {
 class AtlasTheme {
   static ThemeData light() {
     final textTheme = AtlasTypography.textTheme();
-    const surface = AtlasPalette.shellLight;
     return ThemeData(
       useMaterial3: true,
-      colorScheme: ColorScheme(
-        brightness: Brightness.light,
+      colorScheme: const ColorScheme.light(
         primary: AtlasPalette.teal,
-        onPrimary: AtlasPalette.beige,
-        primaryContainer: AtlasPalette.teal.withValues(alpha: 0.12),
-        onPrimaryContainer: AtlasPalette.deepTeal,
-        secondary: AtlasPalette.orange,
-        onSecondary: AtlasPalette.beige,
-        secondaryContainer: AtlasPalette.orange.withValues(alpha: 0.16),
-        onSecondaryContainer: AtlasPalette.deepTeal,
-        tertiary: AtlasPalette.yellow,
-        onTertiary: AtlasPalette.deepTeal,
-        tertiaryContainer: AtlasPalette.yellow.withValues(alpha: 0.16),
-        onTertiaryContainer: AtlasPalette.deepTeal,
-        error: AtlasPalette.red,
-        onError: AtlasPalette.beige,
-        errorContainer: AtlasPalette.red.withValues(alpha: 0.2),
-        onErrorContainer: AtlasPalette.beige,
-        background: surface, // ignore: deprecated_member_use
-        onBackground: AtlasPalette.deepTeal, // ignore: deprecated_member_use
-        surface: surface,
-        onSurface: AtlasPalette.deepTeal,
-        surfaceVariant: AtlasPalette.beige
-            .withValues(alpha: 0.9), // ignore: deprecated_member_use
-        onSurfaceVariant: AtlasPalette.deepTeal
-            .withValues(alpha: 0.82), // ignore: deprecated_member_use
-        outline: AtlasPalette.teal.withValues(alpha: 0.18),
-        outlineVariant: AtlasPalette.teal.withValues(alpha: 0.1),
-        shadow: Colors.black,
-        scrim: Colors.black,
-        inverseSurface: AtlasPalette.deepTeal,
-        onInverseSurface: AtlasPalette.beige,
-        inversePrimary: AtlasPalette.yellow,
-        surfaceTint: AtlasPalette.teal,
+        secondary: AtlasPalette.yellow,
+        surface: AtlasPalette.beige,
+        tertiary: AtlasPalette.orange,
       ),
       scaffoldBackgroundColor: Colors.transparent,
       textTheme: textTheme,
@@ -415,25 +282,15 @@ class AtlasTheme {
           shadowColor: AtlasPalette.orange.withValues(alpha: 0.35),
         ),
       ),
-      dividerTheme: DividerThemeData(
-        color: AtlasPalette.deepTeal.withValues(alpha: 0.08),
-        thickness: 1,
-        space: 1,
-      ),
       navigationRailTheme: NavigationRailThemeData(
         backgroundColor: Colors.transparent,
-        indicatorShape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(AtlasRadii.lg),
-        ),
-        indicatorColor: AtlasPalette.beige.withValues(alpha: 0.15),
         selectedIconTheme: const IconThemeData(color: AtlasPalette.yellow),
         unselectedIconTheme: IconThemeData(
-          color: AtlasPalette.beige.withValues(alpha: 0.78),
+          color: AtlasPalette.beige.withValues(alpha: 0.85),
         ),
-        selectedLabelTextStyle:
-            textTheme.labelLarge?.copyWith(color: AtlasPalette.yellow),
+        selectedLabelTextStyle: textTheme.labelLarge?.copyWith(color: AtlasPalette.yellow),
         unselectedLabelTextStyle: textTheme.labelLarge?.copyWith(
-          color: AtlasPalette.beige.withValues(alpha: 0.78),
+          color: AtlasPalette.beige.withValues(alpha: 0.86),
         ),
       ),
     );
@@ -444,43 +301,13 @@ class AtlasTheme {
       bodyColor: AtlasPalette.beige,
       displayColor: AtlasPalette.beige,
     );
-    const surface = AtlasPalette.shellDark;
     return ThemeData(
       useMaterial3: true,
-      colorScheme: ColorScheme(
-        brightness: Brightness.dark,
+      colorScheme: const ColorScheme.dark(
         primary: AtlasPalette.teal,
-        onPrimary: AtlasPalette.beige,
-        primaryContainer: AtlasPalette.teal.withValues(alpha: 0.25),
-        onPrimaryContainer: AtlasPalette.beige,
-        secondary: AtlasPalette.orange,
-        onSecondary: AtlasPalette.beige,
-        secondaryContainer: AtlasPalette.orange.withValues(alpha: 0.22),
-        onSecondaryContainer: AtlasPalette.beige,
-        tertiary: AtlasPalette.yellow,
-        onTertiary: AtlasPalette.deepTeal,
-        tertiaryContainer: AtlasPalette.yellow.withValues(alpha: 0.22),
-        onTertiaryContainer: AtlasPalette.deepTeal,
-        error: AtlasPalette.red,
-        onError: AtlasPalette.beige,
-        errorContainer: AtlasPalette.red.withValues(alpha: 0.25),
-        onErrorContainer: AtlasPalette.beige,
-        background: AtlasPalette.layoutDark, // ignore: deprecated_member_use
-        onBackground: AtlasPalette.beige, // ignore: deprecated_member_use
-        surface: surface,
-        onSurface: AtlasPalette.beige,
-        surfaceVariant: AtlasPalette.deepTeal
-            .withValues(alpha: 0.9), // ignore: deprecated_member_use
-        onSurfaceVariant: AtlasPalette.beige
-            .withValues(alpha: 0.86), // ignore: deprecated_member_use
-        outline: AtlasPalette.beige.withValues(alpha: 0.15),
-        outlineVariant: AtlasPalette.beige.withValues(alpha: 0.08),
-        shadow: Colors.black,
-        scrim: Colors.black,
-        inverseSurface: AtlasPalette.beige,
-        onInverseSurface: AtlasPalette.deepTeal,
-        inversePrimary: AtlasPalette.yellow,
-        surfaceTint: AtlasPalette.teal,
+        secondary: AtlasPalette.yellow,
+        surface: AtlasPalette.deepTeal,
+        tertiary: AtlasPalette.orange,
       ),
       scaffoldBackgroundColor: Colors.transparent,
       textTheme: textTheme,
@@ -498,8 +325,7 @@ class AtlasTheme {
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(AtlasRadii.md),
-          borderSide: BorderSide(
-              color: AtlasPalette.yellow.withValues(alpha: 0.9), width: 1.4),
+          borderSide: BorderSide(color: AtlasPalette.yellow.withValues(alpha: 0.9), width: 1.4),
         ),
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
@@ -514,25 +340,15 @@ class AtlasTheme {
           shadowColor: AtlasPalette.orange.withValues(alpha: 0.45),
         ),
       ),
-      dividerTheme: DividerThemeData(
-        color: AtlasPalette.beige.withValues(alpha: 0.08),
-        thickness: 1,
-        space: 1,
-      ),
       navigationRailTheme: NavigationRailThemeData(
         backgroundColor: Colors.transparent,
-        indicatorShape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(AtlasRadii.lg),
-        ),
-        indicatorColor: AtlasPalette.beige.withValues(alpha: 0.12),
         selectedIconTheme: const IconThemeData(color: AtlasPalette.yellow),
         unselectedIconTheme: IconThemeData(
           color: AtlasPalette.beige.withValues(alpha: 0.8),
         ),
-        selectedLabelTextStyle:
-            textTheme.labelLarge?.copyWith(color: AtlasPalette.yellow),
+        selectedLabelTextStyle: textTheme.labelLarge?.copyWith(color: AtlasPalette.yellow),
         unselectedLabelTextStyle: textTheme.labelLarge?.copyWith(
-          color: AtlasPalette.beige.withValues(alpha: 0.8),
+          color: AtlasPalette.beige.withValues(alpha: 0.86),
         ),
       ),
     );
@@ -569,7 +385,6 @@ class _GrainPainter extends CustomPainter {
 
   @override
   bool shouldRepaint(covariant _GrainPainter oldDelegate) {
-    // Grain is static; avoid continuous repaints that tank performance.
-    return false;
+    return oldDelegate.opacity != opacity;
   }
 }

@@ -59,8 +59,6 @@ class _TerminalPanelState extends State<TerminalPanel> {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
-    final scheme = Theme.of(context).colorScheme;
-    final isDark = scheme.brightness == Brightness.dark;
     return AtlasCard(
       padding: const EdgeInsets.all(20),
       child: Column(
@@ -71,8 +69,7 @@ class _TerminalPanelState extends State<TerminalPanel> {
               Container(
                 padding: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
-                  gradient:
-                      AtlasGradients.pill, // Mirrors .icon-button gradient
+                  gradient: AtlasGradients.pill, // Mirrors .icon-button gradient
                   borderRadius: BorderRadius.circular(AtlasRadii.pill),
                   boxShadow: AtlasShadows.glow,
                 ),
@@ -87,7 +84,7 @@ class _TerminalPanelState extends State<TerminalPanel> {
                 "COMMAND TERMINAL",
                 style: textTheme.labelLarge?.copyWith(
                   letterSpacing: 3.2,
-                  color: scheme.onSurface,
+                  color: AtlasPalette.deepTeal,
                 ),
               ),
             ],
@@ -96,12 +93,10 @@ class _TerminalPanelState extends State<TerminalPanel> {
           Expanded(
             child: Container(
               decoration: BoxDecoration(
-                gradient: AtlasGradients.terminalChrome,
+                color: AtlasPalette.deepTeal.withValues(alpha: 0.9),
                 borderRadius: BorderRadius.circular(20),
                 border: Border.all(
-                  color: isDark
-                      ? AtlasPalette.beige.withValues(alpha: 0.12)
-                      : scheme.outline,
+                  color: AtlasPalette.beige.withValues(alpha: 0.08),
                 ),
                 boxShadow: const [
                   BoxShadow(
