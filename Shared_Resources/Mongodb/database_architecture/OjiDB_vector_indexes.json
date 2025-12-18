@@ -1,0 +1,50 @@
+{
+  "KnowledgeMemories": {
+    "name": "vector_index",
+    "type": "vector",
+    "fields": [
+      {
+        "path": "embedding",
+        "type": "vector",
+        "dimensions": 1536,
+        "similarity": "cosine"
+      }
+    ]
+  },
+  "Projects": {
+    "name": "vector_index",
+    "type": "vector",
+    "fields": [
+      {
+        "path": "embedding",
+        "type": "vector",
+        "dimensions": 1536,
+        "similarity": "cosine"
+      }
+    ]
+  },
+  "SemanticMemories": {
+    "name": "vector_index",
+    "type": "vector",
+    "fields": [
+      {
+        "path": "embedding",
+        "type": "vector",
+        "dimensions": 1536,
+        "similarity": "cosine"
+      }
+    ]
+  },
+  "VectorMemoryChunks": {
+    "name": "vector_index",
+    "type": "vector",
+    "fields": [
+      {
+        "path": "embedding",
+        "type": "vector",
+        "dimensions": 1536,
+        "similarity": "cosine"
+      }
+    ]
+  }
+}

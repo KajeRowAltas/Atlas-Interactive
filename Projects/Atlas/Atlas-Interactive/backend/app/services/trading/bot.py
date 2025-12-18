@@ -1,11 +1,14 @@
 from __future__ import annotations
 
 import asyncio
+import logging
 from dataclasses import asdict, dataclass
 from datetime import datetime, timezone
 from typing import Any, Callable, Optional
 
 from app.services.trading.models import IndicatorSettings
+
+logger = logging.getLogger("app")
 
 
 @dataclass(frozen=True)
@@ -44,6 +47,7 @@ class TradingBot:
         self._strategy = NoopStrategy()
 
     async def run(self) -> None:
+        logger.info(f"Bot {self._config.bot_id} starting")
         self._publish(
             {
                 "type": "status",
@@ -66,6 +70,7 @@ class TradingBot:
                         self._config.leverage, self._config.symbol
                     )
                 except Exception as exc:  # noqa: BLE001
+                    logger.exception("Failed to set leverage")
                     self._publish(
                         {
                             "type": "log",
@@ -76,6 +81,7 @@ class TradingBot:
                         }
                     )
 
+            logger.info(f"Bot {self._config.bot_id} running")
             self._publish(
                 {
                     "type": "status",
@@ -105,6 +111,7 @@ class TradingBot:
                     if self._config.enable_analysis:
                         await self._publish_analysis()
                 except Exception as exc:  # noqa: BLE001
+                    logger.exception("Error in bot run loop")
                     self._publish(
                         {
                             "type": "error",
@@ -118,10 +125,11 @@ class TradingBot:
 
                 await asyncio.sleep(self._config.poll_interval_s)
         finally:
+            logger.info(f"Bot {self._config.bot_id} stopping")
             try:
                 await self._exchange.close()
             except Exception:  # noqa: BLE001
-                pass
+                logger.exception("Error closing exchange")
 
             self._publish(
                 {
@@ -131,6 +139,7 @@ class TradingBot:
                     "timestamp": utc_now().isoformat(),
                 }
             )
+            logger.info(f"Bot {self._config.bot_id} stopped")
 
     async def _publish_analysis(self) -> None:
         from app.services.trading.indicators import bollinger_bands, rsi
@@ -157,6 +166,7 @@ class TradingBot:
                     self._config.symbol, timeframe=tf, limit=limit
                 )
             except Exception as exc:  # noqa: BLE001
+                logger.exception(f"fetch_ohlcv failed ({tf})")
                 self._publish(
                     {
                         "type": "log",
@@ -205,6 +215,7 @@ class TradingBot:
             try:
                 signal = self._strategy.evaluate(analysis)
             except Exception as exc:  # noqa: BLE001
+                logger.exception("strategy evaluate failed")
                 self._publish(
                     {
                         "type": "log",

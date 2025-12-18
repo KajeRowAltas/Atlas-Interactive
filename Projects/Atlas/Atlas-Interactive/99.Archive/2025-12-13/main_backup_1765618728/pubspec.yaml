@@ -1,0 +1,36 @@
+name: atlas_interactive
+description: Sci-fi Mission Control dashboard (Oracle + Command)
+publish_to: "none"
+version: 0.1.0
+
+environment:
+  sdk: ">=3.1.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  google_fonts: ^5.1.0
+  xterm: ^4.0.0
+  flutter_pty: ^0.4.2
+  http: ^1.1.0
+  webview_flutter: ^4.4.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+  flutter_launcher_icons: ^0.13.1
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/Atlas_Logo.png
+    - assets/images/Oji_Logo.png
+    - assets/images/Kaje_Logo.png
+    - assets/images/Shared_Drive_Theme.png
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: assets/images/Atlas_Logo.png
+  remove_alpha_ios: true

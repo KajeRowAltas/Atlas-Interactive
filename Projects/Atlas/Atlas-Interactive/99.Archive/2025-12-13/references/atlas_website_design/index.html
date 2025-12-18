@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Oji – Atlas Interactive Chat</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
+  <script>
+    window.__OJICACHE_VERSION__ = window.__OJICACHE_VERSION__ || Date.now().toString();
+  </script>
+  <link rel="stylesheet" data-cache-bust-href="css/styles.css" />
+  <link rel="stylesheet" data-cache-bust-href="css/dark.css" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/Atlas_Logo.png" />
+
+  <!-- Scripts -->
+  <script defer type="module" data-cache-bust-src="js/app.js"></script>
+  <script defer type="module" data-cache-bust-src="js/commands.js"></script>
+  <script defer type="module" data-cache-bust-src="js/chat.js"></script>
+  <script>
+    (function () {
+      const version = window.__OJICACHE_VERSION__;
+      if (!version) {
+        return;
+      }
+
+      document
+        .querySelectorAll('[data-cache-bust-href]')
+        .forEach((element) => {
+          const base = element.getAttribute('data-cache-bust-href');
+          if (!base) {
+            return;
+          }
+          const separator = base.includes('?') ? '&' : '?';
+          element.setAttribute('href', `${base}${separator}v=${version}`);
+        });
+
+      document
+        .querySelectorAll('[data-cache-bust-src]')
+        .forEach((element) => {
+          const base = element.getAttribute('data-cache-bust-src');
+          if (!base) {
+            return;
+          }
+          const separator = base.includes('?') ? '&' : '?';
+          element.setAttribute('src', `${base}${separator}v=${version}`);
+        });
+    })();
+  </script>
+</head>
+
+<body>
+  <noscript>
+    <div class="noscript-banner">
+      Atlas Interactive works best with JavaScript enabled. Enable scripts to unlock the full chat experience.
+    </div>
+  </noscript>
+
+  <div class="layout layout--context">
+
+    <!-- ========================================================= -->
+    <!-- SIDEBAR -->
+    <!-- ========================================================= -->
+    <aside id="sidebar" class="sidebar" data-include="components/sidebar.html"></aside>
+
+    <!-- ========================================================= -->
+    <!-- MAIN CHAT PAGE -->
+    <!-- ========================================================= -->
+    <main class="page-shell chat-page">
+
+      <!-- Minimal header injected via component -->
+      <header id="header" class="page-header" data-include="components/header.html"></header>
+
+      <!-- ========================================================= -->
+      <!-- CHAT SECTION -->
+      <!-- ========================================================= -->
+      <section class="chat-canvas">
+
+        <!-- Quick Actions -->
+        <div id="quick-actions" class="quick-actions" data-include="components/quick-actions.html"></div>
+
+        <div class="wave-divider"></div>
+
+        <!-- Chat Window -->
+        <div id="chat-window" class="chat-window">
+          <article class="message ai">
+            <div class="avatar">
+              <img src="assets/Atlas_Logo.png" alt="Oji avatar" />
+            </div>
+            <div class="content">
+              <div class="meta">
+                <span class="author">Oji</span>
+                <time>Today</time>
+              </div>
+              <p>Welcome back! Share a task, upload context, or pick a quick action to get started.</p>
+            </div>
+          </article>
+        </div>
+
+        <!-- Composer -->
+        <div id="composer" class="composer" data-include="components/message-bubble.html">
+          <form id="chat-form">
+            <label class="sr-only" for="message-input">Message Oji</label>
+            <input type="text" id="message-input" placeholder="Add data here to get to work" autocomplete="off" />
+
+            <label class="icon-button upload-button" for="file-input" title="Upload file">
+              <span class="icon" data-heroicon="paper-clip"></span>
+              <span class="sr-only">Attach a file</span>
+            </label>
+            <input type="file" id="file-input" class="hidden" multiple />
+
+            <button type="submit" class="icon-button send-button" title="Send message">
+              <span class="icon" data-heroicon="paper-airplane"></span>
+              <span class="sr-only">Send message</span>
+            </button>
+          </form>
+
+          <small>Files remain local until sent · surreal encryption pending.</small>
+        </div>
+      </section>
+
+      <!-- ========================================================= -->
+      <!-- FOOTER -->
+      <!-- ========================================================= -->
+      <footer class="site-footer" aria-label="Footer">
+        <div class="footer-meta">
+          <span>&copy; <span id="current-year">2024</span> Atlas Interactive</span>
+          <span class="divider" aria-hidden="true">•</span>
+          <span>Designed for creative workstreams.</span>
+        </div>
+        <nav class="footer-links" aria-label="Footer links">
+          <a href="#">About</a>
+          <a href="#">Privacy</a>
+          <a href="#">Support</a>
+        </nav>
+      </footer>
+    </main>
+
+    <!-- ========================================================= -->
+    <!-- CONTEXT PANEL (RIGHT SIDE) -->
+    <!-- ========================================================= -->
+    <aside class="context-panel">
+      <div class="context-shell">
+        <h3>Context Vault</h3>
+        <p>Future-facing prompts, memory anchors, and project notes will rise here as Oji learns what you need next.</p>
+        <div class="placeholder">Reserve this monolith for behaviour briefs, surreal directives, and project strata.</div>
+      </div>
+    </aside>
+  </div>
+
+  <!-- ========================================================= -->
+  <!-- COMMAND BAR MODAL -->
+  <!-- ========================================================= -->
+  <div id="command-bar" class="command-bar" data-include="components/command-bar.html">
+    <header>Atlas Command Palette</header>
+    <ul id="command-list">
+      <li data-command="/memory">
+        <span class="command-label">➤ Open Memory Viewer</span>
+        <span class="status-pill">/memory</span>
+      </li>
+      <li data-command="/history">
+        <span class="command-label">➤ View Chat History</span>
+        <span class="status-pill">/history</span>
+      </li>
+      <li data-command="/dashboard">
+        <span class="command-label">➤ Go to Dashboard</span>
+        <span class="status-pill">/dashboard</span>
+      </li>
+      <li data-command="/projects">
+        <span class="command-label">➤ Open Project Panel</span>
+        <span class="status-pill">/projects</span>
+      </li>
+      <li data-command="/settings">
+        <span class="command-label">➤ Open Settings</span>
+        <span class="status-pill">/settings</span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- ========================================================= -->
+  <!-- MEMORY VIEWER -->
+  <!-- ========================================================= -->
+  <div id="memory-viewer" class="modal" data-include="components/memory-viewer.html">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Atlas Memory Viewer</h3>
+        <button class="icon-button" data-close="memory-viewer" title="Close">
+          <span class="icon" data-heroicon="x-mark"></span>
+          <span class="sr-only">Close memory viewer</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <p>Fragments captured in the last 72 hours. Follow the warm arrows to revisit each anchor.</p>
+        <ul>
+          <li>➤ Project Atlas launch notes filed under “Launch Ritual”.</li>
+          <li>➤ Client narrative keywords: surrealism, warmth, precision.</li>
+          <li>➤ TODO: Integrate Trello automation and memory graph sync.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================= -->
+  <!-- CHAT HISTORY -->
+  <!-- ========================================================= -->
+  <div id="chat-history" class="modal" data-include="components/chat-history.html">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Chat History</h3>
+        <button class="icon-button" data-close="chat-history" title="Close">
+          <span class="icon" data-heroicon="x-mark"></span>
+          <span class="sr-only">Close chat history</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <p>Select a previous horizon to restore the surreal thread.</p>
+        <ul id="history-list">
+          <li>➤ Today · Sprint planning</li>
+          <li>➤ Yesterday · Client warmup</li>
+          <li>➤ Last Week · Product refactor</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

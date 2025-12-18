@@ -13,12 +13,26 @@ class TradingBotApi {
         'X-Atlas-Token': token,
       };
 
-  Uri _uri(String path) => Uri.parse(baseUrl).replace(path: path);
+  Uri _uri(String path, {Map<String, dynamic>? queryParameters}) {
+    return Uri.parse(baseUrl).replace(path: path, queryParameters: queryParameters);
+  }
 
   Future<Map<String, dynamic>> status() async {
     final res = await http.get(_uri('/trading/status'), headers: _headers);
     _ensureOk(res);
     return jsonDecode(res.body) as Map<String, dynamic>;
+  }
+
+  Future<List<dynamic>> getOpenTrades({String? symbol}) async {
+    final res = await http.get(
+      _uri(
+        '/trading/open-trades',
+        queryParameters: symbol != null ? {'symbol': symbol} : null,
+      ),
+      headers: _headers,
+    );
+    _ensureOk(res);
+    return jsonDecode(res.body) as List<dynamic>;
   }
 
   Future<Map<String, dynamic>> getIndicatorSettings() async {

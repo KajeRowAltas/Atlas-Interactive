@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Panel · Oji Atlas Interface</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script>
+    window.__OJICACHE_VERSION__ = window.__OJICACHE_VERSION__ || Date.now().toString();
+  </script>
+  <link rel="stylesheet" data-cache-bust-href="css/styles.css" />
+  <link rel="stylesheet" data-cache-bust-href="css/dark.css" />
+  <link rel="icon" type="image/png" href="assets/Atlas_Logo.png" />
+  <script defer type="module" data-cache-bust-src="js/app.js"></script>
+  <script defer type="module" data-cache-bust-src="js/commands.js"></script>
+  <script defer type="module" data-cache-bust-src="js/admin.js"></script>
+  <script>
+    (function () {
+      const version = window.__OJICACHE_VERSION__;
+      if (!version) {
+        return;
+      }
+
+      document
+        .querySelectorAll('[data-cache-bust-href]')
+        .forEach((element) => {
+          const base = element.getAttribute('data-cache-bust-href');
+          if (!base) {
+            return;
+          }
+          const separator = base.includes('?') ? '&' : '?';
+          element.setAttribute('href', `${base}${separator}v=${version}`);
+        });
+
+      document
+        .querySelectorAll('[data-cache-bust-src]')
+        .forEach((element) => {
+          const base = element.getAttribute('data-cache-bust-src');
+          if (!base) {
+            return;
+          }
+          const separator = base.includes('?') ? '&' : '?';
+          element.setAttribute('src', `${base}${separator}v=${version}`);
+        });
+    })();
+  </script>
+</head>
+<body>
+  <div class="layout">
+    <aside id="sidebar" class="sidebar" data-include="components/sidebar.html"></aside>
+    <main class="page-shell">
+      <header class="page-header">
+        <div class="header-inner">
+          <div class="header-visual" aria-hidden="true"></div>
+          <div class="header-content">
+            <span class="header-eyebrow">Operators</span>
+            <h1>Admin Control</h1>
+            <p class="header-subtitle">Fine-grain toggles for Atlas Oji and upcoming module activations.</p>
+            <div class="header-status">
+              <span class="status-pill">Secure</span>
+              <span>Changes propagate instantly.</span>
+            </div>
+          </div>
+          <div class="header-avatar">
+            <img src="assets/Atlas_Logo.png" alt="Atlas emblem" />
+          </div>
+        </div>
+      </header>
+      <section class="page-body admin-grid">
+        <article class="card">
+          <h3>Feature Toggles</h3>
+          <label><input type="checkbox" data-toggle="quick-actions" checked /> Quick Actions</label>
+          <label><input type="checkbox" data-toggle="memory-viewer" checked /> Memory Viewer</label>
+          <label><input type="checkbox" data-toggle="chat-history" checked /> Chat History</label>
+          <label><input type="checkbox" data-toggle="file-upload" checked /> File Upload</label>
+        </article>
+        <article class="card">
+          <h3>System Announcements</h3>
+          <textarea id="system-announcement" rows="5" placeholder="Broadcast updates to all Atlas operators."></textarea>
+          <footer>
+            <button class="primary" data-action="broadcast">Broadcast Message</button>
+          </footer>
+        </article>
+        <article class="card">
+          <h3>Webhook Endpoint</h3>
+          <p>Current n8n endpoint powering Oji.</p>
+          <code>https://n8n.srv1094917.hstgr.cloud/webhook-test/Oji</code>
+          <footer>
+            <button class="primary" data-action="test-webhook">Test Connection</button>
+          </footer>
+        </article>
+        <article class="card">
+          <h3>Upcoming Modules</h3>
+          <ul>
+            <li>➤ Trello sync automation <span class="status-pill">TODO</span></li>
+            <li>➤ Analytics observatory <span class="status-pill">TODO</span></li>
+            <li>➤ Memory DB uplink <span class="status-pill">TODO</span></li>
+          </ul>
+        </article>
+      </section>
+    </main>
+  </div>
+  <div id="command-bar" class="command-bar" data-include="components/command-bar.html"></div>
+  <div id="memory-viewer" class="modal" data-include="components/memory-viewer.html"></div>
+  <div id="chat-history" class="modal" data-include="components/chat-history.html"></div>
+</body>
+</html>

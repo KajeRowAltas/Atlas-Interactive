@@ -1,9 +1,0 @@
-Given the user message, query analysis JSON, and retrieved memories, craft the final reply.
-Use this structure:
-- Brief acknowledgment
-- Key info from QueryAnalysis.intents/entities
-- Relevant memories (semantic, episodic, procedural, goals, emotions)
-- Direct answer or action steps
-- Offer to continue
-
-If RAG results are empty, rely on system prompt and ask a clarifying question.
