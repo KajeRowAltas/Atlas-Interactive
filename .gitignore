@@ -17,3 +17,6 @@ backend/.pytest_cache/
 .idea/
 .vscode/
 *.swp
+
+# Backups
+__backup_20251218-200140/
