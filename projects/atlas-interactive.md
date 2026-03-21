@@ -1,33 +1,51 @@
 # Atlas-Interactive
 
-## Purpose
-
-Maintain the main Oji application ledger, including product direction, Oji-AI planning, architecture notes, and delivery tracking for the Atlas interface.
-
 ## Status
 
-Reset for notebook-first planning. This file is now the canonical place to track the Atlas-Interactive project instead of keeping stale implementation assets in the repo.
+Active coordination and interface layer within the Atlas ecosystem, now operating as both a live Oji environment and a structured project notebook.
 
-## Priorities
+## Current Role
 
-- Define the next practical scope for the Atlas-Interactive experience.
-- Consolidate Oji-AI planning under Atlas-Interactive rather than as a separate top-level project.
-- Capture the minimum architecture and workflow decisions needed before new implementation work resumes.
+- Core coordination environment for Atlas.
+- Browser-facing interface through which Oji operates and supports project work.
+- Central notebook and development ledger for structured project-state tracking.
 
-## Current Developments
+## Live Interface
 
-- Repository structure has been reduced to a reviewable notebook format.
-- Legacy code, archived app assets, and old implementation folders are being removed from the active repo structure.
-- Oji-AI is now represented as an internal stream of Atlas-Interactive work.
+- Oji chat is deployed at `oji.atlas-interactive.com`.
+- Atlas-Interactive is used as the primary operational interface for browser-based Oji interactions.
 
-## Open Questions
+## Core Architecture
 
-- What is the next user-facing Atlas-Interactive milestone?
-- Which parts of the former stack still matter enough to re-specify in this notebook?
-- Which decisions belong in future dated logs versus this standing project ledger?
+- Conversational workflow uses a 3-agent structure:
+  - Query Analysis
+  - Response
+  - Reflection
+- Agent calls are routed through OpenRouter with a split model strategy:
+  - Query Analysis -> Grok
+  - Response -> ChatGPT
+  - Reflection -> Gemini
+- Memory backend persists:
+  - interaction turns
+  - query analysis events
+  - response events
+  - reflection events
+  - reflection edges
+  - canonical memory nodes
+  - memory versions
+  - memory vectors
 
-## Next Actions
+## Current Utility
 
-- Confirm the preferred Atlas-Interactive scope for the next development cycle.
-- Add a concise architecture section once the core product direction is agreed.
-- Start dated log entries when planning resumes or implementation restarts.
+- Provides project-state visibility across the Atlas ecosystem.
+- Supports structured documentation of confirmed developments.
+- Connects operational memory and project-ledger workflows in one environment.
+
+## Open Operational Details
+
+- Notebook update rules and review boundaries should remain explicit as Oji writes more project updates.
+- Additional detail may still be needed on repo access patterns, maintenance ownership, and long-term notebook conventions.
+
+## Last Updated
+
+2026-03-21 UTC
