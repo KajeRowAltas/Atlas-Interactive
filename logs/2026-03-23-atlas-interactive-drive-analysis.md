@@ -24,3 +24,8 @@
 ## Note
 
 This update is based on read-only Google Drive source analysis rather than conversational memory alone.
+
+## Controlled Write Test
+
+- UTC timestamp: 2026-03-25 UTC
+- note: The controlled notebook write path was verified successfully through the approval-gated Oji notebook workflow adapter.
