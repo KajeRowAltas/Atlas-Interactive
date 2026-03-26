@@ -63,6 +63,14 @@ Active coordination and interface layer within the Atlas ecosystem, now operatin
 - The boundary between Atlas-wide mission material and Oji-specific implementation planning is still emerging.
 - Several core project documents are marked as under construction or in construction, so some conclusions should still be treated as active working direction rather than final doctrine.
 
+## Current Strategic Direction
+
+- Notebook-adapter expansion is intentionally paused to avoid widening the surface before operational visibility is strong enough.
+- Current priority is self-operation readiness: build state, progress visibility, and system-state clarity should be easy to inspect and act on.
+- Long term, Oji should become a self-healing, self-updating operator that can handle UI changes, notebook updates, and adapter creation through approval-gated server actions.
+- Kaje approval remains mandatory for all server-based actions.
+- Reducing routine dependence on VPS Codex is now an explicit strategic direction, not just a convenience goal.
+
 ## Last Updated
 
-2026-03-23 UTC
+2026-03-26 UTC
