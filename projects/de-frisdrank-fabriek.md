@@ -40,3 +40,13 @@ Proposal and infrastructure-design phase.
 ## Last Updated
 
 2026-03-21 UTC
+
+## Active Workstreams
+
+- Proposed by Oji at 2026-03-30T14:48:46.496Z
+- Proposal class: taxonomy_layout_change
+- Status: proposal only
+
+### Recommended Change
+
+- Recommend adding a dedicated Active Workstreams section to the Atlas-Interactive project notebook to clearly structure De Frisdrank Fabriek, Oji system architecture, and self-operation workstreams, so new operational priorities are visibly and accessibly grouped.
