@@ -71,6 +71,14 @@ Active coordination and interface layer within the Atlas ecosystem, now operatin
 - Kaje approval remains mandatory for all server-based actions.
 - Reducing routine dependence on VPS Codex is now an explicit strategic direction, not just a convenience goal.
 
+## Current Operational Status
+
+- Telegram is now the first live approval surface for notebook proposals.
+- Notebook write control, approval queue, and Telegram approval callbacks are working together for constrained notebook changes.
+- Structural notebook changes are now possible through proposal-only flow plus approval, not just dated log entries.
+- The durable structural-classification safeguard currently lives at the notebook adapter boundary.
+- All canonical Oji workflows are currently inactive after the latest controlled tests.
+
 ## Last Updated
 
-2026-03-26 UTC
+2026-03-30 UTC
